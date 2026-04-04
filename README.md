@@ -23,13 +23,23 @@ Biodesign Challenge 2026 · **Umwelt Archive** documentation and (future) projec
 
 ## Open in Cursor
 
-If **File → Open Folder…** or running `cursor` from **inside Cursor** does nothing, use one of these (they force a **new window** with `-n`):
+### Dock 只会显示一个 Cursor 图标（正常）
 
-1. **Finder:** double-click **`Open-in-Cursor.command`** in this folder (first time: right-click → **Open** if macOS warns about downloaded scripts).
-2. **Terminal.app / iTerm** (not Cursor’s integrated terminal):  
-   `"/Applications/Cursor.app/Contents/Resources/app/bin/cursor" -n "$HOME/Desktop/Cursor/Biodesign-Project"`  
-   Adjust the path if your clone is not under `Desktop/Cursor`.
-3. **LaunchServices:**  
+macOS 把**同一款 App 的所有窗口**归在一个 Dock 图标下，**不会出现第二个 Cursor 图标**。请 **按住 Dock 里的 Cursor 图标**（或点开后用菜单 **窗口**），查看是否已有另一个窗口；或用 **⌘\`** 在窗口间切换。
+
+### 不要只在 Cursor「内置终端」里运行 `cursor …`
+
+内置终端里带有 `VSCODE_*` / `CURSOR_*` 环境变量，CLI 往往会**连回当前这个 Cursor**，看起来就像「没打开新东西」。请改用下面任一方式。
+
+1. **Finder：** 双击 **`Open-in-Cursor.command`**（脚本会用干净环境调用 `cursor -n`，避免误连当前实例）。首次若提示安全：右键 → **打开**。
+2. **系统「终端」**（Terminal.app，不是 Cursor 底部那个）：  
+   ```bash
+   cd "$HOME/Desktop/Cursor/Biodesign-Project"   # 按实际路径改
+   ./Open-in-Cursor.command
+   ```  
+   或：  
+   `"/Applications/Cursor.app/Contents/Resources/app/bin/cursor" -n "$HOME/Desktop/Cursor/Biodesign-Project"`
+3. **LaunchServices：**  
    `open -na "Cursor" --args -n "$HOME/Desktop/Cursor/Biodesign-Project"`
 
 ## Sync
