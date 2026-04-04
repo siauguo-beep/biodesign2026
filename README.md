@@ -21,6 +21,17 @@ Biodesign Challenge 2026 · **Umwelt Archive** documentation and (future) projec
 - **Portfolio-ReStyle-AI** is a separate product/repo. Keep its GitHub unchanged unless that project intentionally needs BDC files.  
 - **Portfolio worktree (example):** `~/.cursor/worktrees/Portfolio_ReStyle_AI_/yzq` — BDC-only docs were removed from `docs/bdc-umwelt-archive/` here to avoid duplication; edit BDC materials only in **this** clone.
 
+## Open in Cursor
+
+If **File → Open Folder…** or running `cursor` from **inside Cursor** does nothing, use one of these (they force a **new window** with `-n`):
+
+1. **Finder:** double-click **`Open-in-Cursor.command`** in this folder (first time: right-click → **Open** if macOS warns about downloaded scripts).
+2. **Terminal.app / iTerm** (not Cursor’s integrated terminal):  
+   `"/Applications/Cursor.app/Contents/Resources/app/bin/cursor" -n "$HOME/Desktop/Cursor/Biodesign-Project"`  
+   Adjust the path if your clone is not under `Desktop/Cursor`.
+3. **LaunchServices:**  
+   `open -na "Cursor" --args -n "$HOME/Desktop/Cursor/Biodesign-Project"`
+
 ## Sync
 
 ```bash
