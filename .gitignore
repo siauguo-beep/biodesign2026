@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Editor / local tooling (keep repo clean; add shared .vscode if the team wants it)
+.idea/
+*.swp
+*.swo
+*~
+
+# Python (future prototype code)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.Python
+
+# Node (future web/demo builds)
+node_modules/
+dist/
+.next/
+.turbo/
+
+# Env secrets — never commit
+.env
+.env.*
+!.env.example
