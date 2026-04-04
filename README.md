@@ -16,6 +16,29 @@ Biodesign Challenge 2026 · **Umwelt Archive** documentation and (future) projec
 | [docs/bdc-umwelt-archive/SLIDE_DECK.md](docs/bdc-umwelt-archive/SLIDE_DECK.md) | Slide outline + demo script |
 | [docs/bdc-umwelt-archive/README.md](docs/bdc-umwelt-archive/README.md) | Index inside docs folder |
 
+### BDC 2026 course reference (single copy)
+
+All competition guides, Cursor agent context, and Word exports live under **`BDC2026_context-docs/`** (no duplicate copies at repo root).
+
+| Path | Purpose |
+|------|---------|
+| [BDC2026_context-docs/biodesign_cursor_agent.md](BDC2026_context-docs/biodesign_cursor_agent.md) | Cursor / AI partner context for BDC |
+| [BDC2026_context-docs/The complete guide to the 2026 Biodesign Challenge.md](BDC2026_context-docs/The%20complete%20guide%20to%20the%202026%20Biodesign%20Challenge.md) | Full 2026 BDC overview |
+| [BDC2026_context-docs/BDC_2026_Comprehensive_Resource_Guide.md](BDC2026_context-docs/BDC_2026_Comprehensive_Resource_Guide.md) | Resource guide |
+| [BDC2026_context-docs/BDC_2026_AI_Biodesign_Project_Ideas.md](BDC2026_context-docs/BDC_2026_AI_Biodesign_Project_Ideas.md) | Code-forward project ideas |
+| [BDC2026_context-docs/BDC_2026_Quick_Reference_Cheat_Sheet.md](BDC2026_context-docs/BDC_2026_Quick_Reference_Cheat_Sheet.md) | Cheat sheet |
+| `BDC2026_context-docs/*.docx` | Same materials in Word where applicable |
+
+### Workspace layout (ideation → deliverables)
+
+| Path | Purpose |
+|------|---------|
+| `01_ideation/` | Step folders for the BDC ideation workbook |
+| `02_research/` | Biology, prior art, references |
+| `03_prototype/` | Code, assets, physical model notes |
+| `04_deliverables/` | Presentation, video, renderings, website |
+| `05_sprint_plan/` | Timeline / sprint notes |
+
 ## Related repo (do not duplicate BDC docs there)
 
 - **Portfolio-ReStyle-AI** is a separate product/repo. Keep its GitHub unchanged unless that project intentionally needs BDC files.  
