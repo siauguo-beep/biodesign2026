@@ -63,7 +63,7 @@
 | [`BDC_2026_Extinction_Archive_Planning_Document.md`](BDC_2026_Extinction_Archive_Planning_Document.md) | **Canonical detailed plan:** citations M1–T5, storyboard IDs, T5 copy, verification log |
 | [`PROJECT_PLAN.md`](PROJECT_PLAN.md) | This executive plan |
 | [`templates/reflection-log-webxr.html`](templates/reflection-log-webxr.html) | Reflection + heuristic ethics match (embed in A-Frame overlay) |
-| `slides/` | Deck sources, `export/` PDFs & PPTX · **Summit:** `export/BDC_Summit_Extinction_Archive_2026.pptx` (`scripts/build_summit_deck.py`) |
+| `slides/` | **`export/Archive_of_Extinction_Final_BDC2026.pptx` + `.pdf`** — canonical BDC deck (`scripts/build_final_presentation.py`) |
 | `BDC_2026_*.md`, `biodesign_cursor_agent.md`, `The complete guide…` | Course / competition context |
 | `docs/` | Optional extended docs |
 | [`docs/GITHUB_SYNC.md`](docs/GITHUB_SYNC.md) | How to push this repo to GitHub |

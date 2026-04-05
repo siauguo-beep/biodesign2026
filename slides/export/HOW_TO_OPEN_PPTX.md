@@ -1,11 +1,24 @@
-# How to open the Summit PowerPoint / 如何打开演示文稿
+# How to open the deck / 如何打开演示文稿
 
-## Why a “link” might not work / 为什么链接打不开
+## GitHub: use PDF for in-browser preview / 在 GitHub 网页里预览
+
+**GitHub does not preview `.pptx`.** Use the **PDF** generated next to your deck:
+
+- File: **`Archive_of_Extinction_Final_BDC2026.pdf`**
+- After push: `https://github.com/YOUR_USER/YOUR_REPO/blob/main/slides/export/Archive_of_Extinction_Final_BDC2026.pdf`
+
+See **[docs/GITHUB_PDF_PREVIEW.md](../../docs/GITHUB_PDF_PREVIEW.md)** for the exact URL pattern.
+
+**中文：** 想在 GitHub 网页里直接看幻灯片内容，请打开仓库里的 **PDF** 版本；`.pptx` 只能下载后用 Office 打开。
+
+---
+
+## Why a local “link” might not work / 为什么本机链接打不开
 
 The paths below are **files on your computer**, not a website.  
-Clicking a path in **GitHub** or in a **browser** will not open the file unless you download the repo first.
+Clicking a path in **GitHub Markdown** without cloning will not open a local file.
 
-以下路径是**本机文件**，不是网站链接。在浏览器里点 Markdown 里的路径**不会**打开文件；请先下载或克隆整个项目。
+以下路径是**本机文件**。未克隆仓库时，浏览器无法打开你电脑上的路径。
 
 ---
 
@@ -18,63 +31,44 @@ Clicking a path in **GitHub** or in a **browser** will not open the file unless 
 /Users/dad71/Desktop/Cursor/Biodesign_Project_2/slides/export
 ```
 
-**Preview on GitHub (no PowerPoint needed):** after you push the repo, open  
-[`slides/SUMMIT_DECK_GITHUB_PREVIEW.md`](../SUMMIT_DECK_GITHUB_PREVIEW.md)  
-on github.com — it renders as Markdown. Full instructions: [`docs/GITHUB_PPT_PREVIEW.md`](../../docs/GITHUB_PPT_PREVIEW.md).
+3. **Recommended (works without PowerPoint):** double-click  
+   **`Archive_of_Extinction_Final_BDC2026.pdf`** — opens in **Preview**.
 
-3. Double-click one of these files:
+4. For editing: **`Archive_of_Extinction_Final_BDC2026.pptx`** — single **canonical** final deck (synthesized research + process).  
+   Use PowerPoint / Keynote / Google Slides if installed.
 
 | File | Note |
 |------|------|
-| `BDC_Summit_Extinction_Archive_2026.pptx` | Full name |
-| `Extinction_Archive_Summit_2026.pptx` | **Same deck**, shorter name (easier for some tools) |
-
-Use **Microsoft PowerPoint**, **Apple Keynote** (File → Open), or **Google Drive** (upload, then “Open with Google Slides”).
-
----
-
-## Error: `kLSApplicationNotFoundError` (-10814) / 未安装能打开 PPT 的应用
-
-macOS 报错 **“No application knows how to open URL … .pptx”** 表示系统里**没有**注册处理 `.pptx` 的应用（未安装或从未打开过 Office）。
-
-**Fix:** 安装以下**任一**软件后重试：
-
-- **Apple Keynote**（Mac App Store，免费）  
-- **Microsoft PowerPoint**  
-- **LibreOffice**（[libreoffice.org](https://www.libreoffice.org/)）
-
-然后指定应用打开：
-
-```bash
-open -a Keynote "/Users/dad71/Desktop/Cursor/Biodesign_Project_2/slides/export/Extinction_Archive_Summit_2026.pptx"
-```
-
-```bash
-open -a "Microsoft PowerPoint" "/Users/dad71/Desktop/Cursor/Biodesign_Project_2/slides/export/Extinction_Archive_Summit_2026.pptx"
-```
+| `Archive_of_Extinction_Final_BDC2026.pptx` | **Final** deck (use for BDC) |
+| `Archive_of_Extinction_Final_BDC2026.pdf` | Same content, **GitHub preview** + Preview.app |
+| `BDC_Summit_Extinction_Archive_2026.pptx` | Older generator; prefer **Final** above |
+| `Extinction_Archive_Summit_2026.pptx` | Duplicate of older summit file (short name only) |
 
 ---
 
 ## Terminal (Mac) / 终端一键打开
 
-（需已安装 Keynote 或 PowerPoint）
-
 ```bash
-open "/Users/dad71/Desktop/Cursor/Biodesign_Project_2/slides/export/BDC_Summit_Extinction_Archive_2026.pptx"
+# PDF (no Office required)
+open "/Users/dad71/Desktop/Cursor/Biodesign_Project_2/slides/export/Archive_of_Extinction_Final_BDC2026.pdf"
 ```
 
-Or the short filename:
-
-```bash
-open "/Users/dad71/Desktop/Cursor/Biodesign_Project_2/slides/export/Extinction_Archive_Summit_2026.pptx"
-```
+If `open file.pptx` fails with **kLSApplicationNotFoundErr**, you have no app registered for `.pptx` — use the **PDF** line above or install **Keynote** (free) / **PowerPoint**.
 
 ---
 
 ## Regenerate from source / 从脚本重新生成
 
+**Final deck (PPTX + PDF):**
+
 ```bash
 cd /Users/dad71/Desktop/Cursor/Biodesign_Project_2
+.venv/bin/python scripts/build_final_presentation.py
+```
+
+Legacy summit-only PPTX (no PDF):
+
+```bash
 .venv/bin/python scripts/build_summit_deck.py
 ```
 

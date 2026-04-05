@@ -14,7 +14,7 @@ Web-first **Biodesign Challenge** entry: an immersive memorial reconstructing **
 
 - **Planning & BDC context:** `biodesign_cursor_agent.md`, `BDC_2026_*.md`, `The complete guide to the 2026 Biodesign Challenge.md`
 - **Slides:** `slides/export/` (PDF / PPTX), `slides/themes/`
-- **Summit deck (PPTX):** `slides/export/BDC_Summit_Extinction_Archive_2026.pptx` · duplicate `slides/export/Extinction_Archive_Summit_2026.pptx` (same bytes). **GitHub cannot preview PPTX** — use **[`slides/SUMMIT_DECK_GITHUB_PREVIEW.md`](slides/SUMMIT_DECK_GITHUB_PREVIEW.md)** on github.com for a full text mirror, or **[`docs/GITHUB_PPT_PREVIEW.md`](docs/GITHUB_PPT_PREVIEW.md)** for Microsoft Office Online viewer (public raw URL). Local open help: [`slides/export/HOW_TO_OPEN_PPTX.md`](slides/export/HOW_TO_OPEN_PPTX.md). Regenerate: `scripts/build_summit_deck.py`.
+- **Final BDC deck:** **`slides/export/Archive_of_Extinction_Final_BDC2026.pptx`** + **`Archive_of_Extinction_Final_BDC2026.pdf`** (same content). **GitHub previews PDF in browser** — see [`docs/GITHUB_PDF_PREVIEW.md`](docs/GITHUB_PDF_PREVIEW.md). Regenerate: `scripts/build_final_presentation.py`. Opening help: [`slides/export/HOW_TO_OPEN_PPTX.md`](slides/export/HOW_TO_OPEN_PPTX.md).
 - **Templates:** WebXR reflection + ethics keyword panel
 
 ## Tech direction
