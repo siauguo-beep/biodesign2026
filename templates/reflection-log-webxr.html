@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UI_Reflection_Log — Extinction Archive (template)</title>
+  <style>
+    :root {
+      --bg: #0e1114;
+      --panel: #1a2027;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #6ee7b7;
+      --warn: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 1rem;
+    }
+    .wrap { max-width: 42rem; margin: 0 auto; }
+    h1 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.5rem; }
+    p.hint { color: var(--muted); font-size: 0.85rem; margin: 0 0 1rem; line-height: 1.5; }
+    label { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.35rem; }
+    textarea {
+      width: 100%;
+      min-height: 7rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: var(--panel);
+      color: var(--text);
+      resize: vertical;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    textarea:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .tier { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--warn); margin-top: 1rem; }
+    .matches { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .card {
+      padding: 0.75rem 0.9rem;
+      border-radius: 8px;
+      background: var(--panel);
+      border-left: 3px solid var(--accent);
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .card cite { display: block; margin-top: 0.4rem; font-size: 0.75rem; color: var(--muted); font-style: normal; }
+    .empty { color: var(--muted); font-size: 0.85rem; padding: 0.5rem 0; }
+    button {
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: #334155;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    button:hover { background: #475569; }
+    /* A-Frame: place this panel as HTML overlay (a-html or 2D UI layer) */
+  </style>
+</head>
+<body>
+  <div class="wrap" id="reflection-root">
+    <h1>反思日志 · 生命的不可逆性</h1>
+    <p class="hint">
+      输入你对「物种消失后，时间 / 节律 / 关系是否可逆」的看法。下方会根据关键词，从本项目引用的伦理文献中<strong>并列展示</strong>相关论述（本地启发式匹配，非大模型；不收集上传数据，除非你自行接后端）。
+    </p>
+
+    <label for="user-reflection">你的反思（可中英文混写）</label>
+    <textarea
+      id="user-reflection"
+      placeholder="例如：我认为技术复活无法带回真正的生态位……"
+      autocomplete="off"
+    ></textarea>
+
+    <div class="tier">与文献观点的实时对照 · heuristic match</div>
+    <div id="ethics-match-panel" class="matches" aria-live="polite"></div>
+
+    <button type="button" id="clear-local">清除本地暂存</button>
+  </div>
+
+  <script>
+    /**
+     * Curated paraphrases / prompts aligned to Sherkow & Greely (2013) + project framing.
+     * Replace with exact quotes only after you verify wording against the PDF.
+     */
+    const ETHICS_SNIPPETS = [
+      {
+        keys: ['资源', '资金', '钱', 'funding', 'budget', '保护', 'conservation', '野外'],
+        text: '复活项目与现生物种及栖息地的保护之间存在真实的资源竞争；公共资助的分配是规范性选择，而非单纯技术可行性问题。',
+        cite: 'Sherkow & Greely (2013) — 资源与治理框架（请核对原文表述）'
+      },
+      {
+        keys: ['生态', '入侵', '风险', 'ecosystem', 'harm', 'novel', '环境'],
+        text: '“复活”谱系可能对现有生态系统产生不可预见的影响；法律与生态责任归属并不因技术乐观而自动消解。',
+        cite: 'Sherkow & Greely (2013) — 生态与法律地位（请核对原文表述）'
+      },
+      {
+        keys: ['不可逆', '不会', '无法', '不能', '永远', 'irreversible', 'never', 'gone', 'lost'],
+        text: '即使基因组信息可读取，物种曾占据的时间生态位与社会—生态关系未必可重建；不可逆性不仅是分子层面的，也是关系与记忆层面的。',
+        cite: '本项目叙事 + Schlunke (2025) 等关于多重时间性与殖民记忆的讨论（交叉引用）'
+      },
+      {
+        keys: ['原住民', '土著', '殖民', '主权', 'Indigenous', 'Palawa', 'Country', 'TEK', '塔斯马尼亚'],
+        text: '袋狼灭绝与对 Palawa 人民与 Country 的暴力相互缠绕；去灭绝话语需置于原住民主权与自决框架下审视，而非仅作为科学奇观。',
+        cite: 'Clements (2025); Schlunke (2025); Rimmer (2020); Lehman (2013) — 见规划文档 T5 补全'
+      },
+      {
+        keys: ['欺骗', '幻觉', '假', '模拟', 'AI', 'hallucination', 'fake', '不确定'],
+        text: '数字重建携带认识论边界：文献与模型支持的分层（Cited / Interpolated）必须在体验中可见，避免把推测当作事实。',
+        cite: '团队 Reflection 设计原则'
+      }
+    ];
+
+    const storageKey = 'extinction_archive_reflection_v1';
+
+    function normalize(s) {
+      return (s || '').toLowerCase();
+    }
+
+    function scoreSnippet(text, snippet) {
+      const t = normalize(text);
+      return snippet.keys.filter((k) => t.includes(k.toLowerCase())).length;
+    }
+
+    function renderMatches(userText) {
+      const panel = document.getElementById('ethics-match-panel');
+      if (!userText.trim()) {
+        panel.innerHTML = '<p class="empty">开始输入后，这里会显示与关键词相关的文献对照卡片。</p>';
+        return;
+      }
+      const ranked = ETHICS_SNIPPETS.map((s) => ({
+        s,
+        score: scoreSnippet(userText, s)
+      }))
+        .filter((x) => x.score > 0)
+        .sort((a, b) => b.score - a.score);
+
+      if (!ranked.length) {
+        panel.innerHTML =
+          '<p class="empty">未命中预设关键词。可尝试加入：资源、生态、不可逆、原住民、模拟 等词；或直接把本段反思与答辩中的 Sherkow & Greely 论点手动对照。</p>';
+        return;
+      }
+
+      panel.innerHTML = ranked
+        .map(
+          ({ s }) =>
+            `<div class="card"><div>${s.text}</div><cite>${s.cite}</cite></div>`
+        )
+        .join('');
+    }
+
+    const ta = document.getElementById('user-reflection');
+
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) ta.value = saved;
+    } catch (_) {}
+
+    function persist() {
+      try {
+        localStorage.setItem(storageKey, ta.value);
+      } catch (_) {}
+      renderMatches(ta.value);
+    }
+
+    ta.addEventListener('input', persist);
+    ta.addEventListener('change', persist);
+    persist();
+
+    document.getElementById('clear-local').addEventListener('click', () => {
+      ta.value = '';
+      try {
+        localStorage.removeItem(storageKey);
+      } catch (_) {}
+      renderMatches('');
+    });
+
+    /* --- A-Frame hook (optional): from parent scene ---
+     * window.addEventListener('reflection-export', () => ta.value);
+     */
+  </script>
+</body>
+</html>
