@@ -14,6 +14,7 @@ Web-first **Biodesign Challenge** entry: an immersive memorial reconstructing **
 
 - **Planning & BDC context:** `biodesign_cursor_agent.md`, `BDC_2026_*.md`, `The complete guide to the 2026 Biodesign Challenge.md`
 - **Slides:** `slides/export/` (PDF / PPTX), `slides/themes/`
+- **Summit deck (PPTX):** [`slides/export/BDC_Summit_Extinction_Archive_2026.pptx`](slides/export/BDC_Summit_Extinction_Archive_2026.pptx) — regenerate with `scripts/build_summit_deck.py`
 - **Templates:** WebXR reflection + ethics keyword panel
 
 ## Tech direction
