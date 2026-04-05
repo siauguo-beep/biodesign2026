@@ -1,54 +1,68 @@
 #!/usr/bin/env python3
 """
-Consolidate into Archive_of_Extinction_Final_BDC2026.pptx:
-- Part I: BDC_Extinction_Archive_EN.pptx (theme, dimensions, in-place text fixes)
-- Part II: Selected slides from BDC_Summit_Extinction_Archive_2026.pptx (summit / appendix text)
-- Part III: Full-bleed images from BDC_Deck_EN.pptx
+Build the final ≤25-slide deck (PPTX only):
+- Part I: BDC_Extinction_Archive_EN.pptx (theme, backgrounds, in-place text fixes)
+- Part II: Curated literature / methods slides from BDC_Summit_Extinction_Archive_2026.pptx
+  using the same "Title and Content" layout as the template (consistent master background)
+- Closing: Thank you
 
-Extinction_Archive_Summit_2026.pptx is identical to the Summit file — not read twice.
+Run: .venv/bin/python scripts/merge_extinction_final_deck.py
 """
 
 from __future__ import annotations
 
 import re
 import shutil
-import tempfile
-import zipfile
 from pathlib import Path
 
 from pptx import Presentation
-from pptx.util import Inches, Pt
+from pptx.util import Pt
 
 ROOT = Path(__file__).resolve().parent.parent
 EXPORT = ROOT / "slides" / "export"
 TEMPLATE = EXPORT / "BDC_Extinction_Archive_EN.pptx"
 SUMMIT = EXPORT / "BDC_Summit_Extinction_Archive_2026.pptx"
-IMAGE_DECK = EXPORT / "BDC_Deck_EN.pptx"
-OUT = EXPORT / "Archive_of_Extinction_Final_BDC2026.pptx"
 
-# 0-based summit slide indices to append (skip pure duplicates of Part I)
+# PPT filename (display / export) — user-specified naming
+OUT = (
+    EXPORT
+    / "{Extinction Archive} Umwelt Hypothesis Dossiers——AI memorial for lost species · Sensory time capsule.pptx"
+)
+
+TITLE_LINE1 = "{Extinction Archive} Umwelt Hypothesis Dossiers"
+TITLE_LINE2 = "AI memorial for lost species · Sensory time capsule"
+
+# Hard cap: 12 (template) + len(SUMMIT_APPEND_INDICES) + 1 (thank you) ≤ 25
+MAX_TOTAL_SLIDES = 25
+
+# Curated summit slides: concept, scenes, pipeline, colonial/ethics, literature, rubric, repo
 SUMMIT_APPEND_INDICES = [
-    0,  # title stack
-    1,  # Team
-    2,  # Why this title
-    6,  # Core design question
-    7,  # Bio x digital quadrants
-    8,  # Two dossiers
-    9,  # Scene IDs
-    10, # Design techniques
-    11, # Ideation 8 steps
-    12, # Four-week spine
-    13, # Colonial / Country
-    14, # Sherkow & Greely
-    15, # Lit mammoth
-    16, # Lit thylacine
-    17, # Rubric
-    19, # Repository pointers
+    6,   # Core design question
+    7,   # Bio × digital quadrants
+    8,   # Two dossiers
+    9,   # Scene IDs
+    10,  # Design techniques
+    12,  # Four-week spine
+    13,  # Colonial / Country
+    14,  # Sherkow & Greely
+    15,  # Literature — mammoth
+    16,  # Literature — thylacine
+    17,  # Rubric
+    19,  # Repository / pointers
 ]
 
 
-def emu_to_inches(emu: int) -> float:
-    return float(emu) / 914400.0
+def replace_exact_paragraph(slide, exact: str, new: str) -> None:
+    """Replace only when paragraph text equals `exact` (avoids substring collisions)."""
+    for shape in slide.shapes:
+        if not shape.has_text_frame:
+            continue
+        for para in shape.text_frame.paragraphs:
+            full = "".join(run.text for run in para.runs)
+            if full.strip() != exact.strip():
+                continue
+            for i, run in enumerate(para.runs):
+                run.text = new if i == 0 else ""
 
 
 def replace_in_all_text_shapes(slide, mapping: list[tuple[str, str]]) -> None:
@@ -76,54 +90,149 @@ def slide_text_blob(slide) -> str:
     return "\n\n".join(parts)
 
 
-def add_blank_text_slide(prs, title: str, body_lines: list[str]) -> None:
-    layout = prs.slide_layouts[6]  # Blank
-    slide = prs.slides.add_slide(layout)
-    margin = Inches(0.65)
-    tw = prs.slide_width - 2 * margin
-    th = prs.slide_height - 2 * margin
-    box = slide.shapes.add_textbox(margin, margin, tw, th)
-    tf = box.text_frame
-    tf.word_wrap = True
-    p = tf.paragraphs[0]
-    p.text = title
-    p.font.size = Pt(30)
-    p.font.bold = True
+def add_title_content_slide(prs: Presentation, title: str, body_lines: list[str]) -> None:
+    """Uses template layout 1 — same slide master / background as narrative slides."""
+    blank_slide = prs.slides.add_slide(prs.slide_layouts[1])
+    if blank_slide.shapes.title:
+        blank_slide.shapes.title.text = title
+    ph = blank_slide.placeholders[1]
+    tf = ph.text_frame
+    tf.clear()
+    first = True
     for line in body_lines:
-        p = tf.add_paragraph()
+        line = line.strip()
+        if not line:
+            continue
+        if first:
+            p = tf.paragraphs[0]
+            first = False
+        else:
+            p = tf.add_paragraph()
         p.text = line
-        p.font.size = Pt(14)
         p.level = 0
-        p.space_after = Pt(3)
+        p.font.size = Pt(14)
 
 
-def extract_slide_image_paths(pptx_path: Path) -> list[str]:
-    with zipfile.ZipFile(pptx_path) as z:
-        paths = []
-        for i in range(1, 500):
-            rels = f"ppt/slides/_rels/slide{i}.xml.rels"
-            try:
-                data = z.read(rels).decode("utf-8")
-            except KeyError:
-                break
-            m = re.search(r'Target="([^"]+\.(png|jpg|jpeg))"', data, re.I)
-            paths.append("" if not m else m.group(1).replace("../", "ppt/"))
-        return paths
+def add_thank_you_slide(prs: Presentation) -> None:
+    slide = prs.slides.add_slide(prs.slide_layouts[1])
+    slide.shapes.title.text = "Thank you"
+    lines = [
+        TITLE_LINE1,
+        TITLE_LINE2,
+        "Macau University · Biodesign Challenge 2026 · Biodigital Excellence",
+        "GUO XIAO YUE (MC569254) · LIU JIA QUN (MC569293) · Mentor: Atticus SIMS",
+    ]
+    ph = slide.placeholders[1]
+    tf = ph.text_frame
+    tf.clear()
+    first = True
+    for line in lines:
+        if first:
+            p = tf.paragraphs[0]
+            first = False
+        else:
+            p = tf.add_paragraph()
+        p.text = line
+        p.level = 0
+        p.font.size = Pt(16)
+
+
+def renumber_footers(prs: Presentation) -> None:
+    total = len(prs.slides)
+    for idx, slide in enumerate(prs.slides):
+        for shape in slide.shapes:
+            if not shape.has_text_frame:
+                continue
+            for para in shape.text_frame.paragraphs:
+                full = "".join(run.text for run in para.runs)
+                if "BDC 2026" not in full or "/" not in full:
+                    continue
+                new_full = re.sub(r"\d+\s*/\s*\d+", f"{idx + 1} / {total}", full)
+                if new_full != full:
+                    for i, run in enumerate(para.runs):
+                        run.text = new_full if i == 0 else ""
 
 
 def merge() -> None:
     shutil.copy2(TEMPLATE, OUT)
     prs = Presentation(str(OUT))
 
-    # Part I: coherent species + web-first physical + timeline
+    # Slide 1 — long title (avoid replacing short substring before full footer line)
+    replace_in_all_text_shapes(
+        prs.slides[0],
+        [
+            (
+                "Extinction Archive · Biodigital chronobiology · BDC 2026  1 / 12",
+                f"{TITLE_LINE1} · Biodigital chronobiology · BDC 2026  1 / 12",
+            ),
+            ("Umwelt hypothesis dossiers", TITLE_LINE2),
+            (
+                "circadian · migration · synchrony",
+                "circadian · migration · synchrony · multisensory memory",
+            ),
+            (
+                "Literature-grounded memorial · biodigital experience",
+                "Literature-grounded memorial · biodigital experience · memory reshaping\n"
+                "Macau University · Mentor: Atticus SIMS · GUO XIAO YUE (MC569254) · LIU JIA QUN (MC569293)",
+            ),
+            (
+                "A biodigital memorial where extinction is experienced as rhythm, silence, and consequence.",
+                "A biodigital memorial where extinction is experienced as rhythm, multisensory reminiscence, and consequence — with cognitive limits and uncertainty kept visible.",
+            ),
+        ],
+    )
+    replace_exact_paragraph(prs.slides[0], "Extinction Archive", TITLE_LINE1)
+
+    # Slide 4 — Core architecture: memory reshaping + multisensory reminiscence
+    replace_in_all_text_shapes(
+        prs.slides[3],
+        [
+            (
+                "Three load-bearing modules",
+                "Memory reshaping (foreground): multisensory reminiscence retrains attention on extinct Umwelten; guardrails address collective cognitive impairment, flattening, and misremembering.\nThree load-bearing modules",
+            ),
+            ("Evidence cards", "Evidence cards · epistemic tiers"),
+            ("Temporal niche", "Temporal niche · diel / seasonal anchors"),
+            ("Sensory proxies", "Sensory proxies · multisensory reminiscence paths"),
+            (
+                "Extinction mechanism",
+                "Extinction mechanism · colonial + ecological chronologies",
+            ),
+            (
+                "Action over nostalgia",
+                "Action over nostalgia\nMixer + Console: reminiscence without false certainty",
+            ),
+        ],
+    )
+
     replace_in_all_text_shapes(
         prs.slides[4],
         [
-            ("Mammoth-first, pigeon as structural echo", "Mammoth + thylacine dossiers (two deep case studies)"),
-            ("Passenger pigeon", "Thylacine (Tasmanian tiger)"),
             (
-                "Mass flock synchrony\nDensity thresholds\nSocial collapse\nSky-darkening scale\nThinness as silence",
-                "Orbit / diel activity (Pozniak 2018)\nPOV metaphor via RGC models (Mass & Supin 2020, Interpolated)\nColonial extinction history (Paddle; Sleightholme & Campbell)\nPalawa / Country framing (Rimmer; Lehman; Clements; Schlunke)\nEthics Console + reflection log",
+                "Mammoth-first, pigeon as structural echo",
+                "Memory reshaping through paired hero dossiers\nMammoth + thylacine dossiers (two deep case studies)",
+            ),
+            (
+                "Woolly mammoth",
+                "Woolly mammoth — seasonal Umwelt for slow, somatic reminiscence",
+            ),
+            ("Passenger pigeon", "Thylacine (Tasmanian tiger)"),
+            ("Mass flock synchrony", "Orbit / diel activity (Pozniak 2018)"),
+            (
+                "Density thresholds",
+                "POV metaphor via RGC models (Mass & Supin 2020, Interpolated)",
+            ),
+            (
+                "Social collapse",
+                "Colonial extinction history (Paddle; Sleightholme & Campbell)",
+            ),
+            (
+                "Sky-darkening scale",
+                "Palawa / Country framing (Rimmer; Lehman; Clements; Schlunke)",
+            ),
+            (
+                "Thinness as silence",
+                "Ethics Console + reflection log — cognition-friendly branching",
             ),
         ],
     )
@@ -147,28 +256,30 @@ def merge() -> None:
         prs.slides[10],
         [
             (
-                "Integrate passenger pigeon, ethics logic, WebAR, tactile table, and living sensor pipeline.",
-                "Integrate thylacine dossier, Indigenous context UI, ethics fork (Sherkow & Greely), reflection log, WebXR polish.",
+                "Build the hero demo first",
+                "Build the hero demo first — memory reshaping in the loop",
             ),
-        ],
-    )
-
-    replace_in_all_text_shapes(
-        prs.slides[0],
-        [
             (
-                "Literature-grounded memorial · biodigital experience",
-                "Literature-grounded memorial · biodigital experience\nMacau University · Mentor: Atticus SIMS · GUO XIAO YUE (MC569254) · LIU JIA QUN (MC569293)",
+                "Lock evidence cards, dossier fields, memory sites, ethics branches, and consultant outreach.",
+                "Lock evidence cards, dossier fields, multisensory reminiscence beats, memory sites, ethics branches, plain-language / cognitive-access patterns, consultant outreach.",
             ),
-        ],
-    )
-
-    add_blank_text_slide(
-        prs,
-        "Part II — Summit appendix (English)",
-        [
-            "Selected slides from BDC_Summit_Extinction_Archive_2026: citations, scene IDs, rubric, methods.",
-            "Part I (previous slides) follows the BDC_Extinction_Archive_EN layout and narrative spine.",
+            (
+                "Ship a mammoth vertical slice: dossier, mixer layer, A-Frame scene, and film-track kickoff.",
+                "Ship a mammoth vertical slice: dossier, polyphonic mixer reminiscence layers, WebXR scene, film-track kickoff.",
+            ),
+            (
+                "Integrate passenger pigeon, ethics logic, WebAR, tactile table, and living sensor pipeline.",
+                "Integrate thylacine dossier, Indigenous context UI, ethics fork (Sherkow & Greely), reflection log, WebXR polish — rehearse multisensory pacing + confusion testing.",
+            ),
+            (
+                "Polish, rehearse, finish trailer, finalize appendix citations, and harden demo fallback.",
+                "Polish, rehearse, finish trailer, finalize appendix citations, harden demo fallback, "
+                "validate reminiscence overload safeguards.",
+            ),
+            (
+                "The film track starts after Week 2 and must not block the core interaction milestone.",
+                "The film track starts after Week 2 and must not block the core interaction milestone.\nParallel rule (memory): remix and polyphony remain legible under fatigue — no sentimental erasure of uncertainty.",
+            ),
         ],
     )
 
@@ -180,51 +291,25 @@ def merge() -> None:
         if not blob.strip():
             continue
         lines = [ln.strip() for ln in blob.split("\n") if ln.strip()]
-        title_line = lines[0][:200] if lines else f"Slide {idx+1}"
-        body = lines[1:22]
-        if not body:
-            body = [blob[:800]]
-        add_blank_text_slide(prs, title_line, body)
+        title_line = lines[0][:200] if lines else f"Summit slide {idx + 1}"
+        body = lines[1:48] if len(lines) > 1 else [blob[:3500]]
+        add_title_content_slide(prs, title_line, body)
+        if len(prs.slides) >= MAX_TOTAL_SLIDES - 1:
+            break
 
-    if IMAGE_DECK.exists():
-        add_blank_text_slide(
-            prs,
-            "Part III — Visual deck (BDC_Deck_EN)",
-            [
-                "Full-bleed slide graphics from BDC_Deck_EN.pptx (image export pipeline).",
-            ],
+    add_thank_you_slide(prs)
+
+    if len(prs.slides) > MAX_TOTAL_SLIDES:
+        raise RuntimeError(
+            f"Deck has {len(prs.slides)} slides; max is {MAX_TOTAL_SLIDES}. "
+            "Shorten SUMMIT_APPEND_INDICES or template."
         )
-        media_paths = extract_slide_image_paths(IMAGE_DECK)
-        sw = emu_to_inches(prs.slide_width)
-        sh = emu_to_inches(prs.slide_height)
-        with tempfile.TemporaryDirectory() as td:
-            tdp = Path(td)
-            with zipfile.ZipFile(IMAGE_DECK) as z:
-                z.extractall(td)
-            for rel in media_paths:
-                if not rel:
-                    continue
-                abs_path = tdp / rel
-                if not abs_path.is_file():
-                    continue
-                slide = prs.slides.add_slide(prs.slide_layouts[6])
-                try:
-                    slide.shapes.add_picture(str(abs_path), Inches(0), Inches(0), width=Inches(sw), height=Inches(sh))
-                except OSError:
-                    pass
 
-    add_blank_text_slide(
-        prs,
-        "Thank you",
-        [
-            "Archive of Extinction — Umwelt Hypothesis Dossiers",
-            "Macau University · Biodesign Challenge 2026 · Biodigital Excellence",
-            "GUO XIAO YUE (MC569254) · LIU JIA QUN (MC569293) · Mentor: Atticus SIMS",
-        ],
-    )
+    renumber_footers(prs)
 
     prs.save(str(OUT))
-    print(f"Wrote {OUT} — {len(prs.slides)} slides")
+    print(f"Wrote {OUT}")
+    print(f"Slides: {len(prs.slides)} (max {MAX_TOTAL_SLIDES})")
 
 
 if __name__ == "__main__":

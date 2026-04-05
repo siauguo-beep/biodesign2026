@@ -1,3 +1,15 @@
+# macOS
+.DS_Store
+Thumbs.db
+
+# Editor / local tooling
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+
 # Python
 .venv/
 venv/
@@ -9,24 +21,22 @@ __pycache__/
 dist/
 build/
 
-# Environment & secrets
+# Node (web/demo)
+node_modules/
+.next/
+.turbo/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env secrets — never commit
 .env
 .env.*
 !.env.example
 
-# OS & editors
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-.idea/
-.vscode/
-*.code-workspace
-
-# Logs & local
-*.log
-npm-debug.log*
-node_modules/
+# Local font bundles / design tool exports (keep repo lean)
+slides/export/Geist Font PPT/
 
 # Optional: uncomment if you use local build artifacts
 # slides/export/*.tmp

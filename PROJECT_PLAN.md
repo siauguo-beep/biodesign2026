@@ -1,7 +1,7 @@
 # Biodesign Challenge 2026 — Project plan (master)
 
 **Project name:** Extinction Archive: AI Memorial for Lost Species – Umwelt Archive: A Sensory Time Capsule  
-(*Biodigital chronobiology / temporal niche; working shorthand: Extinction Archive*)  
+(*Art / design title for Biodesign Summit; shorthand: Extinction Archive / Umwelt Archive*)  
 **Competition:** [Biodesign Challenge 2026](https://biodesignchallenge.org)  
 **Exhibition theme:** Convergent Life  
 **Target awards:** Biodigital Excellence; strong Narrative, Context, Reflection  

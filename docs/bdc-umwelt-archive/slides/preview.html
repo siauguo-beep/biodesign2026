@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extinction Archive — Deck preview hub</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; background: #0d1117; color: #e6edf3; }
+    main { max-width: 720px; margin: 2rem auto; padding: 0 1.25rem; }
+    h1 { font-size: 1.35rem; }
+    h2 { font-size: 1.05rem; margin-top: 2rem; color: #58a6ff; }
+    a { color: #79c0ff; word-break: break-all; }
+    .card { border: 1px solid #30363d; border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0; background: #161b22; }
+    code { background: #21262d; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+    ul { padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Extinction Archive — Slide deck preview</h1>
+    <p>Built exports live in <code>slides/export/</code>. Use the links below after running the build command in <code>slides/README.md</code>.</p>
+
+    <h2>English</h2>
+    <div class="card">
+      <p><strong>PDF:</strong> <a href="export/BDC_Deck_EN.pdf">BDC_Deck_EN.pdf</a></p>
+      <p><strong>PowerPoint:</strong> <a href="export/BDC_Deck_EN.pptx">BDC_Deck_EN.pptx</a></p>
+      <p><strong>Source (Marp):</strong> <a href="BDC_Extinction_Archive_Mammoth.md">BDC_Extinction_Archive_Mammoth.md</a></p>
+    </div>
+
+    <h2>中文</h2>
+    <div class="card">
+      <p><strong>PDF:</strong> <a href="export/BDC_Deck_ZH.pdf">BDC_Deck_ZH.pdf</a></p>
+      <p><strong>PowerPoint:</strong> <a href="export/BDC_Deck_ZH.pptx">BDC_Deck_ZH.pptx</a></p>
+      <p><strong>源文件（Marp）:</strong> <a href="BDC_Extinction_Archive_Mammoth_zh.md">BDC_Extinction_Archive_Mammoth_zh.md</a></p>
+    </div>
+
+    <h2>How to open (Cursor / browser)</h2>
+    <ul>
+      <li><strong>Browser:</strong> In Finder / Explorer, open this file: <code>slides/preview.html</code> (double-click or drag into Chrome / Edge / Safari). Relative links to PDF/PPTX work from this page.</li>
+      <li><strong>Cursor:</strong> Right-click <code>preview.html</code> → <em>Open with…</em> your browser, or install the <strong>Live Preview</strong> extension and use “Show Preview” (some setups need a workspace root so links resolve).</li>
+      <li><strong>Edit slides:</strong> Install <a href="https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode">Marp for VS Code</a>, open the <code>.md</code> deck, use the Marp preview pane while editing.</li>
+    </ul>
+    <p><em>Note:</em> There is no automatic public URL for files on your laptop. To share online, upload <code>export/*.pdf</code> to Drive / Dropbox / GitHub Releases and replace links accordingly.</p>
+  </main>
+</body>
+</html>

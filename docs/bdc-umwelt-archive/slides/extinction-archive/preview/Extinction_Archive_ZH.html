@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>灭绝档案 / Umwelt Archive — 幻灯片（中文）</title>
+<style>
+  :root {
+    --bg: #141210;
+    --bg2: #1e1a17;
+    --fg: #e6dfd6;
+    --muted: #9a8f84;
+    --accent: #c45c2a;
+    --signal: #5cb89a;
+    --chrome: #6b7a8f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #0a0908;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+  }
+  .deck { max-width: 100%; }
+  section.slide {
+    min-height: 100vh;
+    padding: 56px 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: linear-gradient(165deg, var(--bg) 0%, var(--bg2) 45%, #181512 100%);
+    border-top: 4px solid var(--accent);
+    box-shadow: inset 0 0 120px rgba(0,0,0,.35);
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+  }
+  section.slide:last-child { page-break-after: auto; }
+  h1 {
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin: 0 0 0.35em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid rgba(196, 92, 42, 0.35);
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin: 0 0 1em;
+    font-weight: 600;
+  }
+  p, li { font-size: 0.88rem; line-height: 1.55; color: var(--fg); }
+  ul { margin: 0.4em 0 0; padding-left: 1.15em; }
+  li { margin-bottom: 0.38em; }
+  strong { color: #f0ebe3; }
+  em { color: var(--chrome); font-style: normal; }
+  .lead h1 {
+    font-size: 1.95rem;
+    border: none;
+    margin-bottom: 0.2em;
+  }
+  .lead .sub {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0 0 0.4em;
+  }
+  .tagline {
+    color: var(--accent);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 1.4em;
+  }
+  .meta { color: var(--muted); font-size: 0.8rem; margin-top: 0.5em; line-height: 1.5; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.68rem;
+    margin-top: 0.45em;
+  }
+  th {
+    background: rgba(196, 92, 42, 0.2);
+    text-align: left;
+    padding: 0.42em 0.5em;
+    color: var(--fg);
+  }
+  td {
+    border-bottom: 1px solid rgba(230, 223, 214, 0.12);
+    padding: 0.38em 0.48em;
+    vertical-align: top;
+  }
+  .footnote {
+    position: absolute;
+    bottom: 32px;
+    left: 64px;
+    right: 64px;
+    font-size: 0.58rem;
+    color: var(--muted);
+    border-top: 1px solid rgba(154, 143, 132, 0.25);
+    padding-top: 0.55em;
+  }
+  .callout {
+    margin-top: 0.7em;
+    padding-left: 0.85em;
+    border-left: 3px solid var(--signal);
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  code { color: var(--signal); font-size: 0.9em; }
+  @media print {
+    body { background: #141210; }
+    section.slide {
+      min-height: 27cm;
+      padding: 16mm 18mm 20mm;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="slide lead">
+  <h1>灭绝档案</h1>
+  <p class="sub"><em>Extinction Archive · Umwelt Archive</em></p>
+  <p class="tagline">集体记忆断裂 · 生物—数字纪念装置</p>
+  <p class="meta"><strong>Biodesign Challenge 2026</strong> · 展览主题 <em>Convergent Life</em><br />数字艺术与 AI 技术 · MDes</p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 02 页</h2>
+  <h1>断裂是什么</h1>
+  <ul>
+    <li>物种灭绝带走的不只是<strong>个体</strong>，还有<strong>生态功能</strong></li>
+    <li>也在磨损<strong>共同记忆</strong>：基线漂移、<strong>复活叙事</strong>过热与奇观化</li>
+    <li>我们失去的是<strong>时间中的共存</strong>：迁徙、群体同步、<strong>昼夜与季节节律</strong></li>
+  </ul>
+  <p class="callout">本项目不是「复活」，而是让<strong>缺席与证据</strong>变得可感知、可争论。</p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 03 页</h2>
+  <h1>设计问题</h1>
+  <ul>
+    <li>如何把<strong>「灭绝—缺席」</strong>转译为<strong>可感知、可讨论</strong>的体验？</li>
+    <li>如何用 <strong>AI + 生物数据</strong> 支撑<strong>有纪律的公共记忆</strong>，而不伪造自然？</li>
+    <li>如何从沉浸<strong>回落到责任</strong>：保护资源、风险与正义的<strong>真实权衡</strong>？</li>
+  </ul>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 04 页</h2>
+  <h1>一句话概念</h1>
+  <p><strong>灭绝档案</strong> — 将<strong>可引用的科学痕迹</strong>转化为受约束的 <strong>Umwelt 假设空间</strong>：<strong>物种档案</strong>、<strong>多声部节律混音</strong>、<strong>伦理控制台</strong> — 每一层都带<strong>引用与置信度</strong>。</p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 05 页</h2>
+  <h1>三大模块</h1>
+  <table>
+    <tr><th>模块</th><th>作用</th></tr>
+    <tr><td><strong>Species Dossier 物种档案</strong></td><td>时间、运动、感官<strong>代理</strong>（眼眶、内耳、基因组等 — 谨慎引用）</td></tr>
+    <tr><td><strong>Polyphony Mixer 混音台</strong></td><td><strong>Web Audio</strong>：季节、集群同步、迁徙节奏 → 和谐 / <strong>同步性崩塌</strong></td></tr>
+    <tr><td><strong>Ethics Console 伦理台</strong></td><td>分支卡片 + <strong>证据分级门禁</strong> → 不同<strong>声景终曲</strong></td></tr>
+  </table>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 06 页</h2>
+  <h1>英雄物种（已定）</h1>
+  <table>
+    <tr><th>物种</th><th>生物学锚点</th><th>体验隐喻</th></tr>
+    <tr><td><strong>真猛犸</strong> <em>M. primigenius</em></td><td>象牙同位素、北极光周期、比较基因组</td><td>长周期、<strong>低频律动</strong>、极端昼夜光</td></tr>
+    <tr><td><strong>旅鸽</strong> <em>E. migratorius</em></td><td>社会同步性、历史超大群</td><td><strong>相位锁定 → 寂静</strong>（随 <em>N</em> 下降，Modeled）</td></tr>
+  </table>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 07 页</h2>
+  <h1>生物层 + 数字层（缺一不可）</h1>
+  <p><strong>生物层：</strong>古感官代理、同位素轨迹、行为与灭绝机制 — <strong>可追溯文献与数据</strong></p>
+  <p><strong>数字层：</strong>条件化生成视觉（<strong>B 主</strong>）+ <strong>程序化 / shader</strong> 基底（<strong>A 辅</strong>）；<strong>Web Audio</strong>；<strong>WebAR</strong> + 桌面兜底</p>
+  <p class="callout">去掉任一层，项目即不成立。</p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 08 页</h2>
+  <h1>诚实界面：三档标签</h1>
+  <ul>
+    <li><code>Cited 已引用</code> — 论文或公开数据集</li>
+    <li><code>Modeled 建模</code> — 公认方法下的推断（附局限）</li>
+    <li><code>Speculative 推测</code> — 创意延伸；<strong>绝不</strong>冒充实拍</li>
+  </ul>
+  <p class="callout">生成画面统一提示：<strong>「推断 — 非复原的真实」</strong></p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 09 页</h2>
+  <h1>活体对照（推荐）</h1>
+  <p><strong>植物 + 土壤湿度 / 光照 / 温度</strong> → 实时读数</p>
+  <p>文案定位：<strong>「仍在场的生命指数」</strong>，而非灭绝生境仿真。</p>
+  <p>数据驱动 <strong>Mixer</strong> 参数 — <strong>同一套生物—数字管道</strong>。</p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 10 页</h2>
+  <h1>实体 + AR</h1>
+  <ul>
+    <li><strong>3D 打印</strong>（象牙年层柱、头骨符号物或档案代币）</li>
+    <li><strong>手机 WebAR</strong> + <strong>桌面 Web</strong> 全功能；演示备 <strong>录屏 / 备用机</strong></li>
+  </ul>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 11 页</h2>
+  <h1>伦理控制台</h1>
+  <ul>
+    <li><strong>门禁 C：</strong>将陈述归入 Cited / Modeled / Speculative</li>
+    <li><strong>分支 B：</strong>资金、入侵种风险、土地与知识主权 — <strong>不可兼得的选项</strong></li>
+    <li><strong>输出：</strong><strong>终曲混音</strong>重映射 + 简短<strong>系统后果</strong>（规则优先）</li>
+  </ul>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 12 页</h2>
+  <h1>与 BDC 指南对齐</h1>
+  <p><strong>交付物：</strong>10 分钟陈述 + 问答 · 视觉 · <strong>实体原型</strong> · <strong>1–5 分钟创意短片</strong> · 幻灯片上云盘</p>
+  <p><strong>评审四维：</strong>叙事 · 概念 · 语境 · 反思 — <strong>铂金</strong>须四维均 <strong>≥2.75</strong></p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 13 页</h2>
+  <h1>奖项策略</h1>
+  <ul>
+    <li><strong>主攻：</strong><strong>Biodigital Excellence 生物—数字卓越奖</strong></li>
+    <li><strong>兼攻：</strong>Outstanding <strong>社会批判</strong>（若伦理深度足够）</li>
+    <li><strong>DNA Futures：</strong>副线 — 猛犸节律 / 适应叙述须<strong>逐条对论文</strong></li>
+  </ul>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 14 页</h2>
+  <h1>冲刺节奏（四周核心）</h1>
+  <table>
+    <tr><th>周</th><th>重点</th></tr>
+    <tr><td>W1</td><td>双物种证据卡、故事板、技术栈锁定</td></tr>
+    <tr><td>W2</td><td><strong>猛犸</strong>垂直切片：档案 + Mixer 一轨</td></tr>
+    <tr><td>W3</td><td><strong>旅鸽</strong> + 伦理 B/C + WebAR + 活体数据</td></tr>
+    <tr><td>W4</td><td>标签稽核、彩排、预告片、问答清单</td></tr>
+  </table>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+<section class="slide">
+  <h2>第 15 页</h2>
+  <h1>谢谢</h1>
+  <p class="sub" style="margin-top:1rem;"><strong>灭绝档案 / Umwelt Archive</strong></p>
+  <p><em>为已逝谱系而设的感官—时间假说空间</em></p>
+  <p class="meta">Biodesign Challenge 2026 · <em>Convergent Life</em></p>
+  <p style="margin-top:2rem;font-size:1.05rem;color:var(--accent);"><strong>欢迎提问</strong></p>
+  <div class="footnote">灭绝档案 / Umwelt Archive · Biodesign Challenge 2026</div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,26 +1,25 @@
 #!/usr/bin/env python3
 """
 Single canonical BDC deck + PDF for GitHub in-browser preview.
-Builds from the BDC_Extinction_Archive_EN.pptx template so the final deck
-inherits its dimensions / theme more closely than a blank presentation.
+GitHub does NOT preview .pptx; use the generated .pdf on github.com/blob/.../file.pdf
 """
 
 from pathlib import Path
 
 from fpdf import FPDF
 from pptx import Presentation
-from pptx.oxml.ns import qn
-from pptx.util import Pt
+from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parent.parent
 EXPORT = ROOT / "slides" / "export"
 OUT_PPTX = EXPORT / "Archive_of_Extinction_Final_BDC2026.pptx"
 OUT_PDF = EXPORT / "Archive_of_Extinction_Final_BDC2026.pdf"
-TEMPLATE = EXPORT / "BDC_Extinction_Archive_EN.pptx"
 
-MAIN_TITLE = "Archive of Extinction: AI Memorial for Lost Species"
+# Final title (synthesized from your options + project research)
+MAIN_TITLE = "Archive of Extinction"
 SUBTITLE_LINES = [
-    "Umwelt Hypothesis Dossiers / Sensory Time Capsule",
+    "Environmental Hypothesis Dossiers",
+    "An AI Memorial for Lost Species - Sensory Time Capsule",
     "Biodesign Challenge 2026 | Convergent Life | Biodigital Excellence",
     "Macau University",
 ]
@@ -43,15 +42,19 @@ def ascii_pdf(text: str) -> str:
         .replace("\u2019", "'")
         .replace("\u2192", "->")
         .replace("\u00b7", "-")
-        .replace("\u2265", ">=")
-        .replace("\u00d7", "x")
     )
 
 
 def slide_plan():
-    """Ordered content merged from the highlighted decks + planning docs."""
+    """Ordered content: (kind, title, body) where body is str or list[str] or dict for two_col."""
     s = []
-    s.append(("title", MAIN_TITLE, "\n".join(SUBTITLE_LINES)))
+    s.append(
+        (
+            "title",
+            MAIN_TITLE,
+            "\n".join(SUBTITLE_LINES),
+        )
+    )
     s.append(
         (
             "bullets",
@@ -59,77 +62,92 @@ def slide_plan():
             [
                 f"Institution: {INSTITUTION}",
                 f"Mentor: {MENTOR}",
-                f"{TEAM[0][0]} - {TEAM[0][1]}",
-                f"{TEAM[1][0]} - {TEAM[1][1]}",
-                "Program: Digital Art & AI Technology (MDes) | 2-person team",
+                f"Team: {TEAM[0][0]} - ID {TEAM[0][1]}",
+                f"Team: {TEAM[1][0]} - ID {TEAM[1][1]}",
+                "Program: MDes - Digital Art & AI Technology",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Why this project now",
+            "Title rationale (for judges)",
             [
-                "Extinction removes more than bodies: it erases routes, light-dark entrainment, social synchrony, and sensory fit to landscape.",
-                "Public memory normalizes ecological absence into icons; science stays in papers while loss becomes abstract.",
-                "Design question: how do we make rigorous biology feelable without pretending we fully know another species' Umwelt?",
+                "Archive of Extinction: names the loss of species and of their temporal niches.",
+                "Environmental Hypothesis Dossiers: each scene is a testable claim about Umwelt + habitat, tied to papers.",
+                "AI memorial + sensory time capsule: generative WebXR makes rhythm and sensation discussable, not only images.",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Project thesis",
+            "Biodesign Challenge 2026",
             [
-                "Archive of Extinction is a browser-first biodesign memorial that reconstructs a bounded sensory-temporal hypothesis space for extinct species.",
-                "It is grounded in citable research, expressed through WebXR, controlled generative passes, and optional Web Audio.",
-                "The experience closes with evidence literacy and branching ethics so digital recall never erases conservation urgency.",
+                "Intersection of biotechnology, art, and design; Summit + MoMA judging for finalists.",
+                'Gallery theme: "Convergent Life." We target Biodigital Excellence + Narrative, Context, Reflection.',
+                "Judging: Narrative, Concept, Context, Reflection (each /4; strong tier ~2.75+).",
+                "biodesignchallenge.org/judging | /prizes",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Scope & title logic",
+            "Core research proposition",
             [
-                "Main title foregrounds extinction and remembrance: this is not de-extinction marketing.",
-                "“Umwelt Hypothesis Dossiers” signals that each species is a folder of testable claims, not a fantasy safari.",
-                "“Sensory Time Capsule” emphasizes temporal niche - how a species lived in day, season, synchrony, and atmosphere.",
-                "Locked scope: two deep dossiers only - woolly mammoth + thylacine.",
+                "If we use generative AI + WebXR to reconstruct and visualize temporal phenotypes of extinct species,",
+                "can we repair the human gap in sensing extinction - the loss of another species' time, not only its image?",
+                "Intersection statement from ideation workbook, stress-tested against the BDC rubric.",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Core architecture",
+            "Conceptual methods",
             [
-                "Dossier: evidence cards, temporal niche, sensory proxies, extinction mechanism, constrained 360 scene.",
-                "Mixer: seasonal layers, diel rhythm, coexistence density, harmony -> conflict as sonic / temporal retuning.",
-                "Ethics console: evidence gate + branching trade-offs around conservation, law, ecosystem risk, and sovereignty.",
+                "Palaeo-chronobiology: infer day/year phase from genomics, photoperiod proxies, morphology (orbit, channels).",
+                "Temporal niche: extinction as erasure of shared ecological time, not only DNA.",
+                "Umwelt (von Uexkull): model sensory worlds as hypotheses - never silent speculation.",
+                "Red-flag test: if biology OR code is removed and the project still works, we failed biodesign or our digital edge.",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Biological layer",
+            "Design techniques & stack",
             [
-                "Only traceable evidence enters the archive: tusk isotopes, comparative genomics, morphology as sensory proxy, historical ecology, and acoustic relatives.",
-                "Every strong claim is tagged Cited, Interpolated / Modeled, or Speculative.",
-                "Mammoth copy is locked to “circadian-related genes” until full-text PER2 confirmation exists.",
+                "WebXR: A-Frame / Three.js; immersive dossier navigation.",
+                "Generative environments: constrained by paleo proxies (Zimov steppe, seasonal light) - not fantasy biomes.",
+                "Time scrubber: polar day/night, season; sonification of phase (optional).",
+                "Epistemic UI: Cited / Interpolated / Speculative toggles + on-screen (Author, year) tags per scene ID.",
+                "Ethics fork: resource sliders after Sherkow & Greely (2013); Indigenous context UI with Palawa-first citations.",
+                "Reflection: templates/reflection-log-webxr.html - keyword match to ethics themes (heuristic, auditable).",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Digital layer & design techniques",
+            "Ideation process (8 steps)",
             [
-                "WebXR stack: A-Frame / Three.js with desktop fallback; minimal QR-linked physical anchor for summit reliability.",
-                "Generative image strategy: control-first passes, procedural atmosphere, and palette / sun rules bounded by paleo proxies.",
-                "Time scrubber, sonification / Web Audio, and on-screen citation tags turn atmosphere into argument rather than decoration.",
-                "Reflection UI uses auditable heuristics, not opaque LLM outputs, to compare viewer input with ethics themes.",
+                "1 Map skills - 2 Intersection statements - 3 Rubric stress-test - 4 Biology literature sprints",
+                "5 Bio/digital split - 6 Narrative draft - 7 Prototype + BDC deliverables - 8 Build + polish + Q&A",
+                "Aligned with biodesign_cursor_agent.md + course workbook.",
+            ],
+        )
+    )
+    s.append(
+        (
+            "bullets",
+            "Design sprint (4 weeks)",
+            [
+                "W1 Discovery: citation grid, storyboard Scene_* IDs, WebXR shell.",
+                "W2 Prototype: time axis, generative pipeline doc, epistemic wireframes.",
+                "W3 Integration: sonification, UI_Ethics_Fork, UI_Indigenous_Context, reflection panel.",
+                "W4 Polish: 10+5 min rehearsal, creative video, deploy, judge one-sheet.",
             ],
         )
     )
@@ -140,15 +158,15 @@ def slide_plan():
             {
                 "left_h": "Woolly mammoth",
                 "left": [
-                    "Hero species for Arctic rhythm, mammoth-steppe atmosphere, and de-extinction pressure.",
-                    "Lynch 2015 circadian-related genes; Lu 2010 reindeer analogy [Interpolated]; Zimov 2012 habitat pulse.",
-                    "Additional anchors: Wooller 2021 tusk isotope mobility; Nogues-Bravo 2008 climate x human extinction context.",
+                    "Arctic rhythm + mammoth steppe; scenes Scene_Bio_01 - Scene_Sensory_01.",
+                    "Lynch 2015 circadian-related genes; Lu 2010 reindeer [Interpolated]; Zimov 2012 habitat.",
+                    "TRPV3: Lynch 2015 primary; Kim 2017 bioRxiv optional + labeled.",
                 ],
                 "right_h": "Thylacine",
                 "right": [
-                    "Structural echo for crepuscular vision, colonial memory, and cultural sovereignty.",
-                    "Pozniak 2018 orbit / diel activity; Mass & Supin 2020 RGC methods [Interpolated]; Paddle 2000; Sleightholme & Campbell 2016.",
-                    "T5 context: Clements 2025 plus Palawa-led / centered Rimmer 2020, Lehman 2013, and Schlunke 2025.",
+                    "Crepuscular / night vision metaphor; colonial context mandatory.",
+                    "Pozniak 2018 orbit; Mass & Supin 2020 RGC [Interpolated]; Paddle; Sleightholme & Campbell.",
+                    "T5: Clements + Palawa: Rimmer, Lehman; Schlunke 2025.",
                 ],
             },
         )
@@ -156,151 +174,87 @@ def slide_plan():
     s.append(
         (
             "bullets",
-            "User journey & scene flow",
+            "Experience architecture (scene IDs)",
             [
-                "Mammoth path: Scene_Bio_01 -> Scene_Environment_02 -> Scene_Landscape_01 -> Scene_Sensory_01.",
-                "Thylacine path: Scene_Bio_02 -> Scene_POV_01 -> Scene_Context_01.",
-                "Shared modules: UI_Indigenous_Context -> UI_Ethics_Fork -> UI_Reflection_Log.",
-                "All three load-bearing modules ship in the MVP: Dossier -> Mixer -> Ethics.",
+                "Mammoth: Scene_Bio_01 -> Scene_Environment_02 -> Scene_Landscape_01 -> Scene_Sensory_01.",
+                "Thylacine: Scene_Bio_02 -> Scene_POV_01 -> Scene_Context_01.",
+                "Shared: UI_Indigenous_Context -> UI_Ethics_Fork -> UI_Reflection_Log.",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Methods & evidence protocol",
+            "Literature - Mammoth slots M1-M5",
             [
-                "Claims are imported to structured cards / JSON; each block is labeled Cited / Modeled / Speculative.",
-                "Science visuals can include ggplot2 stills for tusk isotope summaries and time-series evidence panels.",
-                "Generative runs log model, date, and seed where relevant; DSP rules are documented rather than hidden.",
-                "Process includes at least two evidence audits during production to remove unlabeled claims.",
+                "M1 Lynch et al. 2015 Cell Rep 10.1016/j.celrep.2015.06.027",
+                "M2 Lu et al. 2010 Curr Biol 10.1016/j.cub.2010.01.042",
+                "M3 Zimov et al. 2012 QSR 10.1016/j.quascirev.2012.08.004",
+                "M4 Kim et al. 2017 bioRxiv 10.1101/151746 (preprint)",
+                "M5 Sherkow & Greely 2013 Science 10.1126/science.1236946",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Ethics, colonial violence & ecological memory",
+            "Literature - Thylacine T1-T5 + sovereignty",
             [
-                "Sherkow & Greely (2013): trade-offs between laboratory de-extinction, in situ conservation, legal novelty, and ecological liability.",
-                "Thylacine loss is entangled with violence against Palawa peoples and Country in lutruwita / Tasmania.",
-                "Interface protocol: Palawa-first voices where possible; author positionality is explicit; no tourism copy as TEK.",
-                "The archive is remembrance and accountability, not resurrection spectacle.",
+                "T1 Pozniak 2018 10.1002/ar.23910 | T2 Mass & Supin 2020 10.31857/S0002332920060107",
+                "T3 Paddle 2000 ISBN 9780521782196 | T4 Sleightholme & Campbell 2016 10.1080/00222933.2016.1217037",
+                "T5 Clements 2025 10.1177/13534858251272203",
+                "Palawa: Rimmer 2020 Artlink | Lehman 2013 Griffith Review | Schlunke 2025 10.1017/ext.2025.10008",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Ideation & design process",
+            "BDC rubric self-assessment",
             [
-                "1 Map skills -> 2 Intersection statements -> 3 Rubric stress-test -> 4 Biology sprint.",
-                "5 Bio / digital split -> 6 Narrative draft -> 7 Prototype + deliverables -> 8 Build / polish / Q&A.",
-                "This process is aligned with the course workbook, biodesign_cursor_agent.md, and BDC judging logic.",
+                "Narrative: discover rhythm -> loss -> ethical fork (target strong).",
+                "Concept: time as spine; one biological proxy per scene.",
+                "Context: de-extinction trade-offs + Indigenous sovereignty (expand citations).",
+                "Reflection: interactive epistemic UI + user reflection + AI limits disclosed.",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Production plan (4-week spine)",
+            "Deliverables & physical strategy",
             [
-                "Week 1: literature grid, storyboard, WebXR shell, evidence audit #1.",
-                "Week 2: dossier UI, time scrubber, environment logic, ethics drafts, methods / limitations slide.",
-                "Week 3: integrate thylacine context, reflection panel, sonification, evidence audit #2.",
-                "Week 4: polish, accessibility, P0 bugs only, 10-min talk, 5-min Q&A, trailer export.",
+                "10 min talk + 5 min Q&A; 1-5 min creative video; slides to Drive.",
+                "Visuals + WebXR; minimal tactile anchor + QR (no wet-lab for v1).",
+                "Planning source of truth: BDC_2026_Extinction_Archive_Planning_Document.md + PROJECT_PLAN.md.",
             ],
         )
     )
     s.append(
         (
             "bullets",
-            "Biodesign Challenge fit",
+            "Risks we mitigate",
             [
-                "Narrative: clear emotional and spatial journey supported by live digital demo.",
-                "Concept: temporal niche + Umwelt + evidence literacy creates a distinct biodigital proposition.",
-                "Context: biodiversity loss, de-extinction ethics, misinformation risk, and Indigenous sovereignty.",
-                "Reflection: documented limitations, epistemic layers, prompt / model logging, user reflection.",
+                '"Just VR art" - always show citation strip.',
+                "Overclaiming PER2 - UI uses circadian-related genes until PDF verified.",
+                "Token TEK - Palawa-led sources + positionality statement.",
             ],
         )
     )
     s.append(
         (
-            "bullets",
-            "Deliverables & summit package",
-            [
-                "10-minute oral presentation + 5-minute Q&A.",
-                "Visual renderings, WebXR experience, and citation-aware UI captures.",
-                "Minimal physical anchor + QR for reliable access in gallery or talk format.",
-                "1-5 minute creative trailer, PPT deck, methods appendix, and citations / limits in parallel.",
-            ],
+            "title",
+            "Thank you",
+            f"{MAIN_TITLE}\nQuestions - biodesignchallenge.org",
         )
     )
-    s.append(
-        (
-            "bullets",
-            "Key literature - mammoth dossier",
-            [
-                "Lynch et al. 2015. Cell Reports. Elephantid genomes and Arctic adaptation. DOI 10.1016/j.celrep.2015.06.027",
-                "Lu et al. 2010. Current Biology. Reindeer circadian attenuation. DOI 10.1016/j.cub.2010.01.042",
-                "Zimov et al. 2012. Quaternary Science Reviews. Mammoth steppe productivity. DOI 10.1016/j.quascirev.2012.08.004",
-                "Wooller et al. 2021. Science. Lifetime mobility of an Arctic woolly mammoth. DOI 10.1126/science.abg1134",
-                "Nogues-Bravo et al. 2008. PLoS Biology. Climate, humans, and mammoth extinction. DOI 10.1371/journal.pbio.0060079",
-            ],
-        )
-    )
-    s.append(
-        (
-            "bullets",
-            "Key literature - thylacine dossier & sovereignty",
-            [
-                "Pozniak et al. 2018. Orbit / skull morphology and diel activity. DOI 10.1002/ar.23910",
-                "Mass & Supin 2020. RGC topography methods. DOI 10.31857/S0002332920060107 [Interpolated in thylacine POV]",
-                "Paddle 2000. The Last Tasmanian Tiger. ISBN 9780521782196",
-                "Sleightholme & Campbell 2016. Human pressures and extinction framing. DOI 10.1080/00222933.2016.1217037",
-                "Clements 2025. DOI 10.1177/13534858251272203 | Rimmer 2020 Artlink | Lehman 2013 Griffith Review | Schlunke 2025 DOI 10.1017/ext.2025.10008",
-            ],
-        )
-    )
-    s.append(
-        (
-            "bullets",
-            "Limitations & honest reflection",
-            [
-                "No living mammoth or thylacine: all sensory reconstruction is partial, bounded, and explicitly tiered.",
-                "Generative media can feel real, so the deck and UI design against deceptive realism.",
-                "Two people / short sprint means narrow but deep: one strong integrated experience beats many weak scenes.",
-                "Desktop WebXR path is canonical; any AR or mobile path is supportive rather than mission-critical.",
-            ],
-        )
-    )
-    s.append(
-        (
-            "bullets",
-            "Q&A prompts we practice",
-            [
-                "Why these species and not easier icons?",
-                "Where is the living biology if there is no wet-lab organism on stage?",
-                "How do you prevent AI misinformation and overclaiming?",
-                "What would the next four months add: more dossiers, deeper methods, richer physical anchor, or consultant validation?",
-            ],
-        )
-    )
-    s.append(("title", "Thank you", "Archive of Extinction\nQuestions?"))
     return s
 
 
-def remove_all_slides(prs):
-    while len(prs.slides):
-        slide_id = prs.slides._sldIdLst[0]
-        rel_id = slide_id.get(qn("r:id"))
-        prs.part.drop_rel(rel_id)
-        prs.slides._sldIdLst.remove(slide_id)
-
-
 def build_pptx(slides):
-    prs = Presentation(str(TEMPLATE))
-    remove_all_slides(prs)
+    prs = Presentation()
+    prs.slide_width = Inches(13.333)
+    prs.slide_height = Inches(7.5)
 
     for item in slides:
         kind = item[0]
