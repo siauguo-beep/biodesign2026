@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extinction Archive · 项目进展 | BDC 2026</title>
+  <meta name="description" content="Biodesign Challenge 2026 — Extinction Archive / Umwelt Archive 进度概览与快速链接。" />
+  <style>
+    :root {
+      --bg: #0c0f12;
+      --panel: #141a20;
+      --border: #243040;
+      --text: #e8eef4;
+      --muted: #8fa3b8;
+      --accent: #5eb8a8;
+      --accent2: #c9a227;
+      --link: #7ec8ff;
+      --radius: 10px;
+      --font: "Segoe UI", system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 650;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    .en-title {
+      font-style: italic;
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin: 2rem 0 0.75rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.15rem;
+      margin-bottom: 1rem;
+    }
+    .pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+    li { margin: 0.35rem 0; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.65rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #1a222c; color: var(--muted); font-weight: 600; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      background: #1e2a36;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+    .btn:hover { border-color: var(--accent); text-decoration: none; }
+    .btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+    .btn.primary:hover { filter: brightness(1.06); }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    code { font-size: 0.85em; background: #1a222c; padding: 0.1em 0.35em; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="pill">BDC 2026 · Convergent Life</span>
+      <h1>灭绝档案 · 项目进展一览</h1>
+      <p class="subtitle">本页汇总仓库内文档与交付物状态，便于快速了解进度（静态页，可托管于 GitHub Pages）。</p>
+      <p class="en-title">Extinction Archive: AI Memorial for Lost Species — Umwelt Archive: A Sensory Time Capsule</p>
+    </header>
+
+    <div id="repo-config-tip" class="card" style="border-color: var(--accent2); display: none;">
+      <p style="margin:0;"><strong>提示：</strong>本页 GitHub 按钮默认未绑定远程仓库。请在本文件底部的 <code>GITHUB_REPO</code> 中填写你的 <code>用户名/仓库名</code>（例如 <code>guoxiaoyue/biodesign-project</code>），保存并推送到<strong>你自己的仓库</strong>后再刷新。</p>
+    </div>
+
+    <section>
+      <h2>核心概念（30 秒版）</h2>
+      <div class="card">
+        <p style="margin:0 0 0.75rem;"><strong>问题：</strong>物种灭绝带走的不仅是 DNA，还有其在昼夜与季节中的<strong>时间生态位</strong>；公众记忆常被压成图像，而非「在世界中的时间」。</p>
+        <p style="margin:0;"><strong>方案：</strong>WebXR 纪念空间，重建<strong>猛犸象</strong>与<strong>袋狼</strong>等案例的节律与感官线索；界面区分 <em>Cited / Interpolated / Speculative</em>，并设伦理分叉与反思环节。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>已完成 / 仓库内可用资产</h2>
+      <div class="card">
+        <ul>
+          <li>主计划与详细规划：<code>PROJECT_PLAN.md</code>、<code>BDC_2026_Extinction_Archive_Planning_Document.md</code></li>
+          <li>幻灯导出与脚本：<code>slides/export/</code>（含 PDF / PPTX）、<code>scripts/</code> 构建与合并工具</li>
+          <li>反思 UI 模板：<code>templates/reflection-log-webxr.html</code></li>
+          <li>课程与赛制上下文：<code>BDC2026_context-docs/</code></li>
+          <li>研究笔记：<code>02_research/</code>；交付索引：<code>04_deliverables/EXTINCTION_ARCHIVE_SUMMIT.md</code></li>
+        </ul>
+        <div class="actions">
+          <a id="gh-repo" class="btn primary" href="#">打开 GitHub 仓库</a>
+          <a id="gh-plan" class="btn" href="#">PROJECT_PLAN（网页）</a>
+          <a id="gh-pdf" class="btn" href="#">峰会 PDF（浏览器预览）</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>四周里程碑（可随校历调整）</h2>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table>
+          <thead>
+            <tr>
+              <th>周次</th>
+              <th>阶段</th>
+              <th>目标产出</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Discovery</td><td>文献与分镜对齐；WebXR 壳层</td></tr>
+            <tr><td>2</td><td>Prototype</td><td>时间 scrubber；生成环境约束；认识论开关</td></tr>
+            <tr><td>3</td><td>Integration</td><td>声景化；伦理 UI；原住民语境文案；反思面板</td></tr>
+            <tr><td>4</td><td>Polish</td><td>排练、创意视频、部署、备忘单</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>BDC 交付物对照</h2>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table>
+          <thead>
+            <tr>
+              <th>交付物</th>
+              <th>说明 / 负责人</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>10 min 演讲 + 5 min Q&A</td><td>Week 4 · Member A</td></tr>
+            <tr><td>视觉 + 分镜</td><td>持续 · 对应 detailed plan 场景 ID</td></tr>
+            <tr><td>实体锚点（极简）</td><td>单物 + QR → 体验</td></tr>
+            <tr><td>1–5 min 创意视频</td><td>Week 4</td></tr>
+            <tr><td>幻灯（Drive 上传）</td><td>映射 Narrative · Concept · Context · Reflection</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>技术方向</h2>
+      <div class="card">
+        <p style="margin:0;">WebXR：<strong>A-Frame</strong> / <strong>Three.js</strong>；Summit v1 以 web 为主，最小实体锚点 + QR，v1 不要求活体生物传感器演示。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>站内相关预览（同 <code>/docs</code> 下）</h2>
+      <div class="actions">
+        <a class="btn" href="bdc-umwelt-archive/slides/preview/Extinction_Archive_preview_ZH.html">幻灯 HTML 预览（中文）</a>
+        <a class="btn" href="bdc-umwelt-archive/slides/preview/Extinction_Archive_preview_EN.html">幻灯 HTML 预览（英文）</a>
+      </div>
+    </section>
+
+    <footer>
+      <p><strong>如何启用 GitHub Pages：</strong> 在<strong>你的</strong>仓库 <strong>Settings → Pages</strong> 中，将 <strong>Source</strong> 设为 <strong>Deploy from a branch</strong>，Branch 选 <code>main</code>，文件夹选 <code>/docs</code>，保存。数分钟后站点地址一般为：</p>
+      <p><code id="gh-pages-url">https://&lt;用户名&gt;.github.io/&lt;仓库名&gt;/</code></p>
+      <p>填写底部 <code>GITHUB_REPO</code> 后，本页会显示你的预计 Pages 地址（仓库须为 Public，或使用 GitHub Pro / 组织方案托管私有站）。</p>
+      <p style="margin-top:1rem;">同步说明见 <a id="gh-sync" href="#">docs/GITHUB_SYNC.md</a> · PDF 直链说明 <a id="gh-pdf-md" href="#">docs/GITHUB_PDF_PREVIEW.md</a></p>
+    </footer>
+  </div>
+  <script>
+(function () {
+  /** 改成你的「用户名/仓库名」，推送到自有仓库后按钮与页脚链接才会正确 */
+  var GITHUB_REPO = "siauguo-beep/biodesign2026";
+
+  var tip = document.getElementById("repo-config-tip");
+  var configured = GITHUB_REPO && GITHUB_REPO.indexOf("YOUR_GITHUB_USER") === -1 && GITHUB_REPO.split("/").length === 2;
+  if (!configured && tip) tip.style.display = "block";
+
+  var base = configured ? ("https://github.com/" + GITHUB_REPO) : null;
+  var pdfEnc = "slides/export/%5BFINAL-SMALL%5D%20Extinction%20Archive%20Umwelt%20Hypothesis%20Dossiers_BDC2026.pdf";
+
+  function setHref(id, path) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (base && path !== undefined) el.href = base + (path || "");
+    else el.href = "#";
+  }
+
+  setHref("gh-repo", "");
+  setHref("gh-plan", "/blob/main/PROJECT_PLAN.md");
+  setHref("gh-pdf", "/blob/main/" + pdfEnc);
+  setHref("gh-sync", "/blob/main/docs/GITHUB_SYNC.md");
+  setHref("gh-pdf-md", "/blob/main/docs/GITHUB_PDF_PREVIEW.md");
+
+  var pagesEl = document.getElementById("gh-pages-url");
+  if (pagesEl && configured) {
+    var parts = GITHUB_REPO.split("/");
+    pagesEl.textContent = "https://" + parts[0] + ".github.io/" + parts[1] + "/";
+  }
+})();
+  </script>
+</body>
+</html>

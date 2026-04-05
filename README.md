@@ -4,10 +4,10 @@
 
 Biodesign Challenge 2026 — **Umwelt Archive / Extinction Archive**: documentation, slide exports, build scripts, and (future) prototype code.
 
-## Canonical GitHub copy
+## Canonical GitHub copy（上游参考）
 
-- **Remote:** [github.com/macaumonsoon/Biodesign-Project](https://github.com/macaumonsoon/Biodesign-Project) · branch **`main`**
-- This folder may live at `~/Desktop/Cursor/Biodesign_Project_2` or `~/Desktop/Cursor/Biodesign-Project` depending on your clone; **pull from the remote above** to stay in sync.
+- **Upstream（团队/课程主仓，可选同步）：** [github.com/macaumonsoon/Biodesign-Project](https://github.com/macaumonsoon/Biodesign-Project) · branch **`main`**
+- **自有副本：** 若只维护你自己的仓库、不 push 到上游，请将本地 `git remote` 指向你的 GitHub 仓库即可；进展页 [`docs/index.html`](docs/index.html) 底部 **`GITHUB_REPO`** 也需改为 `你的用户名/仓库名`，GitHub Pages 按钮与链接才会正确。
 
 ## Quick links (Extinction Archive workspace)
 
@@ -17,6 +17,7 @@ Biodesign Challenge 2026 — **Umwelt Archive / Extinction Archive**: documentat
 | [**BDC_2026_Extinction_Archive_Planning_Document.md**](BDC_2026_Extinction_Archive_Planning_Document.md) | Citations, storyboard IDs, T5 context, verification notes |
 | [**templates/reflection-log-webxr.html**](templates/reflection-log-webxr.html) | End-of-experience reflection UI template |
 | [**docs/GITHUB_PDF_PREVIEW.md**](docs/GITHUB_PDF_PREVIEW.md) | **GitHub in-browser PDF preview** URL for the summit deck |
+| [**docs/index.html**](docs/index.html) | **项目进展一览（GitHub Pages）**：先在页内脚本填写 `GITHUB_REPO`，再在 Settings → Pages 选 `/docs`，访问 `https://<你的用户名>.github.io/<你的仓库名>/` |
 
 ### Summit slide deck (PDF on GitHub)
 
@@ -88,7 +89,7 @@ git pull origin main
 git push origin main
 ```
 
-First-time setup: **[docs/GITHUB_SYNC.md](docs/GITHUB_SYNC.md)**
+当 `origin` 指向**你自己的仓库**时，以上只会与你本人远程同步，不会自动推到上游主仓。首次建库与 remote 说明见 **[docs/GITHUB_SYNC.md](docs/GITHUB_SYNC.md)**。
 
 ---
 
