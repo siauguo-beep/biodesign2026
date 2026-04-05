@@ -2,10 +2,11 @@
 
 ## GitHub: use PDF for in-browser preview / 在 GitHub 网页里预览
 
-**GitHub does not preview `.pptx`.** Use the **PDF** generated next to your deck:
+**GitHub does not preview `.pptx`.** Use the **small PDF** export in this folder:
 
-- File: **`Archive_of_Extinction_Final_BDC2026.pdf`**
-- After push: `https://github.com/YOUR_USER/YOUR_REPO/blob/main/slides/export/Archive_of_Extinction_Final_BDC2026.pdf`
+- File: **`[FINAL-SMALL] Extinction Archive Umwelt Hypothesis Dossiers_BDC2026.pdf`**
+- After push (URL-encoded — copy from here or from [`docs/GITHUB_PDF_PREVIEW.md`](../../docs/GITHUB_PDF_PREVIEW.md)):  
+  `https://github.com/YOUR_USER/YOUR_REPO/blob/main/slides/export/%5BFINAL-SMALL%5D%20Extinction%20Archive%20Umwelt%20Hypothesis%20Dossiers_BDC2026.pdf`
 
 See **[docs/GITHUB_PDF_PREVIEW.md](../../docs/GITHUB_PDF_PREVIEW.md)** for the exact URL pattern.
 

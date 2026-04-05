@@ -1,5 +1,7 @@
 # BDC 2026 — Extinction Archive
 
+**Theme (final):** *Extinction Archive: AI Memorial for Lost Species – Umwelt Archive: A Sensory Time Capsule*
+
 Web-first **Biodesign Challenge** entry: an immersive memorial reconstructing **temporal niches** of extinct species (woolly mammoth + thylacine) with **chronobiology**, **epistemic UI**, and **de-extinction ethics**.
 
 ## Quick links
@@ -14,7 +16,7 @@ Web-first **Biodesign Challenge** entry: an immersive memorial reconstructing **
 
 - **Planning & BDC context:** `biodesign_cursor_agent.md`, `BDC_2026_*.md`, `The complete guide to the 2026 Biodesign Challenge.md`
 - **Slides:** `slides/export/` (PDF / PPTX), `slides/themes/`
-- **Final BDC deck:** **`slides/export/Archive_of_Extinction_Final_BDC2026.pptx`** + **`Archive_of_Extinction_Final_BDC2026.pdf`** (same content). **GitHub previews PDF in browser** — see [`docs/GITHUB_PDF_PREVIEW.md`](docs/GITHUB_PDF_PREVIEW.md). Regenerate: `scripts/build_final_presentation.py`. Opening help: [`slides/export/HOW_TO_OPEN_PPTX.md`](slides/export/HOW_TO_OPEN_PPTX.md).
+- **Final slide deck (GitHub preview):** **`slides/export/[FINAL-SMALL] Extinction Archive Umwelt Hypothesis Dossiers_BDC2026.pdf`** — **GitHub embeds PDF on the `blob` page** — see [`docs/GITHUB_PDF_PREVIEW.md`](docs/GITHUB_PDF_PREVIEW.md). Working PPTX may also live in `slides/export/` (e.g. `[FINAL] … .pptx`). Opening help: [`slides/export/HOW_TO_OPEN_PPTX.md`](slides/export/HOW_TO_OPEN_PPTX.md).
 - **Templates:** WebXR reflection + ethics keyword panel
 
 ## Tech direction
