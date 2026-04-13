@@ -65,7 +65,7 @@
 | [`BDC_2026_Extinction_Archive_Planning_Document.md`](BDC_2026_Extinction_Archive_Planning_Document.md) | **Canonical detailed plan:** citations M1–T5, storyboard IDs, T5 copy, verification log |
 | [`PROJECT_PLAN.md`](PROJECT_PLAN.md) | This executive plan |
 | [`templates/reflection-log-webxr.html`](templates/reflection-log-webxr.html) | Reflection + heuristic ethics match (embed in A-Frame overlay) |
-| `slides/export/` | **`Extinction_Archive_Umwelt_Hypothesis_Dossiers_BDC2026_EN.pdf`** — English dossier deck (`docs/bdc-umwelt-archive/scripts/build_extinction_archive_slides.py`). Optional: `Archive_of_Extinction_Final_BDC2026.*` via `scripts/build_final_presentation.py` |
+| `slides/export/` | **`Extinction_Archive_Umwelt_Hypothesis_Dossiers_BDC2026_EN.pdf`** + **`[FINAL-SMALL] … BDC2026.pdf`** (compact; same bytes). **`Extinction_Archive_Umwelt_BDC_Judge_Full_Deck_EN_2026.pdf`** — full BDC judge walkthrough (new; does not replace legacy `BDC_Deck_EN.pdf`). Build: `docs/bdc-umwelt-archive/scripts/build_extinction_archive_slides.py`. Optional: `Archive_of_Extinction_Final_BDC2026.*` via `scripts/build_final_presentation.py` |
 | `BDC_2026_*.md`, `biodesign_cursor_agent.md`, `The complete guide…` | Course / competition context |
 | `docs/` | Optional extended docs |
 | [`docs/GITHUB_SYNC.md`](docs/GITHUB_SYNC.md) | How to push this repo to GitHub |

@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
 Build Extinction Archive slide PDFs (EN + ZH) — theme: archival biodigital (dark base, accent rule).
-Output: REPO_ROOT/slides/export/ — EN file *Extinction_Archive_Umwelt_Hypothesis_Dossiers_BDC2026_EN.pdf*.
+Output: REPO_ROOT/slides/export/ — EN compact + [FINAL-SMALL] alias + ZH + optional full judge deck.
 Requires: pip install fpdf2
 Font: Arial Unicode (macOS) for Latin + CJK.
+
+Full judge deck (new file; does not overwrite BDC_Deck_EN.pdf or FINAL-SMALL):
+  Extinction_Archive_Umwelt_BDC_Judge_Full_Deck_EN_2026.pdf
 """
 from __future__ import annotations
 
+import argparse
 import shutil
 import sys
 from pathlib import Path
@@ -301,6 +305,217 @@ def build_en(font: Path) -> None:
     print(f"Wrote {small_alias}")
 
 
+def build_en_full_judge(font: Path) -> None:
+    """BDC judge-oriented full deck: ideation + research + planning + rubric (new filename)."""
+    d = Deck(font)
+    d.title_slide(
+        "Extinction Archive: Umwelt Hypothesis Dossiers",
+        "Extinction Archive: AI Memorial for Lost Species — “Umwelt Archive” · A Sensory Time Capsule",
+        [
+            "Biodesign Challenge 2026 · Exhibition: Convergent Life",
+            "Literature-grounded biodigital memorial — not resurrection · WebXR + repository-backed evidence",
+            "Full judge deck (EN) — does not replace compact PDFs on GitHub",
+        ],
+    )
+    d.table_slide(
+        "Team · build constraint",
+        ("Role", "Focus"),
+        [
+            ("Experience lead", "Narrative, chronobiology→Umwelt translation, ethics, dossier curation"),
+            ("Tech / AI lead", "WebXR (A-Frame / Three.js), generative env, epistemic + ethics UI"),
+            ("Shipped scope", "Web-only MVP — no live biosensor demo; QR + optional citation sheet"),
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Problem (ideation + ecology)",
+        [
+            "Extinction removes genomes, roles, and temporal niches — day, season, migration, social synchrony.",
+            "Public memory flattens into icons; shifting baselines and de-extinction hype hide the texture of loss.",
+            "We address the human gap in sensing extinction: another species’ time and Umwelt, not only its image.",
+        ],
+    )
+    d.body_slide(
+        "Design hypothesis",
+        [
+            "If temporal phenotypes + sensory proxies are reconstructed under Cited / Interpolated / Speculative labels,",
+            "using chronobiology, morphology, isotopes, and curated archival media,",
+            "absence becomes narratable without false certainty — steering reflection toward extant biodiversity stewardship.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Three guiding questions (research + exhibit)",
+        [
+            "How can extinction–absence be perceptible as structured uncertainty, not fake precision?",
+            "How can AI + biological data transparently evoke memory — without replacing conservation or Indigenous knowledge?",
+            "How can multisensory cues stay optional and gentle — intensity caps, clear tiers?",
+        ],
+    )
+    d.body_slide(
+        "Why biodesign (bio + digital load-bearing)",
+        [
+            "Biological layer: papers, specimens, isotopes, clock-related genomics, orbit→diel proxies — scene→citation.",
+            "Digital layer: constrained generative visuals/audio, Web Audio sonification, inspectable AI use.",
+            "Removing either layer collapses the proposition; course build stays browser-first / WebXR.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Research spine (canonical doc)",
+        [
+            "02_research/biology/biodigital_chronobiology_research.md — palaeo-chronobiology, Umwelt frame, ethics hooks.",
+            "Flagship science: Lynch et al. 2015 (mammoth; conservative clock copy), Pozniak et al. 2018 (thylacine orbit).",
+            "Mobility narrative: Wooller et al. 2021 (tusk isotopes); ethics framing: Sherkow & Greely 2013; Clements 2025 + Palawa-led sources.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Experience architecture",
+        [
+            "Planetary map → coordinate → species dossier (full vision); WebXR MVP = depth on two species.",
+            "Polyphony: season, diel rhythm, migration, density — harmony vs collapse (e.g. passenger pigeon synchrony).",
+            "Exit: ethics fork + reflection — resource trade-offs, sovereignty, technological fixism (templates/reflection-log-webxr.html).",
+        ],
+        small=True,
+    )
+    d.table_slide(
+        "Three modules",
+        ("Module", "Role"),
+        [
+            ("Species Dossier", "Evidence cards, sensory proxies, drivers — every scene ties to citation or tier"),
+            ("Polyphony Mixer", "Rhythm / density / migration — user hears loss of synchrony"),
+            ("Ethics Console", "Incompatible choices + evidence gate — no single “win” ending"),
+        ],
+    )
+    d.table_slide(
+        "Species tiers (planning + dataset)",
+        ("Tier", "Taxa / scope", "Role"),
+        [
+            ("P0 WebXR", "Mammuthus primigenius · Thylacinus cynocephalus", "Full interactives; citation strip; Indigenous context UI"),
+            ("P0 dossier", "Ectopistes migratorius", "Martha, BOW, acoustic absence; may sit outside WebXR v1"),
+            ("P1 dossier", "Raphus · Pinguinus", "14+ URLs each — Context lane; museum/archive literacy"),
+            ("P2 catalogue", "51 taxa CSV + schema", "Systematic research; future map — not 49 extra scenes"),
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Species A — Woolly mammoth (cited beats)",
+        [
+            "Circadian-related gene category enrichment vs extant elephants — careful PER2 wording until PDF verified (planning log).",
+            "Mammoth steppe / productivity priors (Zimov et al., 2012); cold / TRPV3 — prefer Lynch 2015 over preprint-only claims.",
+            "Tusk isotope mobility (Wooller et al., 2021) as honest input to sonification — label Interpolated if not raw-data-mapped.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Species B — Thylacine (science + context)",
+        [
+            "Orbit → crepuscular/nocturnal niche (Pozniak et al., 2018); POV metaphor Interpolated from Mass & Supin (2020) dolphin RGC methods.",
+            "Colonial entanglement: bounty, habitat (Paddle; Sleightholme & Campbell) — UI_Indigenous_Context + Palawa-first bibliography.",
+            "NFSA / museum moving image: licence gate — never assume public domain.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Passenger pigeon + P1 island dossiers",
+        [
+            "Pigeon: Smithsonian Martha, Project Passenger Pigeon, BOW — social synchrony collapse as sonic metaphor.",
+            "Sparse xeno-canto / sound archives as evidence of acoustic loss — honest UI, not filler ambience.",
+            "Dodo + great auk: curated archival rows in archival_media_research.csv for Context slides or film — not WebXR v1 unless surplus.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Honesty UI · literature verification",
+        [
+            "Cited — paper, catalogue, dataset row. Interpolated — justified model (e.g. POV not measured on thylacine).",
+            "Speculative — creative; never sold as recovered reality. Archival licences checked before trailer/embed.",
+            "Planning doc holds verification log (M1 PER2, M4 preprint, T2 RGC DOI) — mirror short tags in WebXR comments.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "AI in biodesign (Reflection lane)",
+        [
+            "Roles: fenced scene synthesis, human-edited curation, parametric audio — not black-box truth.",
+            "Aim: CLAIMS_REGISTER-style discipline: claim ↔ source or explicit Speculative; log models, prompts, failures.",
+            "Judges see limits as feature — e.g. conservative mammoth genetics copy, failed renders documented.",
+        ],
+        small=True,
+    )
+    d.table_slide(
+        "Repository · data layer",
+        ("Asset", "Purpose"),
+        [
+            ("animals_full.csv (51 taxa)", "Names, extinction, pharm flags, Umwelt scores, 3D refs"),
+            ("archive.json · archive_import.sql", "Static bundle + PostgreSQL animals / media / literature_references"),
+            ("archival_media_research.csv", "~349 curated portal rows — regenerate via generate_archival_media_research.py"),
+            ("extinction_archive_schema.*", "Future map sites, reconstruction_layer, scenes — PostGIS deferred"),
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Physical presence · minimum viable",
+        [
+            "One tactile anchor + QR → WebXR (or static citation page). Optional A3 scene→citation sheet.",
+            "Aligns with “heavy evidence, light hardware” — full ideation plant/sensor strand stays documentation-only for course build.",
+        ],
+    )
+    d.table_slide(
+        "BDC rubric — how we score ourselves",
+        ("Dimension", "Evidence in submission"),
+        [
+            ("Narrative", "Rhythm: immersion → graded uncertainty → ethical fork; pigeon “silence” beat; thylacine care"),
+            ("Concept", "Umwelt + temporal phenotype + biodigital coupling; two-layer honesty UI; two-species depth rule"),
+            ("Context", "De-extinction trade-offs, pharm_related flags, colonial archives, Palawa-led sourcing for lutruwita"),
+            ("Reflection", "AI limits, verification log, user reflection UI, what archives omit"),
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Risks · mitigations (from project plan)",
+        [
+            "“Just VR art” — persistent scene→citation strip; judges can freeze on proxies.",
+            "Overclaiming aDNA — mammoth clock language locked to abstract-level until gene-level PDF pass.",
+            "Indigenous tokenism — Palawa-first texts alongside academic cross-cites; label positionality.",
+            "Scope creep — cut stretch before epistemic or ethics UI breaks.",
+        ],
+        small=True,
+    )
+    d.table_slide(
+        "Milestones (4-week spine)",
+        ("Week", "Outcomes"),
+        [
+            ("1", "Literature + archival URLs; storyboard ↔ citation grid; WebXR shell"),
+            ("2", "Time scrubber; generative constraints; epistemic toggles (mammoth)"),
+            ("3", "Sonification; ethics + Indigenous copy; reflection panel (thylacine)"),
+            ("4", "Rehearsal, 1–5 min video, deploy, cheat sheet, Q&A drill"),
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Deliverables · documentation index",
+        [
+            "Live: WebXR + one ethical choice + reflection · trailer · images · process doc.",
+            "Canonical plan: BDC_2026_Extinction_Archive_Planning_Document.md · Executive: PROJECT_PLAN.md.",
+            "Compact decks (unchanged on GitHub): Extinction_Archive_Umwelt_Hypothesis_Dossiers_BDC2026_EN.pdf + [FINAL-SMALL] alias.",
+            "This file: full judge walkthrough — add alongside legacy BDC_Deck_EN.pdf if present; do not overwrite backups.",
+        ],
+        small=True,
+    )
+    d.body_slide(
+        "Thank you",
+        [
+            "Extinction Archive / Umwelt Archive — questions on evidence, sovereignty, and scope welcome.",
+            "Rebuild all PDFs: python3 docs/bdc-umwelt-archive/scripts/build_extinction_archive_slides.py",
+        ],
+    )
+    out = EXPORT / "Extinction_Archive_Umwelt_BDC_Judge_Full_Deck_EN_2026.pdf"
+    d.output(out)
+    print(f"Wrote {out}")
+
+
 def build_zh(font: Path) -> None:
     d = Deck(font)
     d.title_slide(
@@ -410,10 +625,28 @@ def build_zh(font: Path) -> None:
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser(description="Build Extinction Archive slide PDFs.")
+    ap.add_argument(
+        "--full-only",
+        action="store_true",
+        help="Only build Extinction_Archive_Umwelt_BDC_Judge_Full_Deck_EN_2026.pdf",
+    )
+    ap.add_argument(
+        "--no-full",
+        action="store_true",
+        help="Skip full judge deck (compact EN + FINAL-SMALL alias + ZH only)",
+    )
+    args = ap.parse_args()
+
     EXPORT.mkdir(parents=True, exist_ok=True)
     font = find_font()
+    if args.full_only:
+        build_en_full_judge(font)
+        return
     build_en(font)
     build_zh(font)
+    if not args.no_full:
+        build_en_full_judge(font)
 
 
 if __name__ == "__main__":

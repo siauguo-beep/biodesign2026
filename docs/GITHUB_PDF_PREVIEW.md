@@ -30,6 +30,14 @@ The path uses **URL encoding** because the filename contains `[`, `]`, and space
 https://github.com/macaumonsoon/Biodesign-Project/raw/main/slides/export/%5BFINAL-SMALL%5D%20Extinction%20Archive%20Umwelt%20Hypothesis%20Dossiers_BDC2026.pdf
 ```
 
+## Full BDC judge deck (additional export)
+
+**Does not replace** `[FINAL-SMALL]` or legacy `BDC_Deck_EN.pdf`. Regenerate with  
+`python3 docs/bdc-umwelt-archive/scripts/build_extinction_archive_slides.py --full-only`.
+
+- File: `slides/export/Extinction_Archive_Umwelt_BDC_Judge_Full_Deck_EN_2026.pdf`  
+- [Open on GitHub (blob)](https://github.com/macaumonsoon/Biodesign-Project/blob/main/slides/export/Extinction_Archive_Umwelt_BDC_Judge_Full_Deck_EN_2026.pdf) *(after push)*
+
 ## Older / alternate exports
 
 - Larger PDF / PPTX with similar naming may also live in `slides/export/` (e.g. `[FINAL] …`). Use **`[FINAL-SMALL]`** for faster loads in the browser.
