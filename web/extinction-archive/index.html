@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Optional: absolute site root for GitHub Pages or CDN, e.g. https://user.github.io/Biodesign-Project/ -->
+  <meta name="ea-asset-base" content="" />
+  <title>Extinction Archive — Umwelt prototype</title>
+  <link rel="stylesheet" href="css/proto.css" />
+  <script src="https://unpkg.com/aframe@1.5.0/dist/aframe-master.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Extinction Archive · Umwelt Hypothesis Dossiers</h1>
+      <div class="sub">AI memorial for lost species — sensory time capsule · BDC 2026 prototype (Web + WebXR shell)</div>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="btn" id="btn-landing" style="display:none">Home</button>
+      <button type="button" class="btn" id="btn-hub" style="display:none">Species hub</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="load-error" class="error-banner" style="display:none" role="alert"></div>
+
+    <section id="view-landing" class="view active">
+      <p class="lead">
+        A literature-grounded prototype: explore <strong>temporal phenotype</strong> proxies for two WebXR-depth species
+        (woolly mammoth, thylacine) plus a <strong>passenger pigeon</strong> polyphony metaphor. Every layer is tagged
+        <span class="badge cited">Cited</span>
+        <span class="badge interp">Interpolated</span>
+        <span class="badge spec">Speculative</span>
+        — then complete one <strong>ethics fork</strong> and the reflection panel (MVP journey per PROJECT_PLAN.md).
+      </p>
+      <button type="button" class="btn primary" id="btn-enter">Enter archive</button>
+      <p class="run-hint">
+        <strong>Run locally:</strong> from the repository root, <code>python3 -m http.server 8080</code>
+        then open <code>http://localhost:8080/web/extinction-archive/index.html</code>
+        (required so <code>archive.json</code> loads; <code>file://</code> will fail).
+        <strong>GitHub Pages:</strong> set Pages to publish the whole repo (root) so
+        <code>/data/extinction_archive/archive.json</code> resolves, or set
+        <code>&lt;meta name="ea-asset-base" content="https://…your-site…/"&gt;</code>.
+      </p>
+    </section>
+
+    <section id="view-hub" class="view">
+      <h2 style="margin-top:0;font-size:1.1rem">Species hub</h2>
+      <p class="lead">P0 taxa from project plan. Dataset: <span id="archive-count">—</span> taxa in <code>archive.json</code>.</p>
+      <div id="hub-grid" class="card-grid"></div>
+      <p style="margin-top:1.5rem">
+        <button type="button" class="btn primary" id="btn-ethics">Ethics fork →</button>
+      </p>
+    </section>
+
+    <section id="view-species" class="view">
+      <p><button type="button" class="btn" id="btn-back-species">← Species hub</button></p>
+      <h2 id="species-title" style="margin:0.25rem 0 0">—</h2>
+      <p id="species-sci" class="lead" style="margin:0 0 0.5rem;font-style:italic">—</p>
+      <p id="species-archive-meta" class="lead" style="font-size:0.85rem">—</p>
+
+      <div class="citation-strip">
+        <div class="scene-id">Scene / UI IDs</div>
+        <div id="species-scene-ids" class="badge-row"></div>
+      </div>
+
+      <div class="epistemic-tabs" role="tablist" aria-label="Epistemic tier">
+        <button type="button" data-tier="cited" class="active cited">Cited</button>
+        <button type="button" data-tier="interpolated" class="interp">Interpolated</button>
+        <button type="button" data-tier="speculative" class="spec">Speculative</button>
+      </div>
+      <div id="epistemic-body" class="citation-strip" style="border-left-color:var(--signal)"></div>
+
+      <div id="thylacine-indigenous-block" class="citation-strip" style="display:none;margin-top:1rem">
+        <div class="scene-id">UI_Indigenous_Context</div>
+        <p id="thylacine-indigenous-text" style="margin:0;font-size:0.85rem"></p>
+      </div>
+
+      <!-- Mammoth XR — procedural ground (CC0); swap <a-gltf-model> when you have a licensed asset per Scene_* -->
+      <div class="xr-species" data-species="mammoth" style="display:none">
+        <p class="lead" style="font-size:0.8rem;margin-bottom:0.5rem">Scene_Environment_02 · photoperiod proxy (Modeled) · sonification = long-period tone + lowpass</p>
+        <div class="slider-block">
+          <label for="mammoth-hour">High-latitude day cycle proxy (0 = polar night lean, 100 = clear day)</label>
+          <input type="range" id="mammoth-hour" min="0" max="100" value="55" />
+        </div>
+        <label class="sonify-toggle"><input type="checkbox" id="mammoth-sonify" checked /> Environment sonification (headphones)</label>
+        <div class="xr-wrap">
+          <a-scene embedded id="mammoth-scene" fog="type: exponential; color: #4a6a82; density: 0.04" vr-mode-ui="enabled: true">
+            <a-assets timeout="8000">
+              <img id="ea-tex-mammoth-ground" alt="" crossorigin="anonymous" />
+            </a-assets>
+            <a-sky id="mammoth-sky" color="#4a6a82"></a-sky>
+            <a-plane
+              position="0 0 -4"
+              rotation="-90 0 0"
+              width="24"
+              height="24"
+              material="src: #ea-tex-mammoth-ground; repeat: 14 14; roughness: 1; metalness: 0"
+            ></a-plane>
+            <a-text id="mammoth-lbl-bio" value="" position="-3.2 2.2 -2.5" width="9" align="left" color="#c4e8d4"></a-text>
+            <a-text id="mammoth-lbl-land" value="" position="-3.2 1.55 -2.5" width="9" align="left" color="#a8d4c0"></a-text>
+            <a-text id="mammoth-lbl-env" value="" position="-3.2 0.9 -2.5" width="9" align="left" color="#8ec9a8"></a-text>
+          </a-scene>
+        </div>
+      </div>
+
+      <!-- Thylacine XR -->
+      <div class="xr-species" data-species="thylacine" style="display:none">
+        <p class="lead" style="font-size:0.8rem;margin-bottom:0.5rem">Twilight / diel niche · bandpass sonification (Modeled)</p>
+        <div class="slider-block">
+          <label for="thylacine-twilight">Crepuscular blend (0 = deep night, 100 = dusk band)</label>
+          <input type="range" id="thylacine-twilight" min="0" max="100" value="40" />
+        </div>
+        <label class="sonify-toggle"><input type="checkbox" id="thyla-sonify" checked /> Environment sonification</label>
+        <div class="xr-wrap">
+          <a-scene embedded vr-mode-ui="enabled: true">
+            <a-assets timeout="8000">
+              <img id="ea-tex-thyla-ground" alt="" crossorigin="anonymous" />
+            </a-assets>
+            <a-sky id="thylacine-sky" color="#3a2848"></a-sky>
+            <a-plane
+              position="0 0 -4"
+              rotation="-90 0 0"
+              width="24"
+              height="24"
+              material="src: #ea-tex-thyla-ground; repeat: 14 14; roughness: 1; metalness: 0"
+            ></a-plane>
+            <a-text id="thyla-lbl-bio" value="" position="-3.2 2.2 -2.5" width="9" align="left" color="#ccb8e0"></a-text>
+            <a-text id="thyla-lbl-pov" value="" position="-3.2 1.55 -2.5" width="9" align="left" color="#b0a0c8"></a-text>
+            <a-text id="thyla-lbl-ui" value="" position="-3.2 0.9 -2.5" width="9" align="left" color="#9a88b0"></a-text>
+          </a-scene>
+        </div>
+      </div>
+
+      <!-- Pigeon polyphony -->
+      <div class="xr-species" data-species="pigeon" style="display:none">
+        <p class="lead" style="font-size:0.8rem">Polyphony metaphor (Web Audio) — lower slider models loss of synchrony.</p>
+        <div class="slider-block">
+          <label for="pigeon-n" id="pigeon-n-label">—</label>
+          <input type="range" id="pigeon-n" min="0" max="100" value="70" />
+        </div>
+        <div class="xr-wrap" style="min-height:120px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.85rem">
+          No 3D scene — listen with headphones; silence at 0% is intentional (acoustic absence).
+        </div>
+      </div>
+
+      <p style="margin-top:1.25rem">
+        <button type="button" class="btn primary" id="btn-ethics-2">Continue to ethics fork</button>
+      </p>
+    </section>
+
+    <section id="view-ethics" class="view">
+      <h2 style="margin-top:0;font-size:1.1rem">UI_Ethics_Fork — one choice</h2>
+      <p class="lead">Sherkow &amp; Greely–style tension (paraphrase). Your selection is stored only in <code>sessionStorage</code> for demo.</p>
+      <div id="ethics-options" class="ethics-options"></div>
+      <p>
+        <button type="button" class="btn primary" id="btn-reflection">Open reflection log</button>
+        <button type="button" class="btn" id="btn-back-hub-2">Species hub</button>
+      </p>
+    </section>
+
+    <section id="view-reflection" class="view">
+      <h2 style="margin-top:0;font-size:1.1rem">UI_Reflection_Log</h2>
+      <p class="lead">Embedded template: heuristic keyword match · <code>postMessage</code> bridge (parent ↔ iframe).</p>
+      <div id="reflection-bridge" class="reflection-bridge" aria-live="polite">
+        <div class="scene-id">Parent panel · live echo from iframe</div>
+        <p id="reflection-echo" class="reflection-echo">（打开日志后在下方输入，摘要会显示于此）</p>
+      </div>
+      <iframe id="reflection-frame" class="reflection-frame" title="Reflection log" src="about:blank"></iframe>
+      <p style="margin-top:0.75rem">
+        <button type="button" class="btn" id="btn-back-ethics">← Ethics fork</button>
+        <button type="button" class="btn" id="btn-back-hub-3">Species hub</button>
+      </p>
+    </section>
+
+    <footer class="meta-foot">
+      Prototype · not production · align copy with <code>BDC_2026_Extinction_Archive_Planning_Document.md</code> before judging.
+      WebXR: use VR button inside A-Frame scenes where supported.
+    </footer>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/scenes.js"></script>
+  <script>
+    document.getElementById("thylacine-indigenous-text").textContent =
+      (window.EXTINCTION_ARCHIVE_SCENES && window.EXTINCTION_ARCHIVE_SCENES.thylacine && window.EXTINCTION_ARCHIVE_SCENES.thylacine.indigenous) || "";
+  </script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById("btn-ethics-2").addEventListener("click", function () {
+      document.getElementById("btn-ethics").click();
+    });
+    document.getElementById("btn-back-hub-2").addEventListener("click", function () {
+      document.getElementById("btn-hub").click();
+    });
+    document.getElementById("btn-back-hub-3").addEventListener("click", function () {
+      document.getElementById("btn-hub").click();
+    });
+  </script>
+</body>
+</html>

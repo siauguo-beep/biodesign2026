@@ -72,6 +72,8 @@
       输入你对「物种消失后，时间 / 节律 / 关系是否可逆」的看法。下方会根据关键词，从本项目引用的伦理文献中<strong>并列展示</strong>相关论述（本地启发式匹配，非大模型；不收集上传数据，除非你自行接后端）。
     </p>
 
+    <div id="ethics-from-parent" class="ethics-injected" aria-live="polite"></div>
+
     <label for="user-reflection">你的反思（可中英文混写）</label>
     <textarea
       id="user-reflection"
@@ -119,6 +121,49 @@
     ];
 
     const storageKey = 'extinction_archive_reflection_v1';
+    const PM_PARENT = 'extinction-archive-parent';
+    const PM_CHILD = 'extinction-archive-reflection';
+
+    function escapeHtml(s) {
+      const m = document.createElement('span');
+      m.textContent = s == null ? '' : String(s);
+      return m.innerHTML;
+    }
+
+    window.addEventListener('message', (ev) => {
+      const d = ev.data;
+      if (!d || d.source !== PM_PARENT || d.type !== 'ea-ethics-choice') return;
+      const el = document.getElementById('ethics-from-parent');
+      if (!el) return;
+      if (d.choiceId && d.label) {
+        el.innerHTML =
+          '<p><strong>UI_Ethics_Fork</strong>（主页面）: <em>' +
+          escapeHtml(d.label) +
+          '</em></p>';
+      } else {
+        el.innerHTML =
+          '<p class="hint" style="margin:0">尚未在主流程中选择伦理分叉 — 可先选择再打开本页，或返回主页面。</p>';
+      }
+    });
+
+    let postParentTimer = null;
+    function notifyParentReflection(text) {
+      if (!window.parent || window.parent === window) return;
+      clearTimeout(postParentTimer);
+      postParentTimer = setTimeout(() => {
+        try {
+          window.parent.postMessage(
+            {
+              source: PM_CHILD,
+              type: 'ea-reflection-text',
+              text: text || '',
+              length: (text || '').length
+            },
+            '*'
+          );
+        } catch (_) {}
+      }, 320);
+    }
 
     function normalize(s) {
       return (s || '').toLowerCase();
@@ -168,6 +213,7 @@
         localStorage.setItem(storageKey, ta.value);
       } catch (_) {}
       renderMatches(ta.value);
+      notifyParentReflection(ta.value);
     }
 
     ta.addEventListener('input', persist);
@@ -180,6 +226,7 @@
         localStorage.removeItem(storageKey);
       } catch (_) {}
       renderMatches('');
+      notifyParentReflection('');
     });
 
     /* --- A-Frame hook (optional): from parent scene ---

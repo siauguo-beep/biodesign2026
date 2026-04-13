@@ -1,0 +1,352 @@
+:root {
+  --bg: #141210;
+  --panel: #1e1c1a;
+  --text: #e8e4dc;
+  --muted: #9a9188;
+  --accent: #c45c2a;
+  --signal: #5cb896;
+  --cited: #5cb896;
+  --interp: #e8b84a;
+  --spec: #c45c2a;
+  --font: "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--signal);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.app-header {
+  border-bottom: 2px solid var(--accent);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: #0c0b0a;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.app-header .sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button.btn {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #3d3834;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button.btn:hover {
+  border-color: var(--accent);
+}
+
+button.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+main {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.species-card {
+  background: var(--panel);
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  transition: border-color 0.15s;
+}
+
+.species-card:hover {
+  border-color: var(--accent);
+}
+
+.species-card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  color: var(--signal);
+}
+
+.species-card .sci {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.75rem 0;
+}
+
+.badge {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: #2a2622;
+}
+
+.badge.cited {
+  color: var(--cited);
+  border: 1px solid var(--cited);
+}
+
+.badge.interp {
+  color: var(--interp);
+  border: 1px solid var(--interp);
+}
+
+.badge.spec {
+  color: var(--spec);
+  border: 1px solid var(--spec);
+}
+
+.citation-strip {
+  font-size: 0.8rem;
+  background: #0c0b0a;
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.citation-strip .scene-id {
+  font-size: 0.7rem;
+  color: var(--signal);
+  margin-bottom: 0.35rem;
+}
+
+.epistemic-tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.epistemic-tabs button {
+  font: inherit;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #222;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.epistemic-tabs button.active.cited {
+  border-color: var(--cited);
+  color: var(--cited);
+}
+
+.epistemic-tabs button.active.interp {
+  border-color: var(--interp);
+  color: var(--interp);
+}
+
+.epistemic-tabs button.active.spec {
+  border-color: var(--spec);
+  color: var(--spec);
+}
+
+.xr-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #333;
+  margin: 1rem 0;
+  min-height: 280px;
+  background: #000;
+}
+
+.xr-wrap a-scene {
+  width: 100%;
+  height: 280px;
+}
+
+.slider-block {
+  margin: 1rem 0;
+}
+
+.slider-block label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.slider-block input[type="range"] {
+  width: 100%;
+  max-width: 24rem;
+}
+
+.meta-foot {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+}
+
+.ethics-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.ethics-options label {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.75rem;
+  background: var(--panel);
+  border-radius: 8px;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+
+.ethics-options input {
+  margin-top: 0.25rem;
+}
+
+.reflection-frame {
+  width: 100%;
+  min-height: 420px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #0e1114;
+}
+
+.run-hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: var(--panel);
+  border-radius: 8px;
+}
+
+.error-banner {
+  background: #3d2020;
+  color: #f5c4c4;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.sonify-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0.75rem;
+  cursor: pointer;
+}
+
+.reflection-bridge {
+  background: #0c0b0a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.reflection-echo {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.45;
+  max-height: 5.5rem;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+.ethics-injected {
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.65rem;
+  background: var(--panel);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+.ethics-injected p {
+  margin: 0;
+}

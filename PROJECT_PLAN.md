@@ -9,15 +9,18 @@
 
 ---
 
-## 1. Team & roles
+## 1. Program · team & roles
 
-| Member | Role | Focus |
-|--------|------|--------|
-| A | Experience lead | Narrative, sensory direction, palaeo-chronobiology translation, ethics |
-| B | Tech / AI lead | WebXR (A-Frame / Three.js), generative environments, epistemic UI |
+| Field | Detail |
+|--------|--------|
+| **Institution** | Macau University |
+| **Mentor** | Atticus SIMS |
+| **GUO XIAO YUE** | ID MC569254 — experience / narrative / ethics / dossier curation |
+| **LIU JIA QUN** | ID MC569293 — tech / WebXR / generative + epistemic UI |
 
 **Team size:** 2  
-**Build constraint:** Web-only (no living biosensor demo). **Strategy:** 重内容、轻装置 — depth of science, citation discipline, and reflection over hardware.
+**BDC alignment:** Idea 3 (Extinction Archive) + Idea 6 (Biorhythm Composer) · theme **Convergent Life** · targets **Biodigital Excellence** + **Outstanding Digital Submission**.  
+**Build constraint:** Web-only shipped MVP (no live biosensor demo). **Strategy:** 重内容、轻装置 — depth of science, citation discipline, and reflection over hardware. **Ideation-complete** bio + physical + AR layers documented in [`BDC_2026_Extinction_Archive_Planning_Document.md`](BDC_2026_Extinction_Archive_Planning_Document.md).
 
 ---
 
@@ -25,9 +28,9 @@
 
 **Problem:** Extinction removes not only DNA but **temporal niches**—the day/year rhythms of a species. Public memory often flattens into images, not **time-in-the-world**.
 
-**Approach:** A WebXR **memorial** that reconstructs **temporal phenotypes** for two species—**woolly mammoth** (polar / circadian genomics, steppe habitat) and **thylacine** (orbit → diel activity, POV metaphor, colonial context)—with an **epistemic UI** (Cited / Interpolated / Speculative) and an **ethics fork** (Sherkow & Greely–style trade-offs).
+**Approach:** A WebXR **memorial** that reconstructs **temporal phenotypes** for two deep-dossier species—**woolly mammoth** and **thylacine**—with an **epistemic UI** (Cited / Interpolated / Speculative) and an **ethics fork** (resources, ecological risk, Indigenous perspectives, tech boundaries). A **unified high-priority database of 87 species** (sensory + music scores; curated from 900+ documented extinctions incl. Holocene, IUCN, 2025 confirmations) backs the planetary-map narrative; [`data/extinction_archive/animals_full.csv`](data/extinction_archive/animals_full.csv) currently holds **51 taxa** for imports until the full sheet is merged.
 
-**Differentiator:** Chronobiology + **honest limits** of AI and aDNA inference + **Indigenous sovereignty** framing for thylacine (Clements, Schlunke, **Palawa-led**: Rimmer, Lehman).
+**Differentiator:** Chronobiology + **honest limits** of AI and aDNA inference + **Indigenous sovereignty** framing for thylacine (Clements, Schlunke, **Palawa-led**: Rimmer, Lehman) + **sensory time capsule** (rhythm and niche, not only appearance).
 
 ---
 
@@ -65,6 +68,7 @@
 | [`BDC_2026_Extinction_Archive_Planning_Document.md`](BDC_2026_Extinction_Archive_Planning_Document.md) | **Canonical detailed plan:** citations M1–T5, storyboard IDs, T5 copy, verification log |
 | [`PROJECT_PLAN.md`](PROJECT_PLAN.md) | This executive plan |
 | [`templates/reflection-log-webxr.html`](templates/reflection-log-webxr.html) | Reflection + heuristic ethics match (embed in A-Frame overlay) |
+| [`web/extinction-archive/index.html`](web/extinction-archive/index.html) | **Web prototype:** species hub, A-Frame shells + **Scene\_\*** floating labels, procedural (CC0) ground textures, mammoth/thylacine **sonification**, pigeon polyphony, ethics fork, **`postMessage` ↔** [`templates/reflection-log-webxr.html`](templates/reflection-log-webxr.html). **Paths:** `js/config.js` resolves `archive.json` from repo root; for GitHub Pages use whole-repo publish or set `<meta name="ea-asset-base" content="https://…/">`. |
 | `slides/export/` | **`Extinction_Archive_Umwelt_Hypothesis_Dossiers_BDC2026_EN.pdf`** + **`[FINAL-SMALL] … BDC2026.pdf`** (compact; same bytes). **`Extinction_Archive_Umwelt_BDC_Judge_Full_Deck_EN_2026.pdf`** — full BDC judge walkthrough (new; does not replace legacy `BDC_Deck_EN.pdf`). Build: `docs/bdc-umwelt-archive/scripts/build_extinction_archive_slides.py`. Optional: `Archive_of_Extinction_Final_BDC2026.*` via `scripts/build_final_presentation.py` |
 | `BDC_2026_*.md`, `biodesign_cursor_agent.md`, `The complete guide…` | Course / competition context |
 | `docs/` | Optional extended docs |
@@ -85,7 +89,7 @@
 
 - [ ] Replace `YOUR_GITHUB_USERNAME` / remote in [`docs/GITHUB_SYNC.md`](docs/GITHUB_SYNC.md) after first push  
 - [ ] Complete remaining literature checkboxes in detailed planning doc (M2–M5, T1, T3–T5)  
-- [ ] Wire `Scene_*` and `UI_*` IDs in WebXR build  
+- [x] Wire `Scene_*` and `UI_*` IDs in WebXR build — see [`web/extinction-archive/`](web/extinction-archive/index.html) (prototype; expand A-Frame scenes as Week 2–3 progress)  
 - [ ] Practice Q&A: biodesign without wet lab, AI transparency, PER2 / preprint boundaries  
 
 ---
