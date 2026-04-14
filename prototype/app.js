@@ -323,9 +323,9 @@ function projectPoint(latDeg, lonDeg, rotDeg, cx, cy, radius, zoom = 1) {
 function drawGlobe(ctx, canvas, state) {
   const w = canvas.width;
   const h = canvas.height;
-  const cx = w / 2;
-  const cy = h / 2 + h * 0.02;
-  const globeR = Math.min(w, h) * 0.34;
+  const cx = w / 2 + state.offsetX;
+  const cy = h / 2 + state.offsetY;
+  const globeR = Math.min(w, h) * 0.31;
 
   ctx.clearRect(0, 0, w, h);
   ctx.fillStyle = "#070c12";
@@ -376,7 +376,8 @@ function drawGlobe(ctx, canvas, state) {
 
   // continent labels (stylized)
   ctx.fillStyle = "rgba(234,240,248,0.35)";
-  ctx.font = `${Math.max(14, globeR * 0.13)}px Georgia, serif`;
+  // Medium-size baseline; scale with globe zoom for readability.
+  ctx.font = `${Math.max(12, 18 * state.zoom)}px Georgia, serif`;
   [
     { text: "NORTH AMERICA", lat: 38, lon: -100 },
     { text: "SOUTH AMERICA", lat: -23, lon: -62 },
@@ -453,12 +454,15 @@ async function initHome() {
   const state = {
     rotation: 0,
     zoom: 1,
+    offsetX: 0,
+    offsetY: 0,
     points,
     screenPoints: [],
     hoverSlug: null,
     autoRotate: true,
     dragging: false,
-    dragStartX: 0
+    dragStartX: 0,
+    dragStartY: 0
   };
 
   function resize() {
@@ -490,13 +494,26 @@ async function initHome() {
   canvas.addEventListener("mousedown", e => {
     state.dragging = true;
     state.dragStartX = e.clientX;
+    state.dragStartY = e.clientY;
   });
   window.addEventListener("mouseup", () => { state.dragging = false; });
   window.addEventListener("mousemove", e => {
     if (!state.dragging) return;
     const dx = e.clientX - state.dragStartX;
+    const dy = e.clientY - state.dragStartY;
     state.dragStartX = e.clientX;
+    state.dragStartY = e.clientY;
+
+    // Rotation remains the primary horizontal motion cue.
     state.rotation += dx * 0.18;
+    // Add globe translation to match "planet moves when dragging".
+    state.offsetX += dx * 0.35;
+    state.offsetY += dy * 0.35;
+    state.offsetX = Math.max(-window.innerWidth * 0.28, Math.min(window.innerWidth * 0.28, state.offsetX));
+    state.offsetY = Math.max(-window.innerHeight * 0.22, Math.min(window.innerHeight * 0.22, state.offsetY));
+    // Drag up/down subtly zooms to create immersive push/pull feel.
+    state.zoom += -dy * 0.0015;
+    state.zoom = Math.max(0.72, Math.min(1.38, state.zoom));
   });
 
   // touch drag support
@@ -504,13 +521,23 @@ async function initHome() {
     if (!e.touches.length) return;
     state.dragging = true;
     state.dragStartX = e.touches[0].clientX;
+    state.dragStartY = e.touches[0].clientY;
   }, { passive: true });
   canvas.addEventListener("touchmove", e => {
     if (!state.dragging || !e.touches.length) return;
     const x = e.touches[0].clientX;
+    const y = e.touches[0].clientY;
     const dx = x - state.dragStartX;
+    const dy = y - state.dragStartY;
     state.dragStartX = x;
+    state.dragStartY = y;
     state.rotation += dx * 0.2;
+    state.offsetX += dx * 0.35;
+    state.offsetY += dy * 0.35;
+    state.offsetX = Math.max(-window.innerWidth * 0.28, Math.min(window.innerWidth * 0.28, state.offsetX));
+    state.offsetY = Math.max(-window.innerHeight * 0.22, Math.min(window.innerHeight * 0.22, state.offsetY));
+    state.zoom += -dy * 0.0015;
+    state.zoom = Math.max(0.72, Math.min(1.38, state.zoom));
   }, { passive: true });
   canvas.addEventListener("touchend", () => { state.dragging = false; }, { passive: true });
 
