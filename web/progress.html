@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extinction Archive — Progress Preview</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f5f7;
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-strong: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --quiet: #86868b;
+      --accent: #0071e3;
+      --accent-soft: #e8f2ff;
+      --green-soft: #edf8f2;
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 8% -10%, rgba(0, 113, 227, 0.12), transparent 28rem),
+        radial-gradient(circle at 92% 0%, rgba(52, 199, 89, 0.09), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background:
+        radial-gradient(circle at 30% 30%, #ffffff 0 16%, transparent 17%),
+        linear-gradient(135deg, #0071e3, #5ac8fa);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+    }
+    .lang-switch {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: saturate(180%) blur(16px);
+    }
+    .lang-switch button {
+      min-width: 54px;
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+    .lang-switch button[aria-pressed="true"] {
+      color: var(--text);
+      background: var(--surface-strong);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 24px;
+      align-items: stretch;
+      padding: clamp(28px, 5vw, 64px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.74)),
+        radial-gradient(circle at 78% 24%, rgba(0, 113, 227, 0.13), transparent 20rem);
+      box-shadow: var(--shadow);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #34c759;
+      box-shadow: 0 0 0 5px rgba(52, 199, 89, 0.12);
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0 0 16px;
+      font-size: clamp(44px, 7vw, 84px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 760;
+    }
+    .lead {
+      margin: 0;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--surface-strong);
+      font-size: 15px;
+      font-weight: 650;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+    .btn.primary {
+      color: #ffffff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(0, 113, 227, 0.16);
+    }
+    .hero-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 16px;
+      backdrop-filter: saturate(180%) blur(18px);
+    }
+    .stat {
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      gap: 4px 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: var(--surface-strong);
+    }
+    .stat + .stat { margin-top: 10px; }
+    .stat strong {
+      color: var(--accent);
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .section {
+      margin-top: 24px;
+      padding: clamp(20px, 3vw, 30px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.04);
+      backdrop-filter: saturate(180%) blur(18px);
+    }
+    h2 {
+      margin: 0 0 12px;
+      color: var(--text);
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      font-weight: 720;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 0 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      display: block;
+      min-height: 176px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      color: inherit;
+      background: var(--surface-strong);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .card:hover, .link-card:hover, .doc-list li:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 113, 227, 0.24);
+    }
+    .card strong {
+      display: block;
+      margin: 14px 0 8px;
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 14px;
+      font-weight: 750;
+    }
+    code, pre {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 13px;
+    }
+    pre {
+      margin: 0;
+      background: #1d1d1f;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      overflow-x: auto;
+      color: #f5f5f7;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 10px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .link-card {
+      min-height: 108px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text);
+      background: var(--surface-strong);
+      font-weight: 650;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .doc-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .doc-list li {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface-strong);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .run-note {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 16px;
+      align-items: stretch;
+    }
+    .mini {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 10px 0 0;
+    }
+    [data-i18n] { transition: opacity 120ms ease; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #000000;
+        --surface: rgba(29, 29, 31, 0.78);
+        --surface-strong: #1d1d1f;
+        --text: #f5f5f7;
+        --muted: #a1a1a6;
+        --quiet: #86868b;
+        --accent: #2997ff;
+        --accent-soft: rgba(41, 151, 255, 0.16);
+        --green-soft: rgba(52, 199, 89, 0.16);
+        --border: rgba(255, 255, 255, 0.12);
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
+      }
+      body {
+        background:
+          radial-gradient(circle at 8% -10%, rgba(41, 151, 255, 0.18), transparent 28rem),
+          radial-gradient(circle at 92% 0%, rgba(52, 199, 89, 0.12), transparent 30rem),
+          var(--bg);
+      }
+      .hero {
+        background:
+          linear-gradient(140deg, rgba(29, 29, 31, 0.94), rgba(29, 29, 31, 0.72)),
+          radial-gradient(circle at 78% 24%, rgba(41, 151, 255, 0.2), transparent 20rem);
+      }
+      .lang-switch { background: rgba(29, 29, 31, 0.72); }
+      .lang-switch button[aria-pressed="true"] { background: #2c2c2e; }
+    }
+    @media (max-width: 820px) {
+      .hero, .run-note { grid-template-columns: 1fr; }
+      .grid, .doc-list, .link-grid { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      h1 { font-size: clamp(42px, 13vw, 64px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topbar" aria-label="Page controls">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <span data-i18n="brand">项目进展预览</span>
+      </div>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow" data-i18n="eyebrow">Branches-2 · 原型进展 Dashboard</p>
+        <h1>Extinction Archive</h1>
+        <p class="lead" data-i18n="heroLead">
+          当前进展入口页：快速查看地球仪、WebXR、物种档案与 A-Frame 体验。
+          这个页面用于课堂展示、团队同步与本机调试。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="../prototype/index.html" data-i18n="heroPrimary">进入沉浸地球仪</a>
+          <a class="btn" href="../prototype/webxr/index.html" data-i18n="heroWebxr">查看 WebXR</a>
+          <a class="btn" href="#online" data-i18n="heroOnline">在线预览链接</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Project status">
+        <div class="stat">
+          <strong>4</strong>
+          <span data-i18n="stat1">主要原型入口：Globe / WebXR / A-Frame / Species</span>
+        </div>
+        <div class="stat">
+          <strong>87</strong>
+          <span data-i18n="stat2">目标高优先级灭绝物种数据库方向</span>
+        </div>
+        <div class="stat">
+          <strong>MVP</strong>
+          <span data-i18n="stat3">沉浸、证据层、伦理选择、反思输入</span>
+        </div>
+      </aside>
+    </header>
+
+    <section class="section">
+      <h2 data-i18n="startTitle">第一步：本地启动</h2>
+      <div class="run-note">
+        <div>
+          <p class="sub" data-i18n="startBody">很多页面需要从仓库根目录起服务，不能用 file:// 直接双击，否则资源与 JSON 可能加载失败。</p>
+          <p class="mini"><span data-i18n="startOpen">启动后打开：</span><a href="http://localhost:8080/web/progress.html">http://localhost:8080/web/progress.html</a></p>
+        </div>
+        <pre><code>cd "/Users/guoxiaoyue/Downloads/cursor/biodesign project"
+python3 -m http.server 8080</code></pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-i18n="localTitle">本机原型入口</h2>
+      <div class="grid">
+        <a class="card" href="../prototype/index.html">
+          <span class="icon">01</span>
+          <strong data-i18n="card1Title">沉浸地球仪 · 主页</strong>
+          <p data-i18n="card1Body">旋转、缩放、点选光点进入物种。适合做第一屏展示。</p>
+        </a>
+        <a class="card" href="../prototype/webxr/index.html">
+          <span class="icon">02</span>
+          <strong data-i18n="card2Title">Three.js 行星球 · WebXR</strong>
+          <p data-i18n="card2Body">区域筛选与 Umwelt 说明。VR 体验建议使用 localhost 或 HTTPS。</p>
+        </a>
+        <a class="card" href="extinction-archive/index.html">
+          <span class="icon">03</span>
+          <strong data-i18n="card3Title">A-Frame 档案原型</strong>
+          <p data-i18n="card3Body">物种中枢、伦理选择与反思路径，贴合 MVP journey。</p>
+        </a>
+        <div class="card">
+          <span class="icon">04</span>
+          <strong data-i18n="card4Title">档案浏览</strong>
+          <p>
+            <a href="../prototype/species.html?slug=ectopistes-migratorius" data-i18n="speciesLink">旅鸽物种页</a> ·
+            <a href="../prototype/archive.html" data-i18n="archiveLink">卡片库</a> ·
+            <a href="../prototype/webxr/destinations.html" data-i18n="destLink">Destinations 全表</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="online">
+      <h2 data-i18n="onlineTitle">在线直链</h2>
+      <p class="sub" data-i18n="onlineBody">由 Raw.githack 从 macaumonsoon/Biodesign-Project 的 Branches-2 读取静态文件。若未推送或出现 404，请以本机链接为准。</p>
+      <div class="link-grid">
+        <a class="link-card" href="https://raw.githack.com/macaumonsoon/Biodesign-Project/Branches-2/prototype/index.html" target="_blank" rel="noopener"><span data-i18n="online1">沉浸地球仪</span><br><span class="tag">Online</span></a>
+        <a class="link-card" href="https://raw.githack.com/macaumonsoon/Biodesign-Project/Branches-2/prototype/webxr/index.html" target="_blank" rel="noopener"><span data-i18n="online2">WebXR 行星球</span><br><span class="tag">Online</span></a>
+        <a class="link-card" href="https://raw.githack.com/macaumonsoon/Biodesign-Project/Branches-2/prototype/species.html?slug=ectopistes-migratorius" target="_blank" rel="noopener"><span data-i18n="online3">旅鸽物种页</span><br><span class="tag">Online</span></a>
+        <a class="link-card" href="https://raw.githack.com/macaumonsoon/Biodesign-Project/Branches-2/web/extinction-archive/index.html" target="_blank" rel="noopener"><span data-i18n="online4">A-Frame 原型</span><br><span class="tag">Online</span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-i18n="docsTitle">计划文档</h2>
+      <ul class="doc-list">
+        <li><span data-i18n="doc1">执行计划：</span><a href="../PROJECT_PLAN.md">PROJECT_PLAN.md</a></li>
+        <li><span data-i18n="doc2">预览说明：</span><a href="../docs/PROTOTYPE_PREVIEW.md">docs/PROTOTYPE_PREVIEW.md</a></li>
+      </ul>
+    </section>
+  </div>
+  <script>
+    const copy = {
+      zh: {
+        title: "Extinction Archive — 项目进展预览",
+        brand: "项目进展预览",
+        eyebrow: "Branches-2 · 原型进展 Dashboard",
+        heroLead: "当前进展入口页：快速查看地球仪、WebXR、物种档案与 A-Frame 体验。这个页面用于课堂展示、团队同步与本机调试。",
+        heroPrimary: "进入沉浸地球仪",
+        heroWebxr: "查看 WebXR",
+        heroOnline: "在线预览链接",
+        stat1: "主要原型入口：Globe / WebXR / A-Frame / Species",
+        stat2: "目标高优先级灭绝物种数据库方向",
+        stat3: "沉浸、证据层、伦理选择、反思输入",
+        startTitle: "第一步：本地启动",
+        startBody: "很多页面需要从仓库根目录起服务，不能用 file:// 直接双击，否则资源与 JSON 可能加载失败。",
+        startOpen: "启动后打开：",
+        localTitle: "本机原型入口",
+        card1Title: "沉浸地球仪 · 主页",
+        card1Body: "旋转、缩放、点选光点进入物种。适合做第一屏展示。",
+        card2Title: "Three.js 行星球 · WebXR",
+        card2Body: "区域筛选与 Umwelt 说明。VR 体验建议使用 localhost 或 HTTPS。",
+        card3Title: "A-Frame 档案原型",
+        card3Body: "物种中枢、伦理选择与反思路径，贴合 MVP journey。",
+        card4Title: "档案浏览",
+        speciesLink: "旅鸽物种页",
+        archiveLink: "卡片库",
+        destLink: "Destinations 全表",
+        onlineTitle: "在线直链",
+        onlineBody: "由 Raw.githack 从 macaumonsoon/Biodesign-Project 的 Branches-2 读取静态文件。若未推送或出现 404，请以本机链接为准。",
+        online1: "沉浸地球仪",
+        online2: "WebXR 行星球",
+        online3: "旅鸽物种页",
+        online4: "A-Frame 原型",
+        docsTitle: "计划文档",
+        doc1: "执行计划：",
+        doc2: "预览说明："
+      },
+      en: {
+        title: "Extinction Archive — Progress Preview",
+        brand: "Progress Preview",
+        eyebrow: "Branches-2 · Prototype Dashboard",
+        heroLead: "A concise entry point for reviewing the current globe, WebXR, species dossier, and A-Frame prototypes. Designed for critiques, team syncs, and local testing.",
+        heroPrimary: "Open Immersive Globe",
+        heroWebxr: "View WebXR",
+        heroOnline: "Online Preview Links",
+        stat1: "Primary prototype entries: Globe / WebXR / A-Frame / Species",
+        stat2: "Target direction for the high-priority extinct species database",
+        stat3: "Immersion, evidence layers, ethics fork, and reflection input",
+        startTitle: "Step 1: Run Locally",
+        startBody: "Serve the site from the repository root. Opening files directly with file:// may prevent JSON and assets from loading.",
+        startOpen: "Then open: ",
+        localTitle: "Local Prototype Entrances",
+        card1Title: "Immersive Globe · Home",
+        card1Body: "Rotate, zoom, and select glowing points to enter species dossiers. Best as the first-screen demo.",
+        card2Title: "Three.js Planet · WebXR",
+        card2Body: "Regional filters and Umwelt notes. VR works best on localhost or HTTPS.",
+        card3Title: "A-Frame Archive Prototype",
+        card3Body: "Species hub, ethics choice, and reflection flow aligned with the MVP journey.",
+        card4Title: "Archive Browsing",
+        speciesLink: "Passenger pigeon page",
+        archiveLink: "Card archive",
+        destLink: "Destinations table",
+        onlineTitle: "Online Links",
+        onlineBody: "Raw.githack serves static files from macaumonsoon/Biodesign-Project on Branches-2. If a link is not pushed or returns 404, use the local links above.",
+        online1: "Immersive globe",
+        online2: "WebXR planet",
+        online3: "Passenger pigeon page",
+        online4: "A-Frame prototype",
+        docsTitle: "Planning Docs",
+        doc1: "Project plan: ",
+        doc2: "Preview notes: "
+      }
+    };
+
+    function setLanguage(lang) {
+      const selected = copy[lang] ? lang : "zh";
+      document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
+      document.title = copy[selected].title;
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.dataset.i18n;
+        if (copy[selected][key]) node.textContent = copy[selected][key];
+      });
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === selected));
+      });
+      localStorage.setItem("progress-lang", selected);
+    }
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
+    setLanguage(localStorage.getItem("progress-lang") || "zh");
+  </script>
+</body>
+</html>

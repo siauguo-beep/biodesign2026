@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Species dossier — WebXR Prototype</title>
+  <title>物种数字档案</title>
   <link rel="stylesheet" href="./css/xr-ui.css" />
   <script type="importmap">
   {
@@ -14,19 +14,24 @@
   }
   </script>
 </head>
-<body class="xr-page">
-  <header class="xr-page-header">
-    <h1>物种数字档案</h1>
-    <p>展示单条 destination 的全部结构化字段，并叠加档案入口与研究协议，契合「Umwelt Archive / 感官时间胶囊」叙事。</p>
-    <nav class="xr-nav">
-      <a href="./index.html">Planet 首页</a>
-      <a href="./destinations.html">全表</a>
-      <a href="./ethics.html">伦理界面</a>
-    </nav>
+<body class="xr-page xr-page--archive">
+  <header class="xr-archive-top">
+    <div class="xr-archive-top-inner">
+      <a class="xr-archive-logo" href="../index.html">地球之殇</a>
+      <span class="xr-archive-top-divide" aria-hidden="true"></span>
+      <span class="xr-archive-top-tagline">从地球上的光点，看见人类活动留下的物种空缺</span>
+      <nav class="xr-archive-top-nav" aria-label="全站">
+        <a href="../index.html">首页</a>
+        <a href="../archive.html">档案</a>
+        <a href="./index.html">星球</a>
+        <a href="./ethics.html">反思</a>
+        <a href="../index.html">关于</a>
+      </nav>
+    </div>
   </header>
 
   <main class="xr-species-main" id="xr-species-mount">
-    <p class="xr-muted">Loading…</p>
+    <p class="xr-muted">加载中…</p>
   </main>
 
   <script type="module">

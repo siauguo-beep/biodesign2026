@@ -3,36 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ethics · 反思 — WebXR Prototype</title>
+  <title>伦理思考 · 地球之殇</title>
   <link rel="stylesheet" href="./css/xr-ui.css" />
 </head>
 <body class="xr-page">
   <header class="xr-page-header">
-    <h1>伦理决策与反思日志</h1>
-    <p>与 ideation 中「从情感沉浸过渡到理性权衡」一致：轻量交互提示资源、风险与不确定度沟通，反思仅存于本地浏览器。</p>
+    <section class="xr-lang-switch xr-page-lang" aria-label="Language">
+      <button type="button" data-ethics-lang="zh" aria-pressed="true">中文</button>
+      <button type="button" data-ethics-lang="en" aria-pressed="false">EN</button>
+    </section>
+    <h1 data-ethics-i18n="title">伦理思考与反思日志</h1>
+    <p data-ethics-i18n="lead">去灭绝技术并不只是“能不能做到”的问题，也涉及资源分配、生态风险、证据不确定性和公众参与。这里的滑块用于帮助你比较不同立场；反思内容只保存在本地浏览器。</p>
     <nav class="xr-nav">
-      <a href="./index.html">Planet 首页</a>
-      <a href="./destinations.html">Destinations</a>
-      <a href="../hero.html">经典 Hero 层</a>
+      <a href="./index.html" data-ethics-i18n="navPlanet">星球首页</a>
+      <a href="./destinations.html">物种全表</a>
+      <a href="../hero.html" data-ethics-i18n="navHero">重点案例</a>
     </nav>
   </header>
 
-  <main class="xr-panel" style="max-width:720px;margin:20px auto;">
+  <main class="xr-panel" style="max-width:760px;">
     <section class="xr-block">
-      <h3>伦理分叉 · De-extinction trade-offs</h3>
-      <label style="display:block;margin-top:10px;color:#b4c4d8;">去灭绝相关预算优先级：<span id="budget-value">50</span></label>
-      <input type="range" id="budget" min="0" max="100" value="50" style="width:100%;" />
-      <label style="display:block;margin-top:14px;color:#b4c4d8;">生态不确定性风险容忍：<span id="risk-value">30</span></label>
-      <input type="range" id="risk" min="0" max="100" value="30" style="width:100%;" />
-      <p id="ethics-output" style="margin-top:14px;font-size:14px;line-height:1.55;color:#dce6f2;"></p>
+      <h3 data-ethics-i18n="tradeTitle">去灭绝技术的取舍</h3>
+      <label class="xr-field-label"><span data-ethics-i18n="budgetLabel">去灭绝研究投入优先级：</span><span id="budget-value">50</span></label>
+      <input class="xr-range" type="range" id="budget" min="0" max="100" value="50" />
+      <label class="xr-field-label"><span data-ethics-i18n="riskLabel">生态不确定性的接受程度：</span><span id="risk-value">30</span></label>
+      <input class="xr-range" type="range" id="risk" min="0" max="100" value="30" />
+      <p id="ethics-output" class="xr-lead"></p>
     </section>
 
     <section class="xr-block">
-      <h3>Reflection log</h3>
-      <textarea id="reflection-input" rows="5" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(100,120,150,0.45);background:rgba(4,8,14,0.9);color:#e8edf3;" placeholder="当一种生物时间节律从地球上消失，对你而言「集体记忆的缺席」意味着什么？"></textarea>
-      <div style="display:flex;gap:10px;margin-top:10px;">
-        <button type="button" id="save-reflection" class="xr-pill">保存</button>
-        <button type="button" id="load-reflection" class="xr-pill">载入</button>
+      <h3>反思日志</h3>
+      <textarea id="reflection-input" class="xr-textarea" rows="5" placeholder="当一个物种从地球上消失，我们应该如何记住它、解释它，并避免新的消失？"></textarea>
+      <div class="xr-button-row">
+        <button type="button" id="save-reflection" class="xr-pill" data-ethics-i18n="save">保存</button>
+        <button type="button" id="load-reflection" class="xr-pill" data-ethics-i18n="load">载入</button>
       </div>
       <p id="reflection-status" class="xr-muted" style="margin-top:8px;"></p>
     </section>
@@ -40,6 +44,59 @@
 
   <script type="module">
     import { initEthicsPage } from "./js/xr-ethics.js";
+    window.ETHICS_COPY = {
+      zh: {
+        title: "伦理思考与反思日志",
+        pageTitle: "伦理思考 · 地球之殇",
+        lead: "去灭绝技术并不只是“能不能做到”的问题，也涉及资源分配、生态风险、证据不确定性和公众参与。这里的滑块用于帮助你比较不同立场；反思内容只保存在本地浏览器。",
+        navPlanet: "星球首页",
+        navHero: "重点案例",
+        tradeTitle: "去灭绝技术的取舍",
+        budgetLabel: "去灭绝研究投入优先级：",
+        riskLabel: "生态不确定性的接受程度：",
+        placeholder: "当一个物种从地球上消失，我们应该如何记住它、解释它，并避免新的消失？",
+        save: "保存",
+        load: "载入"
+      },
+      en: {
+        title: "Ethics Decision & Reflection Log",
+        pageTitle: "Ethics & Reflection — WebXR Prototype",
+        lead: "A lightweight transition from emotional immersion to reasoned trade-offs: resources, risk, uncertainty communication, and a reflection saved only in this browser.",
+        navPlanet: "Planet Home",
+        navHero: "Classic Hero Layer",
+        tradeTitle: "Ethics Fork · De-extinction Trade-offs",
+        budgetLabel: "De-extinction budget priority: ",
+        riskLabel: "Ecological uncertainty tolerance: ",
+        placeholder: "When a biological rhythm disappears from Earth, what does collective absence mean to you?",
+        save: "Save",
+        load: "Load"
+      }
+    };
+
+    window.setEthicsLanguage = function setEthicsLanguage(lang) {
+      const selected = window.ETHICS_COPY[lang] ? lang : "zh";
+      const copy = window.ETHICS_COPY[selected];
+      document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
+      document.title = copy.pageTitle;
+      document.querySelectorAll("[data-ethics-i18n]").forEach((node) => {
+        const key = node.dataset.ethicsI18n;
+        if (typeof copy[key] === "string") node.textContent = copy[key];
+      });
+      document.getElementById("reflection-input").placeholder = copy.placeholder;
+      document.querySelectorAll("[data-ethics-lang]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.ethicsLang === selected));
+      });
+      localStorage.setItem("ea-lang", selected);
+      localStorage.setItem("prototype-lang", selected);
+      localStorage.setItem("xr-lang", selected);
+      localStorage.setItem("ethics-lang", selected);
+      window.dispatchEvent(new CustomEvent("ethics:languagechange", { detail: { lang: selected } }));
+    };
+
+    document.querySelectorAll("[data-ethics-lang]").forEach((button) => {
+      button.addEventListener("click", () => window.setEthicsLanguage(button.dataset.ethicsLang));
+    });
+    window.setEthicsLanguage(localStorage.getItem("ea-lang") || localStorage.getItem("ethics-lang") || "zh");
     initEthicsPage();
   </script>
 </body>

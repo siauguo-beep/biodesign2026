@@ -5,24 +5,41 @@ export function initEthicsPage() {
   const rv = document.getElementById("risk-value");
   const out = document.getElementById("ethics-output");
 
+  const getLang = () => localStorage.getItem("ea-lang") || localStorage.getItem("ethics-lang") || "zh";
+  const messages = {
+    zh: {
+      high: "你倾向于投入更多资源，并接受较高生态不确定性。若推进去灭绝研究，应优先明确技术安全、生态评估和原住民/当地社群的知情参与。",
+      low: "你更偏向保护现有生态。即使不尝试复活，灭绝物种仍需要被记录、解释，并转化为今天的保护行动。",
+      balanced: "你选择了较平衡的路径：既关注技术可能性，也需要清楚说明证据边界、生态风险和公众参与方式。",
+      saved: "已保存到本地浏览器。",
+      loaded: "已载入上次记录。"
+    },
+    en: {
+      high: "High de-extinction investment + high uncertainty tolerance: which sovereignty commitments and technical safeguards are non-negotiable?",
+      low: "Conservation-first path: even without revival, what ethical work must extinction memory still perform?",
+      balanced: "Balanced strategy: where should uncertainty be made explicit in public communication?",
+      saved: "Saved locally in this browser.",
+      loaded: "Last reflection loaded."
+    }
+  };
+
   const update = () => {
     bv.textContent = budget.value;
     rv.textContent = risk.value;
     const b = Number(budget.value);
     const r = Number(risk.value);
+    const copy = messages[getLang()] || messages.zh;
     if (b > 65 && r > 55) {
-      out.textContent =
-        "高去灭绝投入 + 高不确定性容忍：反思提示——哪些原住民主权与技术护栏应被视为不可谈判底线？";
+      out.textContent = copy.high;
     } else if (b < 35 && r < 40) {
-      out.textContent =
-        "保护优先路径：反思提示——即便不做复活，「灭绝记忆」的伦理工作是否仍不可缺席？";
+      out.textContent = copy.low;
     } else {
-      out.textContent =
-        "平衡策略：反思提示——公众沟通中，哪些未知应以「结构化不确定度」被显式呈现？";
+      out.textContent = copy.balanced;
     }
   };
   budget.addEventListener("input", update);
   risk.addEventListener("input", update);
+  window.addEventListener("ethics:languagechange", update);
   update();
 
   const input = document.getElementById("reflection-input");
@@ -33,10 +50,10 @@ export function initEthicsPage() {
 
   save.addEventListener("click", () => {
     localStorage.setItem(key, input.value || "");
-    status.textContent = "已保存到本地浏览器。";
+    status.textContent = (messages[getLang()] || messages.zh).saved;
   });
   load.addEventListener("click", () => {
     input.value = localStorage.getItem(key) || "";
-    status.textContent = "已载入上次记录。";
+    status.textContent = (messages[getLang()] || messages.zh).loaded;
   });
 }

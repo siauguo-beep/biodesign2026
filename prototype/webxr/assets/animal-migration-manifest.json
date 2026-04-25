@@ -1,0 +1,1897 @@
+{
+  "generatedFrom": "data/research_extinct_animals_list.json",
+  "totalSpecies": 54,
+  "note": "Prototype migration and habitat-shift routes. Coordinates are inferred from each species historical region/category for visual storytelling, not GPS telemetry. Island species use shorter habitat-shift paths.",
+  "sources": [
+    {
+      "slug": "mammuthus-primigenius",
+      "scientificName": "Mammuthus primigenius",
+      "commonNameEn": "Woolly Mammoth",
+      "commonNameZh": "猛犸象",
+      "region": "欧亚、北美",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "猛犸象迁徙/栖息地演示",
+      "titleEn": "Woolly Mammoth migration / habitat route",
+      "storyZh": "基于历史分布区域「欧亚、北美」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (欧亚、北美): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 55.679,
+          "lon": 69.126,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 60.85,
+          "lon": 74.149,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 65.679,
+          "lon": 83.126,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "mammuthus-columbi",
+      "scientificName": "Mammuthus columbi",
+      "commonNameEn": "Columbian Mammoth",
+      "commonNameZh": "哥伦比亚猛犸象",
+      "region": "北美",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "哥伦比亚猛犸象迁徙/栖息地演示",
+      "titleEn": "Columbian Mammoth migration / habitat route",
+      "storyZh": "基于历史分布区域「北美」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北美): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 49.794,
+          "lon": -101.768,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 45.027,
+          "lon": -119.618,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 39.794,
+          "lon": -130.768,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "mammut-americanum",
+      "scientificName": "Mammut americanum",
+      "commonNameEn": "American Mastodon",
+      "commonNameZh": "美洲乳齿象",
+      "region": "北美",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "美洲乳齿象迁徙/栖息地演示",
+      "titleEn": "American Mastodon migration / habitat route",
+      "storyZh": "基于历史分布区域「北美」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北美): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 43.601,
+          "lon": -103.536,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 46.951,
+          "lon": -93.635,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 53.601,
+          "lon": -79.536,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "smilodon-fatalis",
+      "scientificName": "Smilodon fatalis",
+      "commonNameEn": "Saber-toothed Cat",
+      "commonNameZh": "剑齿虎",
+      "region": "美洲",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "剑齿虎迁徙/栖息地演示",
+      "titleEn": "Saber-toothed Cat migration / habitat route",
+      "storyZh": "基于历史分布区域「美洲」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (美洲): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 15.8,
+          "lon": -76.218,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 14.756,
+          "lon": -82.899,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 5.8,
+          "lon": -95.218,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "megatherium-americanum",
+      "scientificName": "Megatherium americanum",
+      "commonNameEn": "Giant Ground Sloth",
+      "commonNameZh": "巨型地懒",
+      "region": "南美",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "巨型地懒迁徙/栖息地演示",
+      "titleEn": "Giant Ground Sloth migration / habitat route",
+      "storyZh": "基于历史分布区域「南美」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (南美): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": -12.942,
+          "lon": -58.711,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": -8.292,
+          "lon": -42.565,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -2.942,
+          "lon": -24.711,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "coelodonta-antiquitatis",
+      "scientificName": "Coelodonta antiquitatis",
+      "commonNameEn": "Woolly Rhinoceros",
+      "commonNameZh": "羊毛犀",
+      "region": "欧亚",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "羊毛犀迁徙/栖息地演示",
+      "titleEn": "Woolly Rhinoceros migration / habitat route",
+      "storyZh": "基于历史分布区域「欧亚」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (欧亚): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 56.76,
+          "lon": 69.152,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 52.439,
+          "lon": 50.196,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 46.76,
+          "lon": 35.152,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "aenocyon-dirus",
+      "scientificName": "Aenocyon dirus",
+      "commonNameEn": "Dire Wolf",
+      "commonNameZh": "恐狼",
+      "region": "北美",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "恐狼迁徙/栖息地演示",
+      "titleEn": "Dire Wolf migration / habitat route",
+      "storyZh": "基于历史分布区域「北美」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北美): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 48.928,
+          "lon": -104.649,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 51.399,
+          "lon": -94.317,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 58.928,
+          "lon": -85.649,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "megaloceros-giganteus",
+      "scientificName": "Megaloceros giganteus",
+      "commonNameEn": "Irish Elk",
+      "commonNameZh": "爱尔兰麋鹿",
+      "region": "欧亚",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "爱尔兰麋鹿迁徙/栖息地演示",
+      "titleEn": "Irish Elk migration / habitat route",
+      "storyZh": "基于历史分布区域「欧亚」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (欧亚): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 54.66,
+          "lon": 61.494,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 51.698,
+          "lon": 46.661,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 44.66,
+          "lon": 37.494,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "ursus-spelaeus",
+      "scientificName": "Ursus spelaeus",
+      "commonNameEn": "Cave Bear",
+      "commonNameZh": "洞熊",
+      "region": "欧洲",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "洞熊迁徙/栖息地演示",
+      "titleEn": "Cave Bear migration / habitat route",
+      "storyZh": "基于历史分布区域「欧洲」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (欧洲): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 48.479,
+          "lon": 14.748,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": 56.299,
+          "lon": 30.22,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 58.479,
+          "lon": 43.748,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "glyptodon-spp",
+      "scientificName": "Glyptodon spp.",
+      "commonNameEn": "Glyptodon",
+      "commonNameZh": "巨型犰狳",
+      "region": "南美",
+      "routeType": "ice_age_range_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "巨型犰狳迁徙/栖息地演示",
+      "titleEn": "Glyptodon migration / habitat route",
+      "storyZh": "基于历史分布区域「南美」生成：从冰缘草原移动到暖化避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (南美): movement from Ice-edge steppe to Warming refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "glacial",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": -12.689,
+          "lon": -61.721,
+          "labelZh": "冰缘草原",
+          "labelEn": "Ice-edge steppe"
+        },
+        {
+          "lat": -13.792,
+          "lon": -65.658,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -22.689,
+          "lon": -75.721,
+          "labelZh": "暖化避难所",
+          "labelEn": "Warming refuge"
+        }
+      ]
+    },
+    {
+      "slug": "thylacinus-cynocephalus",
+      "scientificName": "Thylacinus cynocephalus",
+      "commonNameEn": "Thylacine",
+      "commonNameZh": "袋狼",
+      "region": "澳大利亚/塔斯马尼亚",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "袋狼迁徙/栖息地演示",
+      "titleEn": "Thylacine migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚/塔斯马尼亚」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚/塔斯马尼亚): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -28.217,
+          "lon": 131.337,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -25.113,
+          "lon": 137.84,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -20.217,
+          "lon": 139.337,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "hydrodamalis-gigas",
+      "scientificName": "Hydrodamalis gigas",
+      "commonNameEn": "Steller's Sea Cow",
+      "commonNameZh": "斯特勒海牛",
+      "region": "白令海",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "斯特勒海牛迁徙/栖息地演示",
+      "titleEn": "Steller's Sea Cow migration / habitat route",
+      "storyZh": "基于历史分布区域「白令海」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (白令海): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 56.167,
+          "lon": -174.553,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": 52.234,
+          "lon": 172.794,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 48.167,
+          "lon": 162.447,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "melomys-rubicola",
+      "scientificName": "Melomys rubicola",
+      "commonNameEn": "Bramble Cay Melomys",
+      "commonNameZh": "布兰布尔凯鼠",
+      "region": "澳大利亚",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "布兰布尔凯鼠迁徙/栖息地演示",
+      "titleEn": "Bramble Cay Melomys migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -23.637,
+          "lon": 138.249,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -19.358,
+          "lon": 144.402,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -15.637,
+          "lon": 156.249,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "crocidura-trichura",
+      "scientificName": "Crocidura trichura",
+      "commonNameEn": "Christmas Island Shrew",
+      "commonNameZh": "圣诞岛鼩",
+      "region": "圣诞岛",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "圣诞岛鼩迁徙/栖息地演示",
+      "titleEn": "Christmas Island Shrew migration / habitat route",
+      "storyZh": "基于历史分布区域「圣诞岛」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (圣诞岛): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -13.912,
+          "lon": 108.636,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -13.391,
+          "lon": 107.475,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -17.512,
+          "lon": 105.536,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "potorous-platyops",
+      "scientificName": "Potorous platyops",
+      "commonNameEn": "Broad-faced Potoroo",
+      "commonNameZh": "宽脸袋鼠",
+      "region": "澳大利亚",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "宽脸袋鼠迁徙/栖息地演示",
+      "titleEn": "Broad-faced Potoroo migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -21.973,
+          "lon": 135.619,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -21.563,
+          "lon": 152.837,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -13.973,
+          "lon": 163.619,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "perameles-papillon",
+      "scientificName": "Perameles papillon",
+      "commonNameEn": "Nullarbor Barred Bandicoot",
+      "commonNameZh": "",
+      "region": "澳大利亚",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Nullarbor Barred Bandicoot迁徙/栖息地演示",
+      "titleEn": "Nullarbor Barred Bandicoot migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -21.265,
+          "lon": 134.825,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -24.771,
+          "lon": 121.198,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -29.265,
+          "lon": 106.825,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "perameles-myosuros",
+      "scientificName": "Perameles myosuros",
+      "commonNameEn": "Southern Long-nosed Bandicoot",
+      "commonNameZh": "",
+      "region": "澳大利亚东南",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Southern Long-nosed Bandicoot迁徙/栖息地演示",
+      "titleEn": "Southern Long-nosed Bandicoot migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚东南」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚东南): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -39.799,
+          "lon": 149.492,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -35.112,
+          "lon": 152.455,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -31.799,
+          "lon": 162.492,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "perameles-notina",
+      "scientificName": "Perameles notina",
+      "commonNameEn": "Southeastern Striped Bandicoot",
+      "commonNameZh": "",
+      "region": "澳大利亚",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Southeastern Striped Bandicoot迁徙/栖息地演示",
+      "titleEn": "Southeastern Striped Bandicoot migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -27.98,
+          "lon": 130.536,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -34.135,
+          "lon": 125.067,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -35.98,
+          "lon": 112.536,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "chaeropus-ecaudatus",
+      "scientificName": "Chaeropus ecaudatus",
+      "commonNameEn": "Southern Pig-footed Bandicoot",
+      "commonNameZh": "",
+      "region": "澳大利亚",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Southern Pig-footed Bandicoot迁徙/栖息地演示",
+      "titleEn": "Southern Pig-footed Bandicoot migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -22.823,
+          "lon": 133.187,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -17.834,
+          "lon": 143.973,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -14.823,
+          "lon": 156.187,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "chaeropus-yirratji",
+      "scientificName": "Chaeropus yirratji",
+      "commonNameEn": "Northern Pig-footed Bandicoot",
+      "commonNameZh": "",
+      "region": "澳大利亚",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Northern Pig-footed Bandicoot迁徙/栖息地演示",
+      "titleEn": "Northern Pig-footed Bandicoot migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -25.38,
+          "lon": 134.805,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -30.516,
+          "lon": 131.113,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -33.38,
+          "lon": 126.805,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "zalophus-japonicus",
+      "scientificName": "Zalophus japonicus",
+      "commonNameEn": "Japanese Sea Lion",
+      "commonNameZh": "",
+      "region": "日本海",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Japanese Sea Lion迁徙/栖息地演示",
+      "titleEn": "Japanese Sea Lion migration / habitat route",
+      "storyZh": "基于历史分布区域「日本海」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (日本海): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 35.451,
+          "lon": 89.841,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": 36.716,
+          "lon": 95.242,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 43.451,
+          "lon": 97.841,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "diceros-bicornis-longipes",
+      "scientificName": "Diceros bicornis longipes",
+      "commonNameEn": "Western Black Rhinoceros",
+      "commonNameZh": "",
+      "region": "西非",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Western Black Rhinoceros迁徙/栖息地演示",
+      "titleEn": "Western Black Rhinoceros migration / habitat route",
+      "storyZh": "基于历史分布区域「西非」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (西非): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 10.895,
+          "lon": -7.016,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": 4.757,
+          "lon": -16.054,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 2.895,
+          "lon": -30.016,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "dusicyon-australis",
+      "scientificName": "Dusicyon australis",
+      "commonNameEn": "Falkland Islands Wolf",
+      "commonNameZh": "",
+      "region": "福克兰群岛",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Falkland Islands Wolf迁徙/栖息地演示",
+      "titleEn": "Falkland Islands Wolf migration / habitat route",
+      "storyZh": "基于历史分布区域「福克兰群岛」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (福克兰群岛): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -49.432,
+          "lon": -62.51,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": -48.49,
+          "lon": -58.667,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -45.832,
+          "lon": -54.41,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "raphus-cucullatus",
+      "scientificName": "Raphus cucullatus",
+      "commonNameEn": "Dodo",
+      "commonNameZh": "渡渡鸟",
+      "region": "毛里求斯",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "渡渡鸟迁徙/栖息地演示",
+      "titleEn": "Dodo migration / habitat route",
+      "storyZh": "基于历史分布区域「毛里求斯」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (毛里求斯): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": -22.469,
+          "lon": 60.843,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": -34.134,
+          "lon": 49.517,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -40.469,
+          "lon": 39.843,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "ectopistes-migratorius",
+      "scientificName": "Ectopistes migratorius",
+      "commonNameEn": "Passenger Pigeon",
+      "commonNameZh": "旅鸽",
+      "region": "北美",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "旅鸽迁徙/栖息地演示",
+      "titleEn": "Passenger Pigeon migration / habitat route",
+      "storyZh": "基于历史分布区域「北美」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北美): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 45.86,
+          "lon": -101.613,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 57.791,
+          "lon": -80.255,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 63.86,
+          "lon": -65.613,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "numenius-tenuirostris",
+      "scientificName": "Numenius tenuirostris",
+      "commonNameEn": "Slender-billed Curlew",
+      "commonNameZh": "细嘴杓鹬",
+      "region": "西伯利亚/欧洲/非洲",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "细嘴杓鹬迁徙/栖息地演示",
+      "titleEn": "Slender-billed Curlew migration / habitat route",
+      "storyZh": "基于历史分布区域「西伯利亚/欧洲/非洲」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (西伯利亚/欧洲/非洲): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 60.676,
+          "lon": 101.253,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 53.109,
+          "lon": 84.42,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 42.676,
+          "lon": 65.253,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "psittirostra-psittacea",
+      "scientificName": "Psittirostra psittacea",
+      "commonNameEn": "Ou",
+      "commonNameZh": "ʻŌʻū",
+      "region": "夏威夷",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "ʻŌʻū迁徙/栖息地演示",
+      "titleEn": "Ou migration / habitat route",
+      "storyZh": "基于历史分布区域「夏威夷」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (夏威夷): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 22.774,
+          "lon": -162.774,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 31.145,
+          "lon": -152.866,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 40.774,
+          "lon": -141.774,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "pinguinus-impennis",
+      "scientificName": "Pinguinus impennis",
+      "commonNameEn": "Great Auk",
+      "commonNameZh": "大海雀",
+      "region": "北大西洋",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "大海雀迁徙/栖息地演示",
+      "titleEn": "Great Auk migration / habitat route",
+      "storyZh": "基于历史分布区域「北大西洋」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北大西洋): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 52.463,
+          "lon": -38.239,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 41.374,
+          "lon": -52.997,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 34.463,
+          "lon": -64.239,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "camptorhynchus-labradorius",
+      "scientificName": "Camptorhynchus labradorius",
+      "commonNameEn": "Labrador Duck",
+      "commonNameZh": "拉布拉多鸭",
+      "region": "北美东北",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "拉布拉多鸭迁徙/栖息地演示",
+      "titleEn": "Labrador Duck migration / habitat route",
+      "storyZh": "基于历史分布区域「北美东北」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北美东北): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 45.289,
+          "lon": -66.951,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 57.544,
+          "lon": -53.037,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 63.289,
+          "lon": -35.951,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "tachybaptus-rufolavatus",
+      "scientificName": "Tachybaptus rufolavatus",
+      "commonNameEn": "Alaotra Grebe",
+      "commonNameZh": "阿拉奥特鸊鷉",
+      "region": "马达加斯加",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "阿拉奥特鸊鷉迁徙/栖息地演示",
+      "titleEn": "Alaotra Grebe migration / habitat route",
+      "storyZh": "基于历史分布区域「马达加斯加」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (马达加斯加): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": -17.53,
+          "lon": 42.73,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": -26.918,
+          "lon": 31.154,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -35.53,
+          "lon": 26.73,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "corvus-hawaiiensis",
+      "scientificName": "Corvus hawaiiensis",
+      "commonNameEn": "Hawaiian Crow",
+      "commonNameZh": "夏威夷乌鸦",
+      "region": "夏威夷",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "夏威夷乌鸦迁徙/栖息地演示",
+      "titleEn": "Hawaiian Crow migration / habitat route",
+      "storyZh": "基于历史分布区域「夏威夷」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (夏威夷): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 21.688,
+          "lon": -161.325,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 31.625,
+          "lon": -151.724,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 39.688,
+          "lon": -145.325,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "conuropsis-carolinensis",
+      "scientificName": "Conuropsis carolinensis",
+      "commonNameEn": "Carolina Parakeet",
+      "commonNameZh": "卡罗来纳长尾鹦鹉",
+      "region": "北美东南",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "卡罗来纳长尾鹦鹉迁徙/栖息地演示",
+      "titleEn": "Carolina Parakeet migration / habitat route",
+      "storyZh": "基于历史分布区域「北美东南」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北美东南): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 31.134,
+          "lon": -86.053,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 25.182,
+          "lon": -105.5,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 13.134,
+          "lon": -117.053,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "campephilus-imperialis",
+      "scientificName": "Campephilus imperialis",
+      "commonNameEn": "Imperial Woodpecker",
+      "commonNameZh": "帝王啄木鸟",
+      "region": "墨西哥",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "帝王啄木鸟迁徙/栖息地演示",
+      "titleEn": "Imperial Woodpecker migration / habitat route",
+      "storyZh": "基于历史分布区域「墨西哥」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (墨西哥): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 18.949,
+          "lon": -96.884,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 31.201,
+          "lon": -82.158,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 36.949,
+          "lon": -70.884,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "vermivora-bachmanii",
+      "scientificName": "Vermivora bachmanii",
+      "commonNameEn": "Bachman’s Warbler",
+      "commonNameZh": "",
+      "region": "美国东南",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Bachman’s Warbler迁徙/栖息地演示",
+      "titleEn": "Bachman’s Warbler migration / habitat route",
+      "storyZh": "基于历史分布区域「美国东南」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (美国东南): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 35.615,
+          "lon": -86.069,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 27.711,
+          "lon": -99.351,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 17.615,
+          "lon": -107.069,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "psephotellus-pulcherrimus",
+      "scientificName": "Psephotellus pulcherrimus",
+      "commonNameEn": "Paradise Parrot",
+      "commonNameZh": "",
+      "region": "澳大利亚东部",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Paradise Parrot迁徙/栖息地演示",
+      "titleEn": "Paradise Parrot migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚东部」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚东部): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": -27.614,
+          "lon": 135.049,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": -15.619,
+          "lon": 150.397,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -9.614,
+          "lon": 171.049,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "ninox-albifacies",
+      "scientificName": "Ninox albifacies",
+      "commonNameEn": "Laughing Owl",
+      "commonNameZh": "",
+      "region": "新西兰",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Laughing Owl迁徙/栖息地演示",
+      "titleEn": "Laughing Owl migration / habitat route",
+      "storyZh": "基于历史分布区域「新西兰」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (新西兰): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": -44.308,
+          "lon": 177.491,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": -52.508,
+          "lon": 158.888,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -62.308,
+          "lon": 141.491,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "tympanuchus-cupido-cupido",
+      "scientificName": "Tympanuchus cupido cupido",
+      "commonNameEn": "Heath Hen",
+      "commonNameZh": "",
+      "region": "北美",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Heath Hen迁徙/栖息地演示",
+      "titleEn": "Heath Hen migration / habitat route",
+      "storyZh": "基于历史分布区域「北美」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (北美): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 46.949,
+          "lon": -102.193,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 52.524,
+          "lon": -88.896,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 64.949,
+          "lon": -81.193,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    },
+    {
+      "slug": "chelonoidis-abingdonii",
+      "scientificName": "Chelonoidis abingdonii",
+      "commonNameEn": "Pinta Giant Tortoise",
+      "commonNameZh": "平塔巨龟",
+      "region": "加拉帕戈斯",
+      "routeType": "coastal_thermal_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "平塔巨龟迁徙/栖息地演示",
+      "titleEn": "Pinta Giant Tortoise migration / habitat route",
+      "storyZh": "基于历史分布区域「加拉帕戈斯」生成：从暖岸栖息地移动到干旱避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (加拉帕戈斯): movement from Warm coastal habitat to Dry-season refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 0.686,
+          "lon": -91.852,
+          "labelZh": "暖岸栖息地",
+          "labelEn": "Warm coastal habitat"
+        },
+        {
+          "lat": -1.644,
+          "lon": -96.046,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -4.314,
+          "lon": -103.852,
+          "labelZh": "干旱避难所",
+          "labelEn": "Dry-season refuge"
+        }
+      ]
+    },
+    {
+      "slug": "cylindraspis-indica",
+      "scientificName": "Cylindraspis indica",
+      "commonNameEn": "Réunion Giant Tortoise",
+      "commonNameZh": "留尼汪巨龟",
+      "region": "留尼汪岛",
+      "routeType": "coastal_thermal_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "留尼汪巨龟迁徙/栖息地演示",
+      "titleEn": "Réunion Giant Tortoise migration / habitat route",
+      "storyZh": "基于历史分布区域「留尼汪岛」生成：从暖岸栖息地移动到干旱避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (留尼汪岛): movement from Warm coastal habitat to Dry-season refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -17.469,
+          "lon": 52.927,
+          "labelZh": "暖岸栖息地",
+          "labelEn": "Warm coastal habitat"
+        },
+        {
+          "lat": -17.4,
+          "lon": 55.948,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -15.219,
+          "lon": 63.327,
+          "labelZh": "干旱避难所",
+          "labelEn": "Dry-season refuge"
+        }
+      ]
+    },
+    {
+      "slug": "cylindraspis-triserrata",
+      "scientificName": "Cylindraspis triserrata",
+      "commonNameEn": "Domed Mauritius Giant Tortoise",
+      "commonNameZh": "毛里求斯穹顶巨龟",
+      "region": "毛里求斯",
+      "routeType": "coastal_thermal_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "毛里求斯穹顶巨龟迁徙/栖息地演示",
+      "titleEn": "Domed Mauritius Giant Tortoise migration / habitat route",
+      "storyZh": "基于历史分布区域「毛里求斯」生成：从暖岸栖息地移动到干旱避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (毛里求斯): movement from Warm coastal habitat to Dry-season refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -23.147,
+          "lon": 62.345,
+          "labelZh": "暖岸栖息地",
+          "labelEn": "Warm coastal habitat"
+        },
+        {
+          "lat": -23.889,
+          "lon": 58.647,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -28.147,
+          "lon": 60.345,
+          "labelZh": "干旱避难所",
+          "labelEn": "Dry-season refuge"
+        }
+      ]
+    },
+    {
+      "slug": "cylindraspis-peltastes",
+      "scientificName": "Cylindraspis peltastes",
+      "commonNameEn": "Rodrigues Giant Tortoise",
+      "commonNameZh": "",
+      "region": "罗德里格斯岛",
+      "routeType": "coastal_thermal_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Rodrigues Giant Tortoise迁徙/栖息地演示",
+      "titleEn": "Rodrigues Giant Tortoise migration / habitat route",
+      "storyZh": "基于历史分布区域「罗德里格斯岛」生成：从暖岸栖息地移动到干旱避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (罗德里格斯岛): movement from Warm coastal habitat to Dry-season refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -17.514,
+          "lon": 68.527,
+          "labelZh": "暖岸栖息地",
+          "labelEn": "Warm coastal habitat"
+        },
+        {
+          "lat": -19.897,
+          "lon": 63.643,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -15.264,
+          "lon": 63.927,
+          "labelZh": "干旱避难所",
+          "labelEn": "Dry-season refuge"
+        }
+      ]
+    },
+    {
+      "slug": "bolyeria-multocarinata",
+      "scientificName": "Bolyeria multocarinata",
+      "commonNameEn": "Round Island Burrowing Boa",
+      "commonNameZh": "圆岛掘穴蟒",
+      "region": "毛里求斯",
+      "routeType": "coastal_thermal_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "圆岛掘穴蟒迁徙/栖息地演示",
+      "titleEn": "Round Island Burrowing Boa migration / habitat route",
+      "storyZh": "基于历史分布区域「毛里求斯」生成：从暖岸栖息地移动到干旱避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (毛里求斯): movement from Warm coastal habitat to Dry-season refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -17.924,
+          "lon": 61.195,
+          "labelZh": "暖岸栖息地",
+          "labelEn": "Warm coastal habitat"
+        },
+        {
+          "lat": -23.447,
+          "lon": 50.307,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -22.924,
+          "lon": 44.195,
+          "labelZh": "干旱避难所",
+          "labelEn": "Dry-season refuge"
+        }
+      ]
+    },
+    {
+      "slug": "hoplodactylus-delcourti",
+      "scientificName": "Hoplodactylus delcourti",
+      "commonNameEn": "Delcourt's Giant Gecko",
+      "commonNameZh": "",
+      "region": "新西兰",
+      "routeType": "coastal_thermal_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Delcourt's Giant Gecko迁徙/栖息地演示",
+      "titleEn": "Delcourt's Giant Gecko migration / habitat route",
+      "storyZh": "基于历史分布区域「新西兰」生成：从暖岸栖息地移动到干旱避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (新西兰): movement from Warm coastal habitat to Dry-season refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": -43.979,
+          "lon": 174.733,
+          "labelZh": "暖岸栖息地",
+          "labelEn": "Warm coastal habitat"
+        },
+        {
+          "lat": -43.581,
+          "lon": 177.259,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -38.979,
+          "lon": -173.267,
+          "labelZh": "干旱避难所",
+          "labelEn": "Dry-season refuge"
+        }
+      ]
+    },
+    {
+      "slug": "incilius-periglenes",
+      "scientificName": "Incilius periglenes",
+      "commonNameEn": "Golden Toad",
+      "commonNameZh": "金蟾",
+      "region": "哥斯达黎加",
+      "routeType": "cloud_forest_moisture",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "金蟾迁徙/栖息地演示",
+      "titleEn": "Golden Toad migration / habitat route",
+      "storyZh": "基于历史分布区域「哥斯达黎加」生成：从湿润繁殖地移动到高海拔雾林，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (哥斯达黎加): movement from Wet breeding ground to High-elevation cloud forest, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "humid",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 6.154,
+          "lon": -86.77,
+          "labelZh": "湿润繁殖地",
+          "labelEn": "Wet breeding ground"
+        },
+        {
+          "lat": 7.066,
+          "lon": -92.82,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 0.154,
+          "lon": -91.77,
+          "labelZh": "高海拔雾林",
+          "labelEn": "High-elevation cloud forest"
+        }
+      ]
+    },
+    {
+      "slug": "cynops-wolterstorffi",
+      "scientificName": "Cynops wolterstorffi",
+      "commonNameEn": "Yunnan Lake Newt",
+      "commonNameZh": "云南湖蝾螈",
+      "region": "中国云南",
+      "routeType": "cloud_forest_moisture",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "云南湖蝾螈迁徙/栖息地演示",
+      "titleEn": "Yunnan Lake Newt migration / habitat route",
+      "storyZh": "基于历史分布区域「中国云南」生成：从湿润繁殖地移动到高海拔雾林，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (中国云南): movement from Wet breeding ground to High-elevation cloud forest, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "humid",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 21.282,
+          "lon": 104.055,
+          "labelZh": "湿润繁殖地",
+          "labelEn": "Wet breeding ground"
+        },
+        {
+          "lat": 20.951,
+          "lon": 113.227,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 27.282,
+          "lon": 124.055,
+          "labelZh": "高海拔雾林",
+          "labelEn": "High-elevation cloud forest"
+        }
+      ]
+    },
+    {
+      "slug": "litoria-nyakalensis",
+      "scientificName": "Litoria nyakalensis",
+      "commonNameEn": "Mountain Mist Frog",
+      "commonNameZh": "山雾蛙",
+      "region": "澳大利亚",
+      "routeType": "cloud_forest_moisture",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "山雾蛙迁徙/栖息地演示",
+      "titleEn": "Mountain Mist Frog migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从湿润繁殖地移动到高海拔雾林，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from Wet breeding ground to High-elevation cloud forest, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "humid",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": -21.932,
+          "lon": 135.847,
+          "labelZh": "湿润繁殖地",
+          "labelEn": "Wet breeding ground"
+        },
+        {
+          "lat": -21.575,
+          "lon": 125.633,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -27.932,
+          "lon": 115.847,
+          "labelZh": "高海拔雾林",
+          "labelEn": "High-elevation cloud forest"
+        }
+      ]
+    },
+    {
+      "slug": "psephurus-gladius",
+      "scientificName": "Psephurus gladius",
+      "commonNameEn": "Chinese Paddlefish",
+      "commonNameZh": "中国匙吻鲟",
+      "region": "长江",
+      "routeType": "river_sea_corridor",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "中国匙吻鲟迁徙/栖息地演示",
+      "titleEn": "Chinese Paddlefish migration / habitat route",
+      "storyZh": "基于历史分布区域「长江」生成：从河流产卵地移动到深水/下游廊道，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (长江): movement from River spawning ground to Deep-water / downstream corridor, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "river",
+      "climateEnd": "ocean",
+      "waypoints": [
+        {
+          "lat": 32.65,
+          "lon": 115.91,
+          "labelZh": "河流产卵地",
+          "labelEn": "River spawning ground"
+        },
+        {
+          "lat": 34.076,
+          "lon": 124.022,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 36.65,
+          "lon": 128.91,
+          "labelZh": "深水/下游廊道",
+          "labelEn": "Deep-water / downstream corridor"
+        }
+      ]
+    },
+    {
+      "slug": "sympterichthys-unipennis",
+      "scientificName": "Sympterichthys unipennis",
+      "commonNameEn": "Smooth Handfish",
+      "commonNameZh": "",
+      "region": "澳大利亚",
+      "routeType": "river_sea_corridor",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Smooth Handfish迁徙/栖息地演示",
+      "titleEn": "Smooth Handfish migration / habitat route",
+      "storyZh": "基于历史分布区域「澳大利亚」生成：从河流产卵地移动到深水/下游廊道，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (澳大利亚): movement from River spawning ground to Deep-water / downstream corridor, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "river",
+      "climateEnd": "ocean",
+      "waypoints": [
+        {
+          "lat": -25.373,
+          "lon": 133.751,
+          "labelZh": "河流产卵地",
+          "labelEn": "River spawning ground"
+        },
+        {
+          "lat": -28.523,
+          "lon": 123.547,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": -29.373,
+          "lon": 115.751,
+          "labelZh": "深水/下游廊道",
+          "labelEn": "Deep-water / downstream corridor"
+        }
+      ]
+    },
+    {
+      "slug": "glaucopsyche-xerces",
+      "scientificName": "Glaucopsyche xerces",
+      "commonNameEn": "Xerces Blue Butterfly",
+      "commonNameZh": "",
+      "region": "美国",
+      "routeType": "micro_habitat_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Xerces Blue Butterfly迁徙/栖息地演示",
+      "titleEn": "Xerces Blue Butterfly migration / habitat route",
+      "storyZh": "基于历史分布区域「美国」生成：从寄主植物地带移动到气候边缘栖地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (美国): movement from Host-plant zone to Climate-edge habitat, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 45.788,
+          "lon": -96.686,
+          "labelZh": "寄主植物地带",
+          "labelEn": "Host-plant zone"
+        },
+        {
+          "lat": 50.742,
+          "lon": -90.11,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 48.788,
+          "lon": -83.686,
+          "labelZh": "气候边缘栖地",
+          "labelEn": "Climate-edge habitat"
+        }
+      ]
+    },
+    {
+      "slug": "conus-lugubris",
+      "scientificName": "Conus lugubris",
+      "commonNameEn": "Lugubrious cone snail",
+      "commonNameZh": "忧郁芈螺",
+      "region": "Cape Verde (marine)",
+      "routeType": "micro_habitat_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "忧郁芈螺迁徙/栖息地演示",
+      "titleEn": "Lugubrious cone snail migration / habitat route",
+      "storyZh": "基于历史分布区域「Cape Verde (marine)」生成：从寄主植物地带移动到气候边缘栖地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (Cape Verde (marine)): movement from Host-plant zone to Climate-edge habitat, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 14.012,
+          "lon": -25.137,
+          "labelZh": "寄主植物地带",
+          "labelEn": "Host-plant zone"
+        },
+        {
+          "lat": 12.513,
+          "lon": -22.534,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 12.662,
+          "lon": -18.737,
+          "labelZh": "气候边缘栖地",
+          "labelEn": "Climate-edge habitat"
+        }
+      ]
+    },
+    {
+      "slug": "pieris-wollastoni",
+      "scientificName": "Pieris wollastoni",
+      "commonNameEn": "Madeira large white",
+      "commonNameZh": "马德拉大白蝶",
+      "region": "Madeira",
+      "routeType": "micro_habitat_shift",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "马德拉大白蝶迁徙/栖息地演示",
+      "titleEn": "Madeira large white migration / habitat route",
+      "storyZh": "基于历史分布区域「Madeira」生成：从寄主植物地带移动到气候边缘栖地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (Madeira): movement from Host-plant zone to Climate-edge habitat, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "warm",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 31.034,
+          "lon": -14.55,
+          "labelZh": "寄主植物地带",
+          "labelEn": "Host-plant zone"
+        },
+        {
+          "lat": 29.212,
+          "lon": -20.005,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 32.384,
+          "lon": -20.95,
+          "labelZh": "气候边缘栖地",
+          "labelEn": "Climate-edge habitat"
+        }
+      ]
+    },
+    {
+      "slug": "lipotes-vexillifer",
+      "scientificName": "Lipotes vexillifer",
+      "commonNameEn": "Baiji",
+      "commonNameZh": "白鲜豚",
+      "region": "Yangtze River, China",
+      "routeType": "foraging_range",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "白鲜豚迁徙/栖息地演示",
+      "titleEn": "Baiji migration / habitat route",
+      "storyZh": "基于历史分布区域「Yangtze River, China」生成：从繁殖/觅食地移动到压力避难所，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (Yangtze River, China): movement from Breeding / foraging range to Pressure refuge, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "coastal",
+      "climateEnd": "dry",
+      "waypoints": [
+        {
+          "lat": 29.007,
+          "lon": 107.049,
+          "labelZh": "繁殖/觅食地",
+          "labelEn": "Breeding / foraging range"
+        },
+        {
+          "lat": 21.671,
+          "lon": 98.64,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 21.007,
+          "lon": 84.049,
+          "labelZh": "压力避难所",
+          "labelEn": "Pressure refuge"
+        }
+      ]
+    },
+    {
+      "slug": "oophaga-speciosa",
+      "scientificName": "Oophaga speciosa",
+      "commonNameEn": "Splendid poison frog",
+      "commonNameZh": "华丽箭毒蛙",
+      "region": "Western Colombia",
+      "routeType": "cloud_forest_moisture",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "华丽箭毒蛙迁徙/栖息地演示",
+      "titleEn": "Splendid poison frog migration / habitat route",
+      "storyZh": "基于历史分布区域「Western Colombia」生成：从湿润繁殖地移动到高海拔雾林，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (Western Colombia): movement from Wet breeding ground to High-elevation cloud forest, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "humid",
+      "climateEnd": "warming",
+      "waypoints": [
+        {
+          "lat": 3.012,
+          "lon": -75.49,
+          "labelZh": "湿润繁殖地",
+          "labelEn": "Wet breeding ground"
+        },
+        {
+          "lat": 6.237,
+          "lon": -68.876,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 9.012,
+          "lon": -65.49,
+          "labelZh": "高海拔雾林",
+          "labelEn": "High-elevation cloud forest"
+        }
+      ]
+    },
+    {
+      "slug": "melamprosops-phaeosoma",
+      "scientificName": "Melamprosops phaeosoma",
+      "commonNameEn": "Hawaiian honeycreeper (Poʻouli)",
+      "commonNameZh": "Poʻouli",
+      "region": "Hawaii",
+      "routeType": "seasonal_flyway",
+      "confidence": "prototype_inferred_from_historical_range",
+      "titleZh": "Poʻouli迁徙/栖息地演示",
+      "titleEn": "Hawaiian honeycreeper (Poʻouli) migration / habitat route",
+      "storyZh": "基于历史分布区域「Hawaii」生成：从温带繁殖地移动到越冬湿地，用于展示迁徙、扩散或气候压力下的栖息地转移。",
+      "storyEn": "Generated from historical range context (Hawaii): movement from Temperate breeding range to Wintering wetland, used to visualize migration, dispersal, or climate-pressure habitat shift.",
+      "climateStart": "temperate",
+      "climateEnd": "monsoon",
+      "waypoints": [
+        {
+          "lat": 17.576,
+          "lon": -154.375,
+          "labelZh": "温带繁殖地",
+          "labelEn": "Temperate breeding range"
+        },
+        {
+          "lat": 10.925,
+          "lon": -155.742,
+          "labelZh": "中途廊道",
+          "labelEn": "Mid-route corridor"
+        },
+        {
+          "lat": 9.476,
+          "lon": -161.075,
+          "labelZh": "越冬湿地",
+          "labelEn": "Wintering wetland"
+        }
+      ]
+    }
+  ]
+}

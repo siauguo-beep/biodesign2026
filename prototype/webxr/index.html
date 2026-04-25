@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>灭绝拾遗 · Umwelt Archive — WebXR</title>
+  <title>地球之殇</title>
   <link rel="stylesheet" href="./css/xr-ui.css" />
   <script type="importmap">
   {
@@ -15,46 +15,56 @@
   </script>
 </head>
 <body>
-  <div id="xr-root">
-    <canvas id="xr-canvas" aria-label="行星尺度灭绝物种地图 WebXR"></canvas>
+  <div id="xr-root" class="xr-home-layout">
+    <div class="xr-home-left">
+      <header class="xr-hud xr-chip">
+        <p class="xr-sorrow" data-xr-i18n="sorrowMark">EARTH'S SORROW</p>
+        <h1 data-xr-i18n="mainTitle">地球之殇</h1>
+        <p class="sub" id="xr-species-count">载入中…</p>
+        <p class="sub xr-count-note" data-xr-i18n="countNote">位置依据公开资料中的历史分布与灭绝记录整理，显示的是大致范围，不是精确坐标。</p>
+        <p class="en" data-xr-i18n="chipSubtitle">从地球上的光点，看见人类活动留下的物种空缺</p>
+      </header>
 
-    <div id="xr-webxr-slot"></div>
+      <aside class="xr-hud xr-corner">
+        <p class="xr-eyebrow" data-xr-i18n="eyebrow">Biodesign · 原型</p>
+        <h2 data-xr-i18n="cornerTitle">如何浏览</h2>
+        <p data-xr-i18n="cornerBody">拖动地球观察不同地区，滚轮缩放，点击光点进入物种档案。图中的位置来自公开的历史分布与灭绝记录；WebXR 模式需 HTTPS 或 localhost。</p>
+        <nav class="xr-links">
+          <a href="./destinations.html" data-xr-i18n="destinations">物种全表</a>
+          <a href="./ethics.html" data-xr-i18n="ethics">伦理决策界面</a>
+          <a href="../index.html" data-xr-i18n="classic">2D 首页</a>
+        </nav>
+      </aside>
+    </div>
 
-    <header class="xr-hud xr-chip">
-      <h1>灭绝拾遗</h1>
-      <p class="sub" id="xr-species-count">Loading…</p>
-      <p class="en">Extinction Archive · Planetary sensory time capsule (WebXR)</p>
-    </header>
-
-    <aside class="xr-hud xr-corner">
-      <h2>Umwelt 档案馆</h2>
-      <p>以地理坐标锚定「集体记忆的缺席」：拖拽旋转星球，点选光点打开物种数字档案。支持 WebXR 进入沉浸场域（需 HTTPS 或 localhost）。</p>
-      <nav class="xr-links">
-        <a href="./destinations.html">Destinations 全表</a>
-        <a href="./ethics.html">伦理决策界面</a>
-        <a href="../index.html">经典 2D 原型</a>
-      </nav>
-    </aside>
+    <div class="xr-home-right" id="xr-globe-host">
+      <section class="xr-hud xr-lang-switch" aria-label="Language">
+        <button type="button" data-xr-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" data-xr-lang="en" aria-pressed="false">EN</button>
+      </section>
+      <div id="xr-webxr-slot" class="xr-webxr-in-globe"></div>
+      <canvas id="xr-canvas" aria-label="行星尺度灭绝物种地图 WebXR"></canvas>
+    </div>
 
     <footer class="xr-hud xr-dock" aria-label="地图控制">
       <div class="xr-row" role="toolbar" aria-label="地理区域">
-        <button type="button" class="xr-pill" data-region="global">Global</button>
-        <button type="button" class="xr-pill" data-region="asia">Asia</button>
-        <button type="button" class="xr-pill" data-region="europe">Europe</button>
-        <button type="button" class="xr-pill" data-region="africa">Africa</button>
-        <button type="button" class="xr-pill" data-region="nam">N.Am</button>
-        <button type="button" class="xr-pill" data-region="sam">S.Am</button>
-        <button type="button" class="xr-pill" data-region="arctic">Arctic</button>
-        <button type="button" class="xr-pill" data-region="antarctic">Antarctic</button>
+        <button type="button" class="xr-pill" data-region="global" data-xr-i18n="regionGlobal">Global</button>
+        <button type="button" class="xr-pill" data-region="asia" data-xr-i18n="regionAsia">Asia</button>
+        <button type="button" class="xr-pill" data-region="europe" data-xr-i18n="regionEurope">Europe</button>
+        <button type="button" class="xr-pill" data-region="africa" data-xr-i18n="regionAfrica">Africa</button>
+        <button type="button" class="xr-pill" data-region="nam" data-xr-i18n="regionNam">N.Am</button>
+        <button type="button" class="xr-pill" data-region="sam" data-xr-i18n="regionSam">S.Am</button>
+        <button type="button" class="xr-pill" data-region="arctic" data-xr-i18n="regionArctic">Arctic</button>
+        <button type="button" class="xr-pill" data-region="antarctic" data-xr-i18n="regionAntarctic">Antarctic</button>
       </div>
       <div class="xr-row" role="toolbar" aria-label="图层与动作">
-        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-grid" checked /> Grid</label>
-        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-story" checked /> Story</label>
-        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-routes" checked /> Routes</label>
-        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-scatter" /> Scatter</label>
-        <button type="button" class="xr-pill xr-actions" id="xr-btn-migrate">Migrate</button>
-        <button type="button" class="xr-pill xr-actions" id="xr-btn-mute">Mute</button>
-        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-rotate" checked /> Rotate</label>
+        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-grid" checked /> <span data-xr-i18n="grid">Grid</span></label>
+        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-story" checked /> <span data-xr-i18n="story">Story</span></label>
+        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-routes" checked /> <span data-xr-i18n="routes">Routes</span></label>
+        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-scatter" /> <span data-xr-i18n="scatter">Scatter</span></label>
+        <button type="button" class="xr-pill xr-actions" id="xr-btn-migrate" data-xr-i18n="migrate">Migrate</button>
+        <button type="button" class="xr-pill xr-actions" id="xr-btn-mute" data-xr-i18n="mute">Mute</button>
+        <label class="xr-toggle"><input type="checkbox" id="xr-toggle-rotate" checked /> <span data-xr-i18n="rotate">Rotate</span></label>
       </div>
     </footer>
 
@@ -68,15 +78,107 @@
 
   <script type="module">
     import { initGlobe } from "./js/xr-globe.js";
+    window.XR_COPY = {
+      zh: {
+        title: "地球之殇",
+        sorrowMark: "EARTH'S SORROW",
+        mainTitle: "地球之殇",
+        chipSubtitle: "从地球上的光点，看见人类活动留下的物种空缺",
+        count: (n) => `这张地球图收录了 ${n} 个与人类活动相关的灭绝物种。每一枚光点，都是它们曾经生活过的地方。`,
+        countNote: "位置依据公开资料中的历史分布与灭绝记录整理，显示的是大致范围，不是精确坐标。",
+        loadError: "数据加载失败 — 请从仓库根目录启动本地服务",
+        eyebrow: "Biodesign · 原型",
+        cornerTitle: "如何浏览",
+        cornerBody: "拖动地球观察不同地区，滚轮缩放，点击光点进入物种档案。图中的位置来自公开的历史分布与灭绝记录；WebXR 模式需 HTTPS 或 localhost。",
+        destinations: "物种全表",
+        ethics: "伦理决策界面",
+        classic: "2D 首页",
+        regionGlobal: "全球",
+        regionAsia: "亚洲",
+        regionEurope: "欧洲",
+        regionAfrica: "非洲",
+        regionNam: "北美",
+        regionSam: "南美",
+        regionArctic: "北极",
+        regionAntarctic: "南极",
+        grid: "网格",
+        story: "地名",
+        routes: "路径",
+        scatter: "散开",
+        migrate: "迁徙演示",
+        mute: "静音",
+        muted: "已静音",
+        rotate: "旋转"
+      },
+      en: {
+        title: "Earth's Sorrow",
+        sorrowMark: "EARTH'S SORROW",
+        mainTitle: "Earth's Sorrow",
+        chipSubtitle: "Points of light reveal the species gaps left by human activity",
+        count: (n) => `This globe includes ${n} extinct species linked to human activity. Each light marks a place they once lived.`,
+        countNote: "Locations are compiled from public records of historical range and extinction. They show approximate areas, not exact coordinates.",
+        loadError: "Data failed to load — start the local server from the repository root",
+        eyebrow: "Biodesign · Prototype",
+        cornerTitle: "How to explore",
+        cornerBody: "Drag the globe to explore regions, scroll to zoom, and select a light to open a species dossier. Locations come from public records of historical range and extinction; WebXR requires HTTPS or localhost.",
+        destinations: "Destinations table",
+        ethics: "Ethics interface",
+        classic: "Classic 2D prototype",
+        regionGlobal: "Global",
+        regionAsia: "Asia",
+        regionEurope: "Europe",
+        regionAfrica: "Africa",
+        regionNam: "N.Am",
+        regionSam: "S.Am",
+        regionArctic: "Arctic",
+        regionAntarctic: "Antarctic",
+        grid: "Grid",
+        story: "Story",
+        routes: "Routes",
+        scatter: "Scatter",
+        migrate: "Migrate",
+        mute: "Mute",
+        muted: "Muted",
+        rotate: "Rotate"
+      }
+    };
+
+    window.setXRLanguage = function setXRLanguage(lang) {
+      const selected = window.XR_COPY[lang] ? lang : "zh";
+      const copy = window.XR_COPY[selected];
+      document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
+      document.title = copy.title;
+      document.querySelectorAll("[data-xr-i18n]").forEach((node) => {
+        const key = node.dataset.xrI18n;
+        if (typeof copy[key] === "string") node.textContent = copy[key];
+      });
+      document.querySelectorAll("[data-xr-lang]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.xrLang === selected));
+      });
+      localStorage.setItem("ea-lang", selected);
+      localStorage.setItem("prototype-lang", selected);
+      localStorage.setItem("xr-lang", selected);
+      localStorage.setItem("ethics-lang", selected);
+      window.dispatchEvent(new CustomEvent("xr:languagechange", { detail: { lang: selected } }));
+    };
+
+    document.querySelectorAll("[data-xr-lang]").forEach((button) => {
+      button.addEventListener("click", () => window.setXRLanguage(button.dataset.xrLang));
+    });
+    window.setXRLanguage(localStorage.getItem("ea-lang") || localStorage.getItem("xr-lang") || "zh");
+
     initGlobe().catch(err => {
       console.error(err);
-      document.getElementById("xr-species-count").textContent = "数据加载失败 — 请从仓库根目录启动本地服务";
+      const lang = localStorage.getItem("ea-lang") || localStorage.getItem("xr-lang") || "zh";
+      document.getElementById("xr-species-count").textContent = window.XR_COPY[lang].loadError;
     });
 
     document.getElementById("xr-btn-mute")?.addEventListener("click", (e) => {
       const on = e.currentTarget.dataset.on === "1";
       e.currentTarget.dataset.on = on ? "" : "1";
-      e.currentTarget.textContent = on ? "Mute" : "Muted";
+      const lang = localStorage.getItem("ea-lang") || localStorage.getItem("xr-lang") || "zh";
+      e.currentTarget.textContent = on ? window.XR_COPY[lang].mute : window.XR_COPY[lang].muted;
+      if (!on) window.dispatchEvent(new CustomEvent("xr:mute"));
     });
   </script>
 </body>

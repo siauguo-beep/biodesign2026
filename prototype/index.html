@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Umwelt Globe Prototype</title>
+  <title>地球之殇</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body data-page="home">
@@ -11,26 +11,92 @@
     <canvas id="globe-canvas" aria-label="Extinction globe"></canvas>
 
     <section class="overlay top-left">
-      <h1>Extinction Archive</h1>
-      <p class="subtitle">AI Memorial for Lost Species · Umwelt Archive</p>
-      <p class="subtitle">Sensory Time Capsule - Prototype</p>
-      <p class="tiny">Drag to rotate · Scroll to zoom · Click a glowing point to open species</p>
+      <p class="sorrow-mark" data-i18n="sorrowMark">EARTH'S SORROW</p>
+      <p class="eyebrow" data-i18n="eyebrow">Biodesign · 原型</p>
+      <h1 data-i18n="mainTitle">地球之殇</h1>
+      <p class="subtitle" data-i18n="subTagline">从地球上的光点，看见人类活动留下的物种空缺</p>
+      <p class="intro-stat" id="species-count-line" aria-live="polite">载入中…</p>
+      <p class="tiny intro-stat-note" data-i18n="countNote">位置依据公开资料中的历史分布与灭绝记录整理，显示的是大致范围，不是精确坐标。</p>
+      <p class="lede" data-i18n="lede">你可以拖动地球、点击光点，进入物种档案，了解它们如何消失、与我们有什么关系，以及今天还能从中学到什么。下方入口可查看沉浸星球、完整卡片和重点案例。</p>
+      <p class="tiny" data-i18n="hint">拖动旋转 · 滚轮缩放 · 点击光点查看档案</p>
     </section>
 
-    <section class="overlay top-center stat-chip">
-      <div id="species-count-chip">Loading species...</div>
-      <div class="tiny">Mapped by extinction-region dataset</div>
+    <section class="overlay top-right lang-switch" aria-label="Language">
+      <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </section>
 
     <section class="overlay bottom-center controls-row">
-      <button id="toggle-autorotate">Pause Rotate</button>
-      <a class="ghost-btn" href="./webxr/index.html">WebXR 星球原型</a>
-      <a class="ghost-btn" href="./archive.html">Open Card Archive</a>
-      <a class="ghost-btn" href="./hero.html">Open Hero Dossiers</a>
+      <button id="toggle-autorotate" data-i18n="pause">暂停旋转</button>
+      <a class="ghost-btn" href="./webxr/index.html" data-i18n="webxr">沉浸星球</a>
+      <a class="ghost-btn" href="./archive.html" data-i18n="archive">物种档案</a>
+      <a class="ghost-btn" href="./hero.html" data-i18n="hero">重点案例</a>
     </section>
 
     <section id="point-popup" class="overlay popup hidden" aria-live="polite"></section>
   </main>
+  <script>
+    window.PROTOTYPE_COPY = {
+      zh: {
+        title: "地球之殇",
+        sorrowMark: "EARTH'S SORROW",
+        eyebrow: "Biodesign · 原型",
+        mainTitle: "地球之殇",
+        subTagline: "从地球上的光点，看见人类活动留下的物种空缺",
+        lede: "你可以拖动地球、点击光点，进入物种档案，了解它们如何消失、与我们有什么关系，以及今天还能从中学到什么。下方入口可查看沉浸星球、完整卡片和重点案例。",
+        hint: "拖动旋转 · 滚轮缩放 · 点击光点查看档案",
+        countNote: "位置依据公开资料中的历史分布与灭绝记录整理，显示的是大致范围，不是精确坐标。",
+        pause: "暂停旋转",
+        resume: "继续旋转",
+        webxr: "沉浸星球",
+        archive: "物种档案",
+        hero: "重点案例",
+        count: (n) => `这张地球图收录了 ${n} 个与人类活动相关的灭绝物种。每一枚光点，都是它们曾经生活过的地方。`,
+        open: "打开物种档案"
+      },
+      en: {
+        title: "Earth's Sorrow",
+        sorrowMark: "EARTH'S SORROW",
+        eyebrow: "Biodesign · Prototype",
+        mainTitle: "Earth's Sorrow",
+        subTagline: "Points of light reveal the species gaps left by human activity",
+        lede: "Drag the globe and select a light to open a species dossier: what disappeared, how people were involved, and what the loss can still teach us. The links below open the immersive globe, the full card archive, and selected deep dives.",
+        hint: "Drag to rotate · Scroll to zoom · Select a light to open the dossier",
+        countNote: "Locations are compiled from public records of historical range and extinction. They show approximate areas, not exact coordinates.",
+        pause: "Pause Rotate",
+        resume: "Resume Rotate",
+        webxr: "WebXR Planet",
+        archive: "Card Archive",
+        hero: "Hero Dossiers",
+        count: (n) => `This globe includes ${n} extinct species linked to human activity. Each light marks a place they once lived.`,
+        open: "Open species dossier"
+      }
+    };
+
+    window.setPrototypeLanguage = function setPrototypeLanguage(lang) {
+      const selected = window.PROTOTYPE_COPY[lang] ? lang : "zh";
+      const copy = window.PROTOTYPE_COPY[selected];
+      document.documentElement.lang = selected === "zh" ? "zh-Hans" : "en";
+      document.title = copy.title;
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.dataset.i18n;
+        if (typeof copy[key] === "string") node.textContent = copy[key];
+      });
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === selected));
+      });
+      localStorage.setItem("ea-lang", selected);
+      localStorage.setItem("prototype-lang", selected);
+      localStorage.setItem("xr-lang", selected);
+      localStorage.setItem("ethics-lang", selected);
+      window.dispatchEvent(new CustomEvent("prototype:languagechange", { detail: { lang: selected } }));
+    };
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => window.setPrototypeLanguage(button.dataset.lang));
+    });
+    window.setPrototypeLanguage(localStorage.getItem("ea-lang") || localStorage.getItem("prototype-lang") || "zh");
+  </script>
   <script src="./app.js"></script>
 </body>
 </html>

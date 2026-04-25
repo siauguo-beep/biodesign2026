@@ -95,6 +95,11 @@ export function categoryColorHex(category = "") {
   return 0xd0def2;
 }
 
-export function getSpeciesLink(slug) {
-  return `./species.html?slug=${encodeURIComponent(slug)}`;
+export function getSpeciesLink(slug, { fragment, view } = {}) {
+  const params = new URLSearchParams();
+  params.set("slug", String(slug));
+  if (view) params.set("view", String(view));
+  let u = `./species.html?${params.toString()}`;
+  if (fragment) u += `#${String(fragment).replace(/^#/, "")}`;
+  return u;
 }

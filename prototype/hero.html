@@ -1,50 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hero Dossiers - Umwelt Archive</title>
+  <title>重点案例 - 地球之殇</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body data-page="hero">
   <header class="top">
-    <h1>Hero Dossiers (Depth Layer)</h1>
-    <p>Immersive narrative prototypes for Mammoth and Thylacine</p>
+    <h1>重点案例</h1>
+    <p>以猛犸象和袋狼为例，展示科学资料、历史记录和沉浸式叙事如何结合。</p>
     <nav class="main-nav">
-      <a href="./index.html">Home</a>
-      <a href="./archive.html">Archive Cards</a>
+      <a href="./index.html">首页</a>
+      <a href="./archive.html">物种档案</a>
     </nav>
   </header>
 
   <main class="layout">
     <section class="panel hero">
       <div class="hero-tabs">
-        <button class="tab active" data-hero="mammoth">Woolly Mammoth</button>
-        <button class="tab" data-hero="thylacine">Thylacine</button>
+      <button class="tab active" data-hero="mammoth">猛犸象</button>
+      <button class="tab" data-hero="thylacine">袋狼</button>
       </div>
       <div id="hero-content"></div>
       <div class="tier-legend">
-        <span class="tag cited">Cited</span>
-        <span class="tag interp">Interpolated</span>
-        <span class="tag spec">Speculative</span>
+        <span class="tag cited">已引用</span>
+        <span class="tag interp">推断</span>
+        <span class="tag spec">推测</span>
       </div>
     </section>
 
     <section class="panel ethics">
-      <h2>Ethics Fork</h2>
-      <label>De-extinction budget priority: <span id="budget-value">50</span></label>
+      <h2>伦理思考</h2>
+      <label>去灭绝研究投入优先级：<span id="budget-value">50</span></label>
       <input type="range" id="budget" min="0" max="100" value="50" />
-      <label>Risk tolerance for ecological uncertainty: <span id="risk-value">30</span></label>
+      <label>生态不确定性的接受程度：<span id="risk-value">30</span></label>
       <input type="range" id="risk" min="0" max="100" value="30" />
       <p id="ethics-output"></p>
     </section>
 
     <section class="panel reflection">
-      <h2>Reflection Log</h2>
-      <textarea id="reflection-input" rows="4" placeholder="What does irreversible loss of biological memory mean to you?"></textarea>
+      <h2>反思日志</h2>
+      <textarea id="reflection-input" rows="4" placeholder="当一个物种从地球上消失，我们应该如何记住它、解释它，并避免新的消失？"></textarea>
       <div class="buttons">
-        <button id="save-reflection">Save reflection</button>
-        <button id="load-reflection">Load last reflection</button>
+        <button id="save-reflection">保存反思</button>
+        <button id="load-reflection">载入上次反思</button>
       </div>
       <p id="reflection-status"></p>
     </section>
