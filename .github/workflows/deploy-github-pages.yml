@@ -1,5 +1,9 @@
 # 将本仓库的静态内容部署到 GitHub Pages（整仓根目录，便于 /docs 与 /prototype 同站访问）
-# 启用在仓库：Settings → Pages → Build and deployment → Source 选「GitHub Actions」
+#
+# 若 deploy 步骤报 400 / “only allowed from gh-pages” 等：请到 Settings → Pages
+# 将 Source 改为「GitHub Actions」，不要再用「从分支发布」。并检查 Settings →
+# Environments → github-pages 的 Deployment branches，应允许从 main 部署（或
+# 全部来源）。详见：https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-a-github-pages-site#publishing-with-a-custom-github-actions-workflow
 name: Deploy GitHub Pages
 
 on:
@@ -27,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload static artifact
         uses: actions/upload-pages-artifact@v3
@@ -36,4 +40,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
