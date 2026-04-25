@@ -17,7 +17,7 @@ Biodesign Challenge 2026 — **Umwelt Archive / Extinction Archive**: documentat
 | [**BDC_2026_Extinction_Archive_Planning_Document.md**](BDC_2026_Extinction_Archive_Planning_Document.md) | Citations, storyboard IDs, T5 context, verification notes |
 | [**templates/reflection-log-webxr.html**](templates/reflection-log-webxr.html) | End-of-experience reflection UI template |
 | [**docs/GITHUB_PDF_PREVIEW.md**](docs/GITHUB_PDF_PREVIEW.md) | **GitHub in-browser PDF preview** URL for the summit deck |
-| [**docs/index.html**](docs/index.html) | **项目进展一览（GitHub Pages）**：先在页内脚本填写 `GITHUB_REPO`，再在 Settings → Pages 选 `/docs`，访问 `https://<你的用户名>.github.io/<你的仓库名>/` |
+| [**docs/index.html**](docs/index.html) | **项目进展一览**：页内填写 `GITHUB_REPO`。**推荐** 在 Settings → Pages 将 Source 设为 **GitHub Actions**（工作流 [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml)），以发布**整仓**，从而同时可访问 `prototype/`。根地址同 `https://<用户名>.github.io/<仓库名>/`（进展页在 `/docs/index.html`） |
 
 ### Summit slide deck (PDF on GitHub)
 

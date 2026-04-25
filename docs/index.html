@@ -221,9 +221,10 @@
     </section>
 
     <footer>
-      <p><strong>如何启用 GitHub Pages：</strong> 在<strong>你的</strong>仓库 <strong>Settings → Pages</strong> 中，将 <strong>Source</strong> 设为 <strong>Deploy from a branch</strong>，Branch 选 <code>main</code>，文件夹选 <code>/docs</code>，保存。数分钟后站点地址一般为：</p>
+      <p><strong>如何启用 GitHub Pages（推荐，整仓含 <code>prototype</code>）：</strong> 推送到 <code>main</code> 后，在仓库 <strong>Settings → Pages → Build and deployment</strong> 中，将 <strong>Source</strong> 选 <strong>GitHub Actions</strong>。工作流见 <a id="gh-pages-workflow" href="#">.github/workflows/deploy-github-pages.yml</a>。首次启用后，工作流跑完数分钟内可访问。部署后的<strong>根路径</strong>会打开 <a href="../">仓库根 <code>index.html</code></a>，本页地址为 <code>…/docs/index.html</code>。</p>
+      <p><strong>仅发布 <code>/docs</code> 的替代方案：</strong> 将 Source 设为 <strong>Deploy from a branch</strong>，Branch <code>main</code>，Folder <code>/docs</code>。此方式<strong>不会</strong>在 Pages 上托管仓库根下的 <code>prototype/</code>。预计地址（两种部署相同）：</p>
       <p><code id="gh-pages-url">https://&lt;用户名&gt;.github.io/&lt;仓库名&gt;/</code></p>
-      <p>填写底部 <code>GITHUB_REPO</code> 后，本页会显示你的预计 Pages 地址（仓库须为 Public，或使用 GitHub Pro / 组织方案托管私有站）。</p>
+      <p>填写底部 <code>GITHUB_REPO</code> 后，本页会显示你的预计 Pages 根地址（仓库须为 Public，或 GitHub Pro / 组织等允许私有站点的方案）。</p>
       <p style="margin-top:1rem;">同步说明见 <a id="gh-sync" href="#">docs/GITHUB_SYNC.md</a> · PDF 直链说明 <a id="gh-pdf-md" href="#">docs/GITHUB_PDF_PREVIEW.md</a></p>
     </footer>
   </div>
@@ -251,6 +252,7 @@
   setHref("gh-pdf", "/blob/main/" + pdfEnc);
   setHref("gh-sync", "/blob/main/docs/GITHUB_SYNC.md");
   setHref("gh-pdf-md", "/blob/main/docs/GITHUB_PDF_PREVIEW.md");
+  setHref("gh-pages-workflow", "/blob/main/.github/workflows/deploy-github-pages.yml");
 
   var pagesEl = document.getElementById("gh-pages-url");
   if (pagesEl && configured) {
